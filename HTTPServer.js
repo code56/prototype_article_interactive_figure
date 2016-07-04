@@ -3,7 +3,8 @@ var http = require('http');
 var dispatcher = require ('httpdispatcher')
     ,express = require('express')
     ,bodyParser = require('body-parser');
-
+var IR = require('interfaceregistry')
+    ,interfaceregistry = new IR(); 
 
 //Lets define a port we want to listen to
 const PORT=8082; 
@@ -31,8 +32,53 @@ app.get('/page', function(req, res) {
 });
 
 
+//*** registry component acction send from /register***//
+// box filling
+app.post('/registermetadata', function(req, res) {
+  //res.send('You sent the URL "' + req.body.schema + '".');
+  interfaceregistry.register(req.body.schema, function (response){
+    if(response) { res.redirect('/register'); }
+    else  {res.send('There was a problem with the component registration.');}
+  });
+});
+
+// to upload data opens a new HTML page
+app.get('/data', function(req, res) {
+    res.render('index_node.html');
+});
+
 
 app.listen(PORT, function() {
   console.log('Server running at http://127.0.0.1:'+PORT);
 })
+
+
+function createregistryMetadataHTML(){
+
+var libxslt = require('libxslt')
+    ,libxmljs = require('libxmljs')
+    ,schemaconfig = require ('../config/configschema');
+
+var xhtml = schemaconfig.SCHEMAHTML;
+var encoding = 'utf8';
+
+var docSource = fs.readFileSync(schemaconfig.SCHEMAXML, encoding);  
+var stylesheetSource = fs.readFileSync(schemaconfig.SCHEMAXSL, encoding);
+
+var stylesheet = libxslt.parse(stylesheetSource);
+var result = stylesheet.apply(docSource);
+
+//console.log(result);
+
+fs.writeFile(xhtml , result, encoding, function (err) {
+            if (err) return console.log(err);
+            else {console.log('data save into > ' + xhtml);}
+});
+
+}
+
+
+
+
+
 
