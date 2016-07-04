@@ -3,7 +3,7 @@ var http = require('http');
 var dispatcher = require ('httpdispatcher')
     ,express = require('express')
     ,bodyParser = require('body-parser');
-var IR = require('interfaceregistry')
+var IR = require('./views/lib/interfaceregistry')
     ,interfaceregistry = new IR(); 
 
 //Lets define a port we want to listen to
