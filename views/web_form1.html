@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head><title></title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="base64.js"></script>
+<script type="text/javascript">
+<!--
+// This will generate the text file content based on the form data
+function buildData(){
+    var txtData = "Name: "+$("#nameField").val()+
+            "\r\nLast Name: "+$("#lastNameField").val()+
+            "\r\nGender: "+($("#genderMale").is(":checked")?"Male":"Female");
+
+    return txtData;
+}
+// This will be executed when the document is ready
+$(function(){
+    // This will act when the submit BUTTON is clicked
+    $("#formToSave").submit(function(event){
+        event.preventDefault();
+        var txtData = buildData();
+        window.location.href="data:application/octet-stream;base64,"+Base64.encode(txtData);
+    });
+
+    // This will act when the submit LINK is clicked
+    $("#submitLink").click(function(event){
+        var txtData = buildData();
+        $(this).attr('download','sugguestedName.txt')
+            .attr('href',"data:application/octet-stream;base64,"+Base64.encode(txtData));
+    });
+});
+//-->
+</script>
+</head>
+<body>
+<form method="post" action="" id="formToSave">
+    <dl>
+        <dt>Name:</dt>
+        <dd><input type="text" id="nameField" value="Sample" /></dd>
+        <dt>Last Name:</dt>
+        <dd><input type="text" id="lastNameField" value="Last Name" /></dd>
+        <dt>Gender:</dt>
+        <dd><input type="radio" checked="checked" name="gender" value="M" id="genderMale" />
+            Male
+            <input type="radio" checked="checked" name="gender" value="F" />
+            Female
+    </dl>
+    <p><a href="javascript://Save as TXT" id="submitLink">Save as TXT</a></p>
+    <p><button type="submit"><img src="http://www.suttonrunners.org/images/save_icon.gif" alt=""/> Save as TXT</button></p>
+</form>
+</body>
+</html>

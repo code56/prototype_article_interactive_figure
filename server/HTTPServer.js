@@ -3,14 +3,16 @@ var http = require('http');
 var dispatcher = require ('httpdispatcher')
     ,express = require('express')
     ,bodyParser = require('body-parser');
-var IR = require('./views/lib/interfaceregistry')
+var IR = require('../views/lib/interfaceregistry')
     ,interfaceregistry = new IR(); 
 
+
+var encoding = 'utf8';
 //Lets define a port we want to listen to
 const PORT=8082; 
 var app = express();
-app.use(express.static("/assets")); //put accesible public directory and its sub directories
-app.set('views', 'views'); //put accesible views
+app.use(express.static("../public")); //put accesible public directory and its sub directories
+app.set('views', '../views'); //put accesible views
 
 app.disable('etag');
 
@@ -26,12 +28,16 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 //***Show all the components registered and let us to register a new component**/
 app.get('/form', function(req, res) {
     res.render('index_node.html');
+
 });
 
 
 app.get('/page', function(req, res) {
+
     res.render('index.html');
 });
+
+
 
 
 
@@ -40,16 +46,28 @@ app.get('/page', function(req, res) {
 // box filling
 app.post('/registermetadata', function(req, res) {
   //res.send('You sent the URL "' + req.body.schema + '".');
-  interfaceregistry.register(req.body.schema, function (response){
+  interfaceregistry.register(req.body.keyword, function (response){
     if(response) { res.redirect('/page'); }
     else  {res.send('There was a problem with the metadata registration.');}
   });
 });
 
+
 // to upload data opens a new HTML page
 app.get('/data', function(req, res) {
     res.render('register_metadata.html');
 });
+
+
+// to upload data opens a new HTML page
+app.get('/web_form', function(req, res) {
+    res.render('web_form1.html');
+});
+
+app.get('/php1', function(req, res) {
+    res.render('enterDATA.php');
+});
+
 
 
 app.listen(PORT, function() {
@@ -74,7 +92,7 @@ var result = stylesheet.apply(docSource);
 
 //console.log(result);
 
-fs.writeFile(xhtml , result, encoding, function (err) {
+fs.writeFile(xhtml, result, encoding, function (err) {
             if (err) return console.log(err);
             else {console.log('data save into > ' + xhtml);}
 });
