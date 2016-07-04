@@ -1,5 +1,8 @@
 var SCH = require('./schema')
 	,schema = new SCH();
+var fs = require('fs');
+
+var file="result.txt";
 
 /**
  * Object to manag all actions at the Registry Component using an Interface.
@@ -22,21 +25,13 @@ RegistryInterface.prototype ={
  * @param {function} callback - Callback function (return true or false).
  * @memberOf  Schema
  */
- register: function (url, callback) {
-  schema.verify(url, function (xmldata,verify){	
-		console.log('schema verified: '+verify);
-		if (verify) {
-			schema.addcomponent( xmldata, function (add){
-					if (add) {
-						schema.createregistryHTML(function (created){
-							return callback(created);
-						});
-					}
-			});
-		}
-	 });
- },
-
+ register: function (keyword, callback) {
+  fs.writeFile(file, keyword, encoding, function (err) {
+          if (err) return console.log(err);
+            else {console.log('data save into > ' + file);}
+             });
+  console.log("I am here...");
+}
  
 }
 /** Do accesible module RegistryInterface */
