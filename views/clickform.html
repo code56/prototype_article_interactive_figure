@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html>
+	<head>
+	<meta charset="utf-8"/>
 
-<meta charset="utf-8"/>
-<head>
-<script type='text/javascript'>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script type='text/javascript'>
 
-function writeFile(){
-	document.write('<h1>Welcome to my JS page</h1>');
-}
+			
 
-var fs = require('fs');
+			function writeFile(){
+				document.write('<h1>Welcome to my JS page</h1>');
+			}
 
-function writeFile1(){
-	fs.readFile('./text.txt', 'utf-8', function(err,data)
-{
-	console.log(data);
-});
-} 
+
 
 /*function acmeReferenceError (valueExists){
 
@@ -39,49 +35,76 @@ function writeFile1(){
 	}
 }*/
 
-$("#save-btn").click(function() {
-  	var blob = new Blob(["test text"], {type: "text/plain;charset=utf-8"});
-  	saveAs(blob, "testfile1.txt");
-	});
+			// this doesn't work 
+			$("#save-btn").click(function() {
+			  	var blob = new Blob(["test text"], {type: "text/plain;charset=utf-8"});
+			  	saveAs(blob, "testfile1.txt");
+				});
 
 
-function myFunction() {
-    document.getElementById("demo").style.color = "red";
-}
+			function myFunction() {
+			    document.getElementById("demo").style.color = "red";
+			}
 
-function outputname(){
-var x,y,name,a,b,answer;
-x = document.getElementById("form1");
-y = x.elements["name"].value;
-document.write("Hello "+y+"<br>");
+			function outputname(){
+			var x,y,name,a,b,answer;
+			x = document.getElementById("form1");
+			y = x.elements["name"].value;
+			document.write("Hello "+y+"<br>");
 
-document.write(y + " is a very good tutor! <br>");
-}
+			document.write(y + " is a very good tutor! <br>");
 
-a = 6;
-b=7;
-answer = a+b;
-document.write(a+"+"+b+"="+answer);
+			}
 
-
-</script>
-</head>
+			a = 6;
+			b=7;
+			answer = a+b;
+			document.write(a+"+"+b+"="+answer);
 
 
-<body>
 
-<p id="demo" onclick="myFunction()">Click me to change my text color.</p>
 
-<p>A function is triggered when the p element is clicked. The function sets the color of the p element to red.</p>
+		</script>
+	</head>
 
-<button class="right" type="button" onclick="writeFile1()">press me!</button>
-<button id="save-btn">Save Text file</button>
 
-<form id = "form1">
-	Name: <input name = "name" type = "text" size= "20">
-</form>
+	<body>
 
-<button onclick="outputname()">Submit!!</button>
+		<p id="demo" onclick="myFunction()">Click me to change my text color.</p>
 
-</body>
+		<p>A function is triggered when the p element is clicked. The function sets the color of the p element to red.</p>
+		<form id = "form2">
+		 <button class="right" type="button" onclick="writeFile()">press me!</button>
+		 <input type="button" id="save-btn" value="Save Text file">
+		</form>
+
+		<form id = "form1">
+			Name: <input name = "name" type = "text" size= "20">
+		</form>
+
+		<button onclick="outputname()">Submit!!</button>
+
+		<!--form to submit the information from the web-from-->
+
+		<div id="contact">
+		    <h1>Send an email</h1>
+		    <form action="/myaction" method="post">
+		        <fieldset>
+		            <label for="name">Name:</label>
+		            <input type="text" id="name" name="name" placeholder="Enter your full name" />
+
+		            <label for="email">Email:</label>
+		            <input type="email" id="email" placeholder="Enter your email address" />
+
+		            <label for="message">Message:</label>
+		            <textarea id="message" placeholder="What's on your mind?"></textarea>
+
+		            <input type="submit" value="Send message" />
+
+		        </fieldset>
+    		</form>
+		</div>
+
+	</body>
+
 </html>
