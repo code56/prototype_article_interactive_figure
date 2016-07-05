@@ -48,6 +48,22 @@ $("#save-btn").click(function() {
 function myFunction() {
     document.getElementById("demo").style.color = "red";
 }
+
+function outputname(){
+var x,y,name,a,b,answer;
+x = document.getElementById("form1");
+y = x.elements["name"].value;
+document.write("Hello "+y+"<br>");
+
+document.write(y + " is a very good tutor! <br>");
+}
+
+a = 6;
+b=7;
+answer = a+b;
+document.write(a+"+"+b+"="+answer);
+
+
 </script>
 </head>
 
@@ -61,6 +77,11 @@ function myFunction() {
 <button class="right" type="button" onclick="writeFile1()">press me!</button>
 <button id="save-btn">Save Text file</button>
 
+<form id = "form1">
+	Name: <input name = "name" type = "text" size= "20">
+</form>
+
+<button onclick="outputname()">Submit!!</button>
 
 </body>
 </html>
