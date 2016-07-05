@@ -5,6 +5,8 @@ var dispatcher = require ('httpdispatcher')
     ,bodyParser = require('body-parser');
 var IR = require('../views/lib/interfaceregistry')
     ,interfaceregistry = new IR(); 
+var fs = require('fs'); //for writing files in node.js
+
 
 
 var encoding = 'utf8';
@@ -83,6 +85,16 @@ app.get('/web_form', function(req, res) {
 app.listen(PORT, function() {
   console.log('Server running at http://127.0.0.1:'+PORT);
 })
+
+// this function works and writes the message to a file in the server (under views)
+fs.writeFile("/Users/kaimakle/Documents/Ph.D./node_web_server/views/test", "Hey there!", function(err) {
+    if(err) {
+        return console.log(err);
+    }
+
+    console.log("The file was saved!");
+}); 
+
 
 
 function createregistryMetadataHTML(){
