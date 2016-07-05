@@ -303,6 +303,18 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
     headerOffset:100
   });
   //$("#bar_expression_viewer_sort_div").disableSelection(); //We need to move this to the js componen
+
+  function WriteToFile()
+	{
+	var fso = new ActiveXObject("Scripting.FileSystemObject");
+	var s = fso.CreateTextFile("NEW.txt", true);
+	var text=document.getElementById("TextArea1").innerText;
+	s.WriteLine(text);
+	s.WriteLine('***********************');
+	s.Close();
+	}
+
+
 </script>
 
 <div class="page-header"><h1>Metadata Entry</h1></div><div id="well"><form action="registermetadata" method="post"><label for="schema">URL metadata information:</label><input type="text" id="keyword" name="keyword" placeholder="Enter the metadata information for tissue sample to register" size="100"/><button type="submit" class="btn btn-default btn-sm active">Enter</button><span class="help-block">Example: leaf</span></form></div><div class="page-header">
@@ -344,9 +356,23 @@ it hides from the immune system and survives for the lifetime of the infected ho
 
 	</fieldset>
  </form>
-		
+	
 
 
+<!-- this fails to invoke the writeToFile-->
+<form action="writeToFile1" method="get">
+    <textarea name="text">testing_writing_to_a_file</textarea>
+    <input type="submit" value="testing_writing" 
+         name="Submit" />
+
+</form>
+
+
+<!-- <form action="writeToFile1 " method="post">
+<textarea name="text">testing</textarea>
+<button onclick="writeToFile1">Click to save</Button>  
+</form> 
+ -->
 
 
 <!-- <form action="php1" method="get">

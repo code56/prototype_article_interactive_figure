@@ -74,12 +74,19 @@ app.get('/clickform', function(req, res) {
 // to upload data opens a new HTML page
 app.get('/web_form', function(req, res) {
     res.render('web_form1.html');
+    console.log('this button works');
 });
 
 // app.get('/php1', function(req, res) {
 //     res.render('enterDATA.php');
 // });
 
+app.get('/writeToFile1', function(res, res) {
+    console.log ("this invocation writeToFile works");
+// I want to call the WriteToFile() function. 
+    //WriteToFile();
+    WriteText();
+});
 
 
 app.listen(PORT, function() {
@@ -87,13 +94,47 @@ app.listen(PORT, function() {
 })
 
 // this function works and writes the message to a file in the server (under views)
+function WriteText(){
+//need to change the 'hey there' with a variable that is the contents of the data form (testing_writing)
 fs.writeFile("/Users/kaimakle/Documents/Ph.D./node_web_server/views/test", "Hey there!", function(err) {
     if(err) {
         return console.log(err);
     }
 
-    console.log("The file was saved!");
+    console.log("The file was saved with WriteText function!");
 }); 
+}
+
+
+
+// function to write to a file. 
+function WriteToFile()
+{
+  
+    // As stated by others, ActiveX is an IE-specific technology.
+   /* if (window.DOMParser)
+  { // Firefox, Chrome, Opera, etc.
+    parser=new DOMParser();
+    xmlDoc=parser.parseFromString(xml,"text/xml");
+  }
+  else // Internet Explorer
+  {
+    xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+    xmlDoc.async=false;
+    xmlDoc.loadXML(xml); 
+  } 
+*/
+// ActiveX is an IE-specific technology
+
+  var fso = new ActiveXObject("Scripting.FileSystemObject");
+  var s = fso.CreateTextFile("/Users/kaimakle/Documents/Ph.D./node_web_server/views/new.txt", true);
+  var text=document.getElementById("TextArea1").innerText;
+  s.WriteLine(text);
+  s.WriteLine('***********************');
+  s.Close();
+  console.log('we are here');
+}
+
 
 
 
