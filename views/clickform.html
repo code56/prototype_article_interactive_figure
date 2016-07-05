@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<meta charset="utf-8"/>
+<head>
+<script type='text/javascript'>
+
+function writeFile(){
+	document.write('<h1>Welcome to my JS page</h1>');
+}
+
+var fs = require('fs');
+
+function writeFile1(){
+	fs.readFile('./text.txt', 'utf-8', function(err,data)
+{
+	console.log(data);
+});
+} 
+
+/*function acmeReferenceError (valueExists){
+
+
+	'use strict';
+
+	if (undefined == valueExists) {
+
+	$("#save-btn").click(function() {
+  	var blob = new Blob(["test text"], {type: "text/plain;charset=utf-8"});
+  	saveAs(blob, "testfile1.txt");
+	});
+
+	} else {
+
+	$("#save-btn").click(function() {
+  	var blob = new Blob(["test text"], {type: "text/plain;charset=utf-8"});
+  	saveAs(blob, "testfile1.txt");
+	});
+	}
+}*/
+
+$("#save-btn").click(function() {
+  	var blob = new Blob(["test text"], {type: "text/plain;charset=utf-8"});
+  	saveAs(blob, "testfile1.txt");
+	});
+
+
+function myFunction() {
+    document.getElementById("demo").style.color = "red";
+}
+</script>
+</head>
+
+
+<body>
+
+<p id="demo" onclick="myFunction()">Click me to change my text color.</p>
+
+<p>A function is triggered when the p element is clicked. The function sets the color of the p element to red.</p>
+
+<button class="right" type="button" onclick="writeFile1()">press me!</button>
+<button id="save-btn">Save Text file</button>
+
+
+</body>
+</html>

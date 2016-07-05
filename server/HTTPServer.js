@@ -9,7 +9,7 @@ var IR = require('../views/lib/interfaceregistry')
 
 var encoding = 'utf8';
 //Lets define a port we want to listen to
-const PORT=8082; 
+const PORT=8182; 
 var app = express();
 app.use(express.static("../public")); //put accesible public directory and its sub directories
 app.set('views', '../views'); //put accesible views
@@ -58,15 +58,20 @@ app.get('/data', function(req, res) {
     res.render('register_metadata.html');
 });
 
+// to upload data opens a new HTML page the clickform.html
+app.get('/clickform', function(req, res) {
+    res.render('clickform.html');
+});
+
 
 // to upload data opens a new HTML page
 app.get('/web_form', function(req, res) {
     res.render('web_form1.html');
 });
 
-app.get('/php1', function(req, res) {
-    res.render('enterDATA.php');
-});
+// app.get('/php1', function(req, res) {
+//     res.render('enterDATA.php');
+// });
 
 
 
