@@ -38,6 +38,11 @@ app.get('/page', function(req, res) {
 });
 
 
+// this function works - sends the name - displays it on the browser. (whatever entered in the web form) 
+app.post('/myaction', function(req, res) {
+  res.send('You sent the name "' + req.body.name + '".');
+  console.log ("the data is sent");
+});
 
 
 
