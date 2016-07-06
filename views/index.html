@@ -284,6 +284,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <button class="right" type="button" onclick="alert('Hello upload your data!')">Upload your data!</button>
 
 <div id="bar_expression_viewer"> </div>
+<script type="text/JavaScript" src="HTTPServer.js"></script>
 
 <script type="text/javascript">
   var container_div="bar_expression_viewer";
@@ -336,12 +337,13 @@ it hides from the immune system and survives for the lifetime of the infected ho
 
 <!-- new web form for data submission with writing to a text file-->
 <form action="web_form" method="get">
-    <input type="submit" value="submit your information" 
+    <input type="submit" value="submit your information WEB FORM" 
          name="Submit" id="frm1_submit" />
 </form>
 
+<!-- this form works to echo the message to the browser. I want to capture the entries to the form to be writing to the server-->
 
-<form action="myaction" method="post">
+<form id = "form1" action="myaction" form method="post" onsubmit = "return validate()">
 	<fieldset>
 		<label for="name">Name:</label>
 		<input type="text" id="name" name="name" placeholder="Enter your full name" />
@@ -352,7 +354,7 @@ it hides from the immune system and survives for the lifetime of the infected ho
 		<label for="message">Message:</label>
 		<textarea id="message" placeholder="What's on your mind?"></textarea>
 
-		<input type="submit" value="Send message" />
+		<input type="submit" value="Send message"/>
 
 	</fieldset>
  </form>
@@ -367,6 +369,12 @@ it hides from the immune system and survives for the lifetime of the infected ho
 
 </form>
 
+
+<FORM NAME="myform" ACTION="" METHOD="POST">
+Enter something in the box: <BR>
+<INPUT TYPE="text" NAME="inputbox" VALUE=""><P>
+<INPUT TYPE="button" NAME="button" Value="Click" onClick="testResults(this.form)">
+</FORM>
 
 <!-- <form action="writeToFile1 " method="post">
 <textarea name="text">testing</textarea>

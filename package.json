@@ -18,6 +18,8 @@
   "author": "code56",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "file-saver": "^1.3.2",
     "formidable": "^1.0.17"
   }
 }
