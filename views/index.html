@@ -135,6 +135,9 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
   <!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
 <script src="./assets/application-ef96501f028dba65c10a08512d37267546d1a1c3c78159b1f1e139aa66b7b98d.js" data-turbolinks-track="true"></script>
+
+
+
 </head><body class="html not-front not-logged-in page-node page-node- page-node-14151 node-type-elife-article-ver context-content">
 <!-- Google Tag Manager -->
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WVM8KG" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -278,13 +281,11 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
   <div class="panel-panel panel-col">
     <div><div id="abstract" class="ctools-collapsible-container"><h2 class="pane-title ctools-collapsible-handle">Abstract</h2><div class="ctools-collapsible-content"><p>Herpes simplex virus-2 (HSV-2) is shed episodically, leading to occasional genital ulcers and efficient transmission. The biology explaining highly variable shedding patterns, in an infected person over time, is poorly understood. We sampled the genital tract for HSV DNA at several time intervals and concurrently at multiple sites, and derived a spatial mathematical model to characterize dynamics of HSV-2 reactivation. The model reproduced heterogeneity in shedding episode duration and viral production, and predicted rapid early viral expansion, rapid late decay, and wide spatial dispersion of HSV replication during episodes. In simulations, HSV-2 spread locally within single ulcers to thousands of epithelial cells in &lt;12 hr, but host immune responses eliminated infected cells in &lt;24 hr; secondary ulcers formed following spatial propagation of cell-free HSV-2, allowing for episode prolongation. We conclude that HSV-2 infection is characterized by extremely rapid virological growth and containment at multiple contemporaneous sites within genital epithelium.</p><p><strong>DOI:</strong> <a href="/lookup/doi/10.7554/eLife.00288.001">http://dx.doi.org/10.7554/eLife.00288.001</a></p></div></div><div class="panel-separator"></div><div id="digest" class="ctools-collapsible-container"><h2 class="pane-title ctools-collapsible-handle">eLife digest</h2><div class="ctools-collapsible-content"><p>Viruses infect organisms as diverse as unicellular bacteria, plants, and animals. Two well-known human viral infections are herpes simplex virus 1, which is responsible for most cold sores, and herpes simplex virus 2 (HSV-2), which causes most cases of genital herpes. The first signs of HSV-2 infection are genital lesions, which usually heal relatively quickly. However, the virus can also enter nerve cells, where s. HSV-2 also commonly replicates in genital skin when lesions are not present, and is efficiently transmitted to other individuals at these times.</p><p>Most studies of viral infection rely on the examination of blood to determine viral load and characterize the immune response. However, the true battle between HSV-2 and its host occurs within genital tissues. HSV-2 lesions are clearly visible and it is therefore possible to precisely follow the number of viruses and the intensity of the host immune response as a function of time and position. Schiffer et al. follow this approach by examining the levels of HSV-2 DNA in the genital tracts of over 600 individuals, who were sampled at different time intervals and at multiple sites. Dramatic differences in the viral load and the density of CD8+ T cells, which are critical for controlling HSV-2, are observed across several millimeters of the skin. Viral load also varies dramatically over a few hours. These data are used to develop a mathematical model that characterizes the spatial dynamics of HSV-2 reactivation and suggests how the host immune system responds to reactivation.</p><p>Historically, it was thought that host immune cells, including CD8+ T cells, required many days to contain an HSV-2 reactivation, allowing prolonged symptoms. However, the model developed by Schiffer et al. indicates that although viral infection can spread from a single skin cell to thousands of cells in 12 hr or so, the host immune cells typically clear all infected skin cells in under 24 hr. Episodes of viral shedding lasting &gt;3 days are predicted to occur due to viral seeding of adjacent regions of genital skin.</p><p>Schiffer et al. predict that the complex episodic nature of HSV-2 reactivation is heavily influenced by the spatial distribution and density of immune cells within the genital tract, which means that new lesions occur in regions where immune cell density is low. The rapid onset and localized clearance pattern suggests that viral elimination by skin-resident CD8<sup>+</sup> T cells is actually highly effective within single genital ulcers. This hypothesis represents an area of intense current investigation for clinicians, virologists, mathematical modelers, and immunologists.</p><p><strong>DOI:</strong> <a href="/lookup/doi/10.7554/eLife.00288.002">http://dx.doi.org/10.7554/eLife.00288.002</a></p></div></div><div class="panel-separator"></div><div id="main-text" class="ctools-collapsible-container"><h2 class="pane-title ctools-collapsible-handle">Main text</h2><div class="ctools-collapsible-content"><div class="article fulltext-view"><div class="section intro" id="s1">
 
-<form action="http://www.wheat-expression.com/">
-<input type="submit" value="Go to expVIP">
-</form>
-<button class="right" type="button" onclick="alert('Hello upload your data!')">Upload your data!</button>
+
 
 <div id="bar_expression_viewer"> </div>
-<script type="text/JavaScript" src="HTTPServer.js"></script>
+
+<script type="text/JavaScript" src="/Users/kaimakle/Documents/Ph.D./node_web_server/server/HTTPServer.js"></script>
 
 <script type="text/javascript">
   var container_div="bar_expression_viewer";
@@ -316,10 +317,52 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 	}
 
 
+function validate() {
+    var x = document.form1["form1"]["name"].value;
+    console.log('the var x in validate function is' + x);
+    if (x == null || x == "") {
+        alert("First name cannot be left blank.");
+        return false;
+    }
+    else {
+        console.log('the var x in validate function is' + x);
+        alert ("thank you for your entry.");
+        return true;
+    }
+} // <- here
+
+
 </script>
 
+
+<form action="http://www.wheat-expression.com/">
+<input type="submit" value="Go to expVIP">
+</form>
+<button class="right" type="button" onclick="alert('Hello upload your data!')">Upload your data!</button>
+
+
+<!--<form id = "form1" action="myaction" form method="post" onsubmit = "validate()">-->
+
+<form id = "form1" action = "myaction" onsubmit = "return validate(this)" method = "post">
+	<fieldset>
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" placeholder="Enter your full name" />
+
+		<label for="email">Email:</label>
+		<input type="email" id="email" placeholder="Enter your email address" />
+
+		<label for="message">Message:</label>
+		<textarea id="message" placeholder="What's on your mind?"></textarea>
+
+		<input type="submit" value="Send message"/>
+
+	</fieldset>
+ </form>
+
+
 <div class="page-header"><h1>Metadata Entry</h1></div><div id="well"><form action="registermetadata" method="post"><label for="schema">URL metadata information:</label><input type="text" id="keyword" name="keyword" placeholder="Enter the metadata information for tissue sample to register" size="100"/><button type="submit" class="btn btn-default btn-sm active">Enter</button><span class="help-block">Example: leaf</span></form></div><div class="page-header">
-it hides from the immune system and survives for the lifetime of the infected host. In a process that is not fully understood, the dormant viruses inside nerve cells periodically reactivate and are transported back to the genital tract where they can cause recurrent genital sore
+
+
 <div class="page-header"><h1>Upload your data</h1></div><div id="well"><form action="data" method="post"><button type="submit" class="btn btn-default btn-sm active">Enter</button></form></div><div class="page-header">
 
 <!-- this with the press of the button links to another htlm page-->
@@ -343,21 +386,7 @@ it hides from the immune system and survives for the lifetime of the infected ho
 
 <!-- this form works to echo the message to the browser. I want to capture the entries to the form to be writing to the server-->
 
-<form id = "form1" action="myaction" form method="post" onsubmit = "return validate()">
-	<fieldset>
-		<label for="name">Name:</label>
-		<input type="text" id="name" name="name" placeholder="Enter your full name" />
 
-		<label for="email">Email:</label>
-		<input type="email" id="email" placeholder="Enter your email address" />
-
-		<label for="message">Message:</label>
-		<textarea id="message" placeholder="What's on your mind?"></textarea>
-
-		<input type="submit" value="Send message"/>
-
-	</fieldset>
- </form>
 	
 
 

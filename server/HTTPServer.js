@@ -59,12 +59,12 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 app.post('/myaction', upload.array(), function(req, res, next) {
   //res.send('You sent the name "' + req.body.name + '".');
-  validate();
+ // validate();
   
   var writenData = req.body.name; // work O.K. 
   var writeData_email = req.body.email; 
-  var form = document.querySelector("form1");
-  console.log(form.elements[1].type);
+  //var form = document.querySelector("form1");
+  //console.log(form.elements[1].type);
 
   console.log('body content is' + writeData_email);
   console.log(req.body['email']); // why does it just bring the name information and not the email infor etc. 
