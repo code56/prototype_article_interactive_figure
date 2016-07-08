@@ -59,7 +59,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 app.post('/myaction', upload.array(), function(req, res, next) {
   //res.send('You sent the name "' + req.body.name + '".');
- // validate();
+ validate();
   
   var writenData = req.body.name; // work O.K. 
   var writeData_email = req.body.email; 
@@ -170,6 +170,10 @@ function validate1(form){
 //    at validate (/Users/kaimakle/Documents/Ph.D./node_web_server/server/HTTPServer.js:163:13)
 //is it a problem of order or calling the functions? 
 // http://stackoverflow.com/questions/8892631/error-document-form-is-undefined-in-javascript
+//$(function() {});
+//$(document).ready(function() {});
+
+
 function validate() {
     var x = document.form1["form1"]["name"].value;
     console.log('the var x in validate function is' + x);
@@ -184,6 +188,14 @@ function validate() {
 
 
 
-
-
-
+/*
+http://www.w3schools.com/ajax/ajax_xmlhttprequest_response.asp
+ xmlDoc = xhttp.responseXML;
+ https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/Sending_forms_through_JavaScript
+txt = "";
+x = xmlDoc.getElementsByTagName("ARTIST");
+for (i = 0; i < x.length; i++) {
+  txt += x[i].childNodes[0].nodeValue + "<br>";
+  }
+document.getElementById("demo").innerHTML = txt;
+*/
