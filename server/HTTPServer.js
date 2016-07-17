@@ -11,6 +11,25 @@ var fs = require('fs'); //for writing files in node.js
 var multer = require('multer'); // v1.0.5
 var upload = multer();
 var encoding = 'utf8';
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+  host : 'localhost',
+  user : 'root',
+  password: 'root',
+});
+var request = require ('reqwest');
+
+
+
+
+connection.connect(function(err){
+  console.log('connected');
+});
+
+var post = {id: 1, title: 'Hello MySQL'};
+var query = connection.query('INSERT INTO posts SET ?', post, function(err, result){
+});
+
 //Lets define a port we want to listen to
 const PORT=8182; 
 
