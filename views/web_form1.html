@@ -7,9 +7,8 @@
 <!--
 // This will generate the text file content based on the form data
 function buildData(){
-    var txtData = "Name: "+$("#nameField").val()+
-            "\r\nLast Name: "+$("#lastNameField").val()+
-            "\r\nGender: "+($("#genderMale").is(":checked")?"Male":"Female");
+    var txtData = "Plant of sample: "+$("#nameField").val()+
+            "\r\nTissue of sample: "+$("#lastNameField").val());
 
     return txtData;
 }
@@ -48,5 +47,41 @@ $(function(){
     <!--this button doesn't have any functionality attached to it yet-->
     <p><button type="submit"><img src="http://www.suttonrunners.org/images/save_icon.gif" alt=""/> Save as TXT</button></p>
 </form>
+
+<div id = "latestReview">
+    @Ajax.ActionLink("Click here to see the latest review"), 
+    "LatestReview", new AjaxOptions
+    {
+        UpdateTargetId = "latestReview",
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "GET",
+        LoadingElementId = "progress"
+})
+
+</div>
+<p></p>
+
+@using (Ajax.BeginForm("Search", "Home", new AjaxOptions {
+    HttpMethod = "GET",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "searchResults" }))
+
+{
+<!--     <input type = "text" name="q", class = "autocomplete" />
+ -->    
+<!--  the Url that autocomplete will use to find its data
+ -->    
+    <input type = "text" name="q" data-autocomplete="@Url.Action("QuickSearch", "Home")" />
+
+    <input type = "submit"  value="Search" />
+
+}
+
+<table id = "searchResults">
+
+</table>    
+
+
+
 </body>
 </html>
