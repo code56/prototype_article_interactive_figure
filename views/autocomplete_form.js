@@ -18,3 +18,7 @@ $(document).ready(function(){
 	}
 
 })
+
+//other good source
+//http://drupal.stackexchange.com/questions/130809/how-to-populate-an-autocomplete-using-a-web-service
+

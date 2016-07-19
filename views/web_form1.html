@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head><title></title>
+<head><title>Fill in your sample's metadata information</title>
+<link rel="stylesheet" type="text/css" href="./assets/autocomplete.css">
+<link rel="stylesheet" type="text/css" href="./assets/jquery-ui-1.12.0/jquery-ui.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script type="text/javascript" src="base64.js"></script>
+<script type="text/javascript" src="./assets/jquery.ui.autocomplete.html.js"></script>
+<script type="text/javascript" src="/path/to/local/autocomplete.js"></script>
+
 <script type="text/javascript">
+
 <!--
 // This will generate the text file content based on the form data
 function buildData(){
@@ -35,6 +40,8 @@ $(function(){
 </script>
 </head>
 <body>
+<input type="text" id="topic_title">
+
 <form method="post" action="" id="formToSave">
     <dl>
         <dt>Plant of sample:</dt>
