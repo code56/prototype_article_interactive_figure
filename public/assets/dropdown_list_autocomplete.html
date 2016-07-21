@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+
+
+<html>
+    <head>
+        <title>jQuery $.getJSON() function
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+        <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
+
+        <script>
+        	$(document).ready(function(){
+
+        		$.getJSON('http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po', function(OLSresults) {
+        			// no need to do .parseJSON()
+        			console.log(OLSresults.responseHeader.params.hl); // true
+        			
+                    // autocomplete
+                    $( "#name" ).autocomplete({
+                        minLength: 2,
+                        source: OLSresults
+                    })
+      			});
+       		});
+        		
+        			//document.write(OLSresults.responseHeader); this works only with simple json objects, accesing complex models required recursion. 
+       		
+
+        </script>
+    </head>
+<!--         <body>
+       <script src="dropdown_list.js"></script>
+        <div id ="myDiv">Append here</div>
+    </body> -->
+</html>
