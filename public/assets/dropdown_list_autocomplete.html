@@ -1,36 +1,121 @@
 <!DOCTYPE HTML>
-
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
 <html>
     <head>
-        <title>jQuery $.getJSON() function
-        </title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
-        <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
+    <title>jQuery $.getJSON() function and jQuery UI Autocomplete</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
+    <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
 
-        <script>
+        <script type="text/javascript">
         	$(document).ready(function(){
-
-        		$.getJSON('http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po', function(OLSresults) {
+                $.getJSON('http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po', function(OLSresults) {
         			// no need to do .parseJSON()
         			console.log(OLSresults.responseHeader.params.hl); // true
-        			
+        			var results = OLSresults;
+                    console.log(results);
                     // autocomplete
-                    $( "#name" ).autocomplete({
-                        minLength: 2,
-                        source: OLSresults
-                    })
+                    // what does the #name is the id name from the HTML
+                    $( "#plant_type" ).autocomplete(OLSresults, {
+                        width: 320,
+                        dataType: 'json',
+                        highlight: false,
+                        scroll: true,
+                        scrollHeight: 300,
+                        parse: function(data){
+                            var array = new Array();
+                            for (var i=0;i<data.items.length; i++){
+                                array[array.length] = {data: data.items[i], value: data.items[i], result:data.items[i].username };
+                            }
+                            return array;
+                            //console.log(array);
+                        },
+
+                        // change the first_name etc. to whatever applies in my case. 
+                        formatItem: function(row) {               
+                            var name = '';
+                            if (row.first_name && row.last_name)
+                                name = '('+row.first_name+', '+row.last_name+')';
+                            else if (row.first_name)
+                                name = '('+row.first_name+')';
+                            else if (row.last_name)
+                                name = '('+row.last_name+')';
+
+                            return row.username+' '+name;
+                        }
+                    });
+
+                        //minLength: 2,
+                        //source: OLSresults
+
+                    });
       			});
-       		});
+       		
         		
         			//document.write(OLSresults.responseHeader); this works only with simple json objects, accesing complex models required recursion. 
        		
 
+                    //good example: https://www.youtube.com/watch?v=D5pI_L2BC3A
+        $(document).ready(function(){
+            
+            $.getJSON('http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po', function(OLSresults) {
+                $('#plant_type').autocomplete({
+              //  source: ['Choice 1', 'Choice 2'] // this works
+                //source: 'http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po'
+                source: OLSresults
+                });
+            });
+        });            
+
+
+        //another function 
+
+        var OLSresults1 = $.getJSON('http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po')
+        console.log(OLSresults1)
+        //$(document).ready(function(){
+
+
+
         </script>
+
+
+        <script>
+        $.ajax({
+            type: 'GET',
+            url: 'http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po',
+            dataType: 'json',
+            success: function(data) {
+      // handle response here
+            console.log(data);
+            console.log(data.responseHeader);
+            }
+        });
+        </script>
+
+
+
+
+
+
     </head>
 <!--         <body>
        <script src="dropdown_list.js"></script>
         <div id ="myDiv">Append here</div>
     </body> -->
+
+    <body>
+        <form method="post" action="" id="formToSave">
+    <dl>
+        <dt>Plant of sample:</dt>
+        <dd><input type="text" id="plant_type" value="e.g. wheat" /></dd>
+        <dt>Tissue of sample:</dt>
+        <dd><input type="text" id="tissue" value="e.g. bran" /></dd>
+    </dl>
+
+    <!--this button doesn't have any functionality attached to it yet-->
+<!--     <p><button type="submit"><img src="http://www.suttonrunners.org/images/save_icon.gif" alt=""/> Save as TXT</button></p>
+ -->    </form>
+    </body>    
+
 </html>
