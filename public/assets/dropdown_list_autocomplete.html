@@ -78,31 +78,19 @@
         jQuery(document).ready(function() {
 
             $("#tags").autocomplete({
-                minLength: 0,
+                //minLength: 0,
                 source: function(request, response) {
-                    var term = request.term;
-                    $.getJSON("http://www.ebi.ac.uk/ols/api/suggest?q={query}")
-                    //https://gist.githubusercontent.com/anonymous/86f61fee217838ba6c3c/raw/395a557fa400163f048f30370d782db554913b2b/availableTags.json
-                        .then(function success(data) {
-                        var res = $.grep(data, function(val) {
-                            return new RegExp($.ui.autocomplete.escapeRegex(term), "gi")
-                                .test(val.toLowerCase())
-                        })
-                        , key = $.inArray(term.toUpperCase(), res)
-                        , results = term.length === 1 
-                                && key !== -1 
-                                ? Array(res[key]) 
-                               :res;
-                        response(results)
-                        }, function error(jqxhr, textStatus, errorThrown) {
-                            console.log(textStatus, errorThrown) // log `$.ajax` errors
-                    })
-                }
-            }).focus(function() {
-                $(this).autocomplete("search", $(this).val())
-            });
-  
-    });
+                    jQuery.get("http://www.ebi.ac.uk/ols/api/suggest?q={query"), {
+                        query: request.term
+                    }, function (data){
+                        //for a JS array only. 
+                        response(data);
+                    };
+            },
+            minLength:3
+        });
+        });
+                    
 
     </script>
 <!--         <body>
