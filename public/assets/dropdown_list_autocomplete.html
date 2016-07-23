@@ -5,6 +5,9 @@
     <head>
     <title>jQuery $.getJSON() function and jQuery UI Autocomplete</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>  
+
     <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
     <script src="https://code.jquery.com/ui/jquery-ui-git.js"></script>
 
@@ -74,25 +77,97 @@
         });
         </script>
 
-        <script>
+       <!--  /*<script>
         jQuery(document).ready(function() {
 
             $("#tags").autocomplete({
-                //minLength: 0,
-                source: function(request, response) {
-                    jQuery.get("http://www.ebi.ac.uk/ols/api/suggest?q={query"), {
-                        query: request.term
-                    }, function (data){
-                        //for a JS array only. 
-                        response(data);
-                    };
-            },
-            minLength:3
+                $.ajax({
+                    dataType: "json",
+                    type: 'Get',
+                    url: 'http://www.ebi.ac.uk/ols/api/suggest?q={query"), {
+                        query',
+                    success: function(data){
+                        $('#tags').removeClass('ui-autocomplete-loading');
+                        response($.map(data, function(item)){
+                            // the operation on the data
+                        }));
+
+                    },
+                    error: function(data){
+                        $('#tags').removeClass('ui-autocomplete-loading');
+
+                    } 
+                }),
+        },
+        minLength:3
+        open: function() {},
+        close: function() {},
+        focus: function(event,ui){},
+
         });
         });
                     
 
+    </script>*/
+ -->
+<!-- 
+//http://www.codeproject.com/Articles/762959/jQuery-UI-Autocomplete-in-MVC-Selecting-Nested-Ent -->
+    <script>
+    $(function () {
+        $('.autocomplete-with-hidden').autocomplete({
+            minLength: 0,
+            source: function (request, response) {
+                var url = $(this.element).data('http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po');
+   
+                $.getJSON(url, { term: request.term }, function (data) {
+                response(data);
+                })
+            },
+            select: function (event, ui) {
+                $(event.target).next('input[type=hidden]').val(ui.item.id);
+            },
+            change: function(event, ui) {
+                if (!ui.item) {
+                    $(event.target).val('').next('input[type=hidden]').val('');
+                }
+            }
+        });
+    })
+
     </script>
+
+
+
+
+    <script>
+    $(function() {
+        function log( message ) {
+            $( "<div>" ).text( message ).prependTo( "#log" );
+            $( "#log" ).scrollTop( 0 );
+        }
+
+    $( "#tags1" ).autocomplete({
+      source: "http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po",
+      minLength: 2,
+      select: function( event, ui ) {
+        log( ui.item ?
+          "Selected: " + ui.item.value + " aka " + ui.item.id :
+          "Nothing selected, input was " + this.value );
+          }
+        });
+    });
+
+    </script>
+
+
+
+    
+
+
+
+
+    </script>
+
 <!--         <body>
        <script src="dropdown_list.js"></script>
         <div id ="myDiv">Append here</div>
@@ -102,9 +177,17 @@
         <input type="text" name="country" id="autocomplete"/>
 
        <div class="ui-widget">
-            <label for="tags">Tags:</label>
-            <input id="tags">
+            <label for="tags1">Tags1:</label>
+            <input id="tags1">
         </div>
+        
+        <div class="ui-widget" style="margin-top:2em; font-family:Arial">
+        Result:
+        <div id="log" style="height: 200px; width: 300px; overflow: auto;" class="ui-widget-content"></div>
+        </div>
+
+
+
         <form method="post" action="" id="formToSave">
     <dl>
         <dt>Plant of sample:</dt>
