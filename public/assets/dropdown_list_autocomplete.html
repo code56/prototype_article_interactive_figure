@@ -43,14 +43,24 @@
                     //good example: https://www.youtube.com/watch?v=D5pI_L2BC3A
         $(document).ready(function(){
             
+            // needs to be query?
             $.getJSON('http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po', function(OLSresults) {
+                    console.log(OLSresults.responseHeader.params.hl) // true, works
+                    //var option = OLSresults.responseHeader.params.hl
+                    var arrResults = [OLSresults];
+
                 $('#plant_type').autocomplete({
-              //  source: ['Choice 1', 'Choice 2'] // this works
-                //source: 'http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po'
-                source: OLSresults
+                    //source: ['Choice 1', 'Choice 2'] // this works
+                    source : arrResults}).data("autocomplete")._renderItem = function(ul, item) {
+                    return $("<li>").data("item.autocomplete", item).append("<a>" + item.url + "</a>").appendTo(ul);
+                    };
                 });
-            });
-        });            
+                //source: 'http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po'
+                    //console.log("this is: " + option);
+                    // "hl.fl": ["label_autosuggest", "label", "synonym_autosuggest", "synonym"],
+                    // then whatever the user selects needs to be recorded. 
+                });       
+                  
 
 
         //another function 
@@ -134,6 +144,8 @@
         });
     })
 
+
+
     </script>
 
 
@@ -160,13 +172,86 @@
     </script>
 
 
+    <script>
 
+
+    $.ajax({
+            type: 'GET',
+            url: 'http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po',
+            dataType: 'json',
+            success: function(jsondatalist) {
+      // handle response here
+            console.log(jsondatalist);
+            console.log(jsondatalist.responseHeader);
+            }
+        });
+    //We then need to get references to these two elements in the JavaScript code.
+
+    // Get the <datalist> and <input> elements.
     
 
+
+    var dataList = document.getElementById('jsondatalist');
+    var input = document.getElementById('ajax');
+
+
+
+    //Next, we need to load the JSON file (html-elements.json) and populate the options for the <datalist> element. For this example, we’re just using an array of strings, but it’s also possible to use a more complex data structure.http://blog.teamtreehouse.com/creating-autocomplete-dropdowns-datalist-element
+
+    // Create a new XMLHttpRequest.
+    var request = new XMLHttpRequest();
+
+// Handle state changes for the request.
+    request.onreadystatechange = function(response) {
+        if (request.readyState === 4) {
+            if (request.status === 200) {
+             // Parse the JSON
+            var jsonOptions = JSON.parse(request.responseText);
+
+            // Loop over the JSON array.
+            jsonOptions.forEach(function(item) {
+        // Create a new <option> element.
+            var option = document.createElement('option');
+        // Set the value using the item in the JSON array.
+            option.value = item;
+        // Add the <option> element to the <datalist>.
+            dataList.appendChild(option);
+        });
+
+      // Update the placeholder text.
+            input.placeholder = "e.g. datalist";
+            } else {
+      // An error occured :(
+            input.placeholder = "Couldn't load datalist options :(";
+        }
+    }
+    };
+
+        // Update the placeholder text.
+        input.placeholder = "Loading options...";
+
+            // Set up and make the request.
+        request.open('GET', 'html-elements.json', true);
+        request.send();
 
 
 
     </script>
+    
+
+    <script>
+
+    // next one: http://blog.andrewawhitaker.com/blog/2012/09/29/jqueryui-autocomplete-top-5-sources-of-confusion/
+
+
+
+
+
+    
+    </script>
+
+
+
 
 <!--         <body>
        <script src="dropdown_list.js"></script>
@@ -176,19 +261,10 @@
     <body>
         <input type="text" name="country" id="autocomplete"/>
 
-       <div class="ui-widget">
-            <label for="tags1">Tags1:</label>
-            <input id="tags1">
-        </div>
-        
-        <div class="ui-widget" style="margin-top:2em; font-family:Arial">
-        Result:
-        <div id="log" style="height: 200px; width: 300px; overflow: auto;" class="ui-widget-content"></div>
-        </div>
+        <input type="text" id="ajax" list="jsondatalist" placeholder="e.g. datalist">    
+        <datalist id="jsondatalist"></datalist>
 
 
-
-        <form method="post" action="" id="formToSave">
     <dl>
         <dt>Plant of sample:</dt>
         <dd><input type="text" id="plant_type" value="e.g. wheat" /></dd>
