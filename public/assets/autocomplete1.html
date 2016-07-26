@@ -18,34 +18,39 @@
         <script type="text/javascript">
         	
             //this works and captures the element from the form.
-            $(document).ready(function(){
+            //$(document).ready(function(){
 
 
                 function myFunction() {
                     var x = document.getElementById("frm1");
                     var y = x.elements["fname"].value;
                     //document.write("Hello " + y+ "<br>"); //works: captures the input of the form
+                   
                     var text = "";
                     var i;
                     for (i = 0; i < x.length ;i++) {
                         text += x.elements[i].value + "<br>";
-                    }
-                    document.getElementById("demo").innerHTML = text;
-                    document.write(text);
+                    console.log(y);
                     return y;
-                    var url = "http://www.ebi.ac.uk/ols/api/select?q=" + encodeURIComponent(Y);
-                    console.log ("the url you entered is " + url);
-                    document.getElementById("mylink").href = url;
+                    
+                    }
+                    //document.getElementById("demo").innerHTML = text;
+                    //document.write(text);
+                   
 
                     }
 
 
+                var id = myFunction();
+                var url = "http://www.ebi.ac.uk/ols/api/select?q=" + encodeURIComponent(id);
+                console.log ("the url you entered is " + url);
+                document.getElementById("mylink").href = url;
             //var id = y; // this can be changed later to what the user types. i.e. the element of the form. 
             //console.log(y);
                  //   var url = "http://www.ebi.ac.uk/ols/api/select?q=" + encodeURIComponent(Y);
                  //   console.log ("the url you entered is " + url);
                  //   document.getElementById("mylink").href = url;
-            });
+            //});
 
             $(document).ready(function(){
                 $.getJSON('http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po', function(OLSresults) {
@@ -171,7 +176,7 @@
 
 
     <!--this works and captures the element from the form.-->
-    <script>
+    <!--<script>
         function myFunction() {
             var x = document.getElementById("frm1");
             var y = x.elements["fname"].value;
@@ -184,7 +189,7 @@
             document.getElementById("demo").innerHTML = text;
             document.write(text);
             }
-    </script>
+    </script>-->
 
 
 
