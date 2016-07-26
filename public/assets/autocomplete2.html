@@ -13,7 +13,7 @@
 
     <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
 
-    <a href="#" id="mylink"> My Link</a>
+    <a href="#" id="mylink"> My Link to the OLS url you created</a>
 
         <script type="text/javascript">
         	
@@ -47,21 +47,14 @@
                                              
                         };
 
-
-
                     }
-                    //document.getElementById("demo").innerHTML = text;
-                    //document.write(text);
                     }
 
 
                     // this is executed once, only after the page loads.
             $(document).ready(function(){
-
-
-                
+               
                 var id = myFunction();
-
                 var str =  "'"+id+"'";
                 console.log(str);
                 //var id = "potato"; // finds the url correctly. 
@@ -71,13 +64,35 @@
                 console.log ("the url you entered is " + url);
                 document.getElementById("mylink").href = url;
 
-            });
-            //var id = y; // this can be changed later to what the user types. i.e. the element of the form. 
-            //console.log(y);
-                 //   var url = "http://www.ebi.ac.uk/ols/api/select?q=" + encodeURIComponent(Y);
-                 //   console.log ("the url you entered is " + url);
-                 //   document.getElementById("mylink").href = url;
-            //});
+            
+            
+
+                $("fname").autocomplete({
+                    source: function(request, response) {
+                        $.ajax({
+                            url: "http://www.ebi.ac.uk/ols/api/select?q=potato",
+                            data: {
+                                pagesize: 10,
+                                order: 'desc',
+                                sort: 'reputation',
+                                site: 'stackoverflow',
+                                inname: request.term
+                            },
+                            dataType: 'jsonp'
+                        }).success(function(data) {
+                            var results = $.map(data.items, function(user) {
+                                console.log(user.display_name);
+                                return user.display_name;
+                            });
+
+                            response(results);
+                        });
+                    }
+                });
+
+        });
+
+
 
             $(document).ready(function(){
                 $.getJSON('http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po', function(OLSresults) {
@@ -102,10 +117,7 @@
       		});
        		
         		
-        			//document.write(OLSresults.responseHeader); this works only with simple json objects, accesing complex models required recursion. 
-       		
-
-                    //good example: https://www.youtube.com/watch?v=D5pI_L2BC3A
+        	
         $(document).ready(function(){
             
             // needs to be query?
@@ -120,19 +132,10 @@
                     return $("<li>").data("item.autocomplete", item).append("<a>" + item.url + "</a>").appendTo(ul);
                     };
                 });
-                //source: 'http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po'
-                    //console.log("this is: " + option);
-                    // "hl.fl": ["label_autosuggest", "label", "synonym_autosuggest", "synonym"],
-                    // then whatever the user selects needs to be recorded. 
+   
                 });       
                   
 
-
-        //another function 
-
-        var OLSresults1 = $.getJSON('http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po')
-        console.log(OLSresults1)
-        //$(document).ready(function(){
 
         </script>
 
@@ -150,82 +153,19 @@
         });
         </script>
  
- <!--       <script>
-        //new ajax from http://blog.andrewawhitaker.com/blog/2012/09/29/jqueryui-autocomplete-top-5-sources-of-confusion/"
 
-        $.ajax({
-            url: "http://www.ebi.ac.uk/ols/api/select?q=potato",
-            data: {
-                pagesize: 100,
-                order: 'desc',
-                sort: 'reputation',
-                site: 'stackoverflow'
-            },
-            dataType: "jsonp"
-        }).success(function (data) {
-        console.dir(data);
-        var source = $.map(data.items, function (user) {
-            return user.display_name;
-        });
-
-        $("input").autocomplete({
-            source: source
-            });
-        });
-        </script>
--->
-
-
-
-    <!--http://www.codeproject.com/Articles/762959/jQuery-UI-Autocomplete-in-MVC-Selecting-Nested-Ent -->
-    <script>
-    $(function () {
-        $('.autocomplete-with-hidden').autocomplete({
-            minLength: 0,
-            source: function (request, response) {
-                var url = $(this.element).data('http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po');
-   
-                $.getJSON(url, { term: request.term }, function (data) {
-                response(data);
-                })
-            },
-            select: function (event, ui) {
-                $(event.target).next('input[type=hidden]').val(ui.item.id);
-            },
-            change: function(event, ui) {
-                if (!ui.item) {
-                    $(event.target).val('').next('input[type=hidden]').val('');
-                }
-            }
-        });
-    })
-
-
-
-    </script>
-
-    
-
-
-  
 
 
     <body>
-        <input type="text" name="country" id="autocomplete"/>
-
-        <input type="text" id="ajax" list="jsondatalist" placeholder="e.g. datalist">    
-        <datalist id="jsondatalist"></datalist>
-
-        <input type="text" id="plant_type" name = "name1" value="e.g. wheat"/>
 
 
+        <input type="text" id="plant_type" name = "name1" />
 
-<!--         this form works
- -->        
+<!--         this form works -->        
         <form id="frm1">
             First name: <input type="text" name="fname" value="Donald"><br>
             Last name: <input type="text" name="lname" value="Duck"><br><br>
-        <input type="submit" value="Submit">
+        <!--<input type="submit" value="Submit">-->
         </form>
 
 
@@ -236,14 +176,6 @@
         <p id="demo"></p>
 
        
-        <form>
-        Plant of sample:<b>
-        <input type="text" name="plantName" id="plant_type1" value="e.g. wheat"><br>
-        Tissue of sample:<br>
-        <input type="text" name = "tissueName" id="tissue" value="e.g. bran" /></dd>
-        <input type = "submit" value="Submit";
-        </form>
-
     </body>    
 
 </html>
