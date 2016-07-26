@@ -18,33 +18,60 @@
         <script type="text/javascript">
         	
             //this works and captures the element from the form.
-            //$(document).ready(function(){
+            function myFunction() {
+                    
+                    
+                    var id = get_value();
+                    var str =  id;
+                    console.log(str);
+                //var id = "potato"; // finds the url correctly. 
+                    var url = "http://www.ebi.ac.uk/ols/api/select?q=" + encodeURIComponent(str);
+                //var url = "http://www.ebi.ac.uk/ols/api/select?q=" + id;
+
+                    console.log ("the url you entered is " + url);      
+                    document.getElementById("mylink").href = url;  
 
 
-                function myFunction() {
-                    var x = document.getElementById("frm1");
-                    var y = x.elements["fname"].value;
+                    function get_value(){
+
+                        var x = document.getElementById("frm1");
+                        var y = x.elements["fname"].value;
                     //document.write("Hello " + y+ "<br>"); //works: captures the input of the form
                    
-                    var text = "";
-                    var i;
-                    for (i = 0; i < x.length ;i++) {
-                        text += x.elements[i].value + "<br>";
-                    console.log(y);
-                    return y;
-                    
+                        var text = "";
+                        var i;
+                        for (i = 0; i < x.length ;i++) {
+                            text += x.elements[i].value + "<br>";
+                        console.log(y);
+                        return y;
+                                             
+                        };
+
+
+
                     }
                     //document.getElementById("demo").innerHTML = text;
                     //document.write(text);
-                   
-
                     }
 
 
+                    // this is executed once, only after the page loads.
+            $(document).ready(function(){
+
+
+                
                 var id = myFunction();
-                var url = "http://www.ebi.ac.uk/ols/api/select?q=" + encodeURIComponent(id);
+
+                var str =  "'"+id+"'";
+                console.log(str);
+                //var id = "potato"; // finds the url correctly. 
+                var url = "http://www.ebi.ac.uk/ols/api/select?q=" + encodeURIComponent(str);
+                //var url = "http://www.ebi.ac.uk/ols/api/select?q=" + id;
+
                 console.log ("the url you entered is " + url);
                 document.getElementById("mylink").href = url;
+
+            });
             //var id = y; // this can be changed later to what the user types. i.e. the element of the form. 
             //console.log(y);
                  //   var url = "http://www.ebi.ac.uk/ols/api/select?q=" + encodeURIComponent(Y);
@@ -214,7 +241,7 @@
 
         <p>Click "Try it" to display the value of each element in the form.</p>
 
-        <button onclick="myFunction()">Try it</button>
+        <button onclick= "window.myFunction()">Try it</button>
 
         <p id="demo"></p>
 
