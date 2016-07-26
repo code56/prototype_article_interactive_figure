@@ -4,8 +4,9 @@
 <html>
     <head>
     <title>jQuery $.getJSON() function and jQuery UI Autocomplete</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+   <script src="https://code.jquery.com/jquery-3.1.0.js"
+              integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="
+              crossorigin="anonymous"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>  
 
     <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
@@ -14,6 +15,8 @@
     <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
 
     <a href="#" id="mylink"> My Link to the OLS url you created</a>
+
+    <input type="text" id="test123"/>
 
         <script type="text/javascript">
         	
@@ -53,12 +56,34 @@
 
                     // this is executed once, only after the page loads.
             $(document).ready(function(){
+
+
+                $('#test123').on('keypress', function(e){
+                    var url = "http://www.ebi.ac.uk/ols/api/select?q=" + $(this).val();
+                    $.get( url, function( data ) {
+                        console.log(data)
+                        console.log(data.response.docs[0].id)
+                        for(var x = 0; x <  data.response.docs.length; x++){
+                            console.log(data.response.docs[x].id)
+                        }
+                    })
+                    
+                })
+
+
+
+
+
+
+
+
+
                
                 var id = myFunction();
                 var str =  "'"+id+"'";
                 console.log(str);
                 //var id = "potato"; // finds the url correctly. 
-                var url = "http://www.ebi.ac.uk/ols/api/select?q=" + encodeURIComponent(str);
+                
                 //var url = "http://www.ebi.ac.uk/ols/api/select?q=" + id;
 
                 console.log ("the url you entered is " + url);
@@ -66,30 +91,30 @@
 
             
             
+                function autocomplete(){
+                    $("fname").autocomplete({
+                        source: function(request, response) {
+                            $.ajax({
+                                url: "http://www.ebi.ac.uk/ols/api/select?q=potato",
+                                data: {
+                                    pagesize: 10,
+                                    order: 'desc',
+                                    sort: 'reputation',
+                                    site: 'stackoverflow',
+                                    inname: request.term
+                                },
+                                dataType: 'jsonp'
+                            }).success(function(data) {
+                                var results = $.map(data.items, function(user) {
+                                    console.log(user.display_name);
+                                    return user.display_name;
+                                });
 
-                $("fname").autocomplete({
-                    source: function(request, response) {
-                        $.ajax({
-                            url: "http://www.ebi.ac.uk/ols/api/select?q=potato",
-                            data: {
-                                pagesize: 10,
-                                order: 'desc',
-                                sort: 'reputation',
-                                site: 'stackoverflow',
-                                inname: request.term
-                            },
-                            dataType: 'jsonp'
-                        }).success(function(data) {
-                            var results = $.map(data.items, function(user) {
-                                console.log(user.display_name);
-                                return user.display_name;
+                                response(results);
                             });
-
-                            response(results);
-                        });
-                    }
-                });
-
+                        }
+                    });
+            };
         });
 
 
@@ -158,8 +183,11 @@
 
     <body>
 
-
-        <input type="text" id="plant_type" name = "name1" />
+        <form method='post'> <!--action='myaction'-->
+        <input name='myname' type='text' id="plant_type" autocomplete='on' />
+        <input type='submit' value='Submit!' onclick='window.autocomplete();'/>
+        </form>
+        
 
 <!--         this form works -->        
         <form id="frm1">
