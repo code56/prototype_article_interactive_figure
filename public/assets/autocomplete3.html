@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<html>
+    <head>
+    <title>jQuery $.getJSON() function and jQuery UI Autocomplete</title>
+   <script src="https://code.jquery.com/jquery-3.1.0.js"
+              integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="
+              crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>  
+
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
+    <script src="https://code.jquery.com/ui/jquery-ui-git.js"></script> -->
+    <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
+    <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+        <script type="text/javascript" src="autocomplete.js"></script>
+        <link href="autocomplete.css" rel="Stylesheet"></link>
+
+
+
+        <script type="text/javascript">
+        	
+            
+            
+
+
+                    // this is executed once, only after the page loads.
+            $(document).ready(function(){
+
+
+
+                    
+
+
+                $('#test123').on('keypress', function(e){
+                    var url = "http://www.ebi.ac.uk/ols/api/select?q=" + $(this).val() + "&ontology=po"; //+ ontology=po
+                    console.log(url);
+                    $.get( url, function( data ) {
+                        console.log(data)
+                        console.log(data.response.docs[0].id)
+                        for(var x = 0; x <  data.response.docs.length; x++){
+                            console.log(data.response.docs[x].id)
+                        }
+                    })
+                    
+                })
+
+
+                var auto_complete = function(){
+                AutoComplete({
+                    EmptyMessage: "No item found",
+                    Url: "http://www.ebi.ac.uk/ols/api/select?q=" + "potato" + "ontology=po",
+                    post: do_post,
+                    select: do_select,
+                    }, "#autocomplete-example");
+                function do_post(result, response, custParams) {
+                    response = JSON.parse(response);
+                    console.log("num_found " + response.response.numFound)
+                    var properties = Object.getOwnPropertyNames(response);
+                    //Try parse like JSON data
+
+                    var empty,
+                        length = response.length,
+                        li = domCreate("li"),
+                        ul = domCreate("ul");
+
+                    //Reverse result if limit parameter is custom
+                    if (custParams.limit < 0) {
+                        properties.reverse();
+                    }
+
+
+                    for (var item in response.response.docs) {
+
+                        doc = response.response.docs[item]
+
+
+                        try {
+                            //
+                            console.log(response.highlighting[doc.id])
+                            console.log(doc)
+                            var s
+                            s = response.highlighting[doc.id].label
+                            if (s == undefined) {
+                                s = response.highlighting[doc.id].synonym
+                            }
+                            var desc
+                            if (doc.ontology_prefix == undefined) {
+                                desc = "Origin Unknown"
+                            }
+                            else {
+                                desc = doc.ontology_prefix
+                            }
+                            li.innerHTML = '<span class="label label-info"><span title="' + desc + '" style="color:white; padding-top:3px; padding-bottom:3px"><img style="height:15px; margin-right:10px" src="/static/copo/img/ontology.png"/>' + doc.ontology_prefix + ':' + doc.label + ' ' + '</span>' + ' - ' + '<span style="color:#fcff5e">' + doc.obo_id + '</span></span>';
+
+
+                            $(li).attr('data-id', doc.id)
+                            var styles = {
+                                margin : "2px",
+                                marginTop: '4px',
+                                fontSize: "large",
+
+                            };
+                            $(li).css(styles)
+                            $(li).attr('data-term_accession', doc.iri)
+                            $(li).attr('data-annotation_value', doc.label)
+                            var s = doc.obo_id
+                            s = s.split(':')[0]
+
+                            $(li).attr('data-term_source', s)
+                            //$(li).attr("data-autocomplete-value", response.highlighting[item].label_autosuggest[0].replace('<b>', '').replace('</b>', '') + ' - ' + item);
+
+                            console.log($(li).data('label'))
+
+                            ul.appendChild(li);
+                            li = domCreate("li");
+                        }
+                        catch (err) {
+                            console.log(err)
+                            li = domCreate("li");
+                        }
+                    }
+                    if (result.hasChildNodes()) {
+                        result.childNodes[0].remove();
+                    }
+
+                    result.appendChild(ul);
+                }
+
+
+                function do_select(input, item){
+                    console.log(input)
+                    console.log(item)
+                }
+            }
+
+            })
+
+//create a div in the html and each time append that in
+//jquery syntax for creating dom object. 
+//for each iteration create a dom object and 
+// p is the data.response.docs[x]   
+//http://www.ebi.ac.uk/ols/v2/browse.do?ontName=PO&termId=PO%3A0020103&termName=flag%20leaf
+
+
+
+
+               
+               /*
+       
+                function autocomplete(){
+                    $("fname").autocomplete({
+                        source: function(request, response) {
+                            $.ajax({
+                                url: "http://www.ebi.ac.uk/ols/api/select?q=potato",
+                                data: {
+                                    pagesize: 10,
+                                    order: 'desc',
+                                    sort: 'reputation',
+                                    site: 'stackoverflow',
+                                    inname: request.term
+                                },
+                                dataType: 'jsonp'
+                            }).success(function(data) {
+                                var results = $.map(data.items, function(user) {
+                                    console.log(user.display_name);
+                                    return user.display_name;
+                                });
+
+                                response(results);
+                            });
+                        }
+                    });
+            };
+        });
+*/
+
+</script>
+
+    <body>
+
+        <input id="autocomplete-example" data-autocomplete="http://www.google.com" autocomplete="on"/>
+
+
+       
+    </body>    
+
+</html>
