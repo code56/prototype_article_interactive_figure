@@ -22,17 +22,21 @@
           
 
                     // this is executed once, only after the page loads.
+                    //desired url to query example: http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po
             $(document).ready(function(){
 
 
                 $('#test123').on('keypress', function(e){
-                    var url = "http://www.ebi.ac.uk/ols/api/select?q=" + $(this).val() + "ontology=po"; //+ ontology=po
+                    var url = "http://www.ebi.ac.uk/ols/api/select?q=" + $(this).val() + "&rows=20&ontology=po"; 
                     console.log(url);
                     $.get( url, function( data ) {
                         console.log(data)
-                        console.log(data.response.docs[0].id)
+                        console.log(data.response.docs[0].id) // this is useful..
+                        // x is each object returned from the OLS query being run. 
+                        // must select what part of this object a function needs to be looking at for autocompleting the form. 
+                        // would be the anatomy, dev. stage.
                         for(var x = 0; x <  data.response.docs.length; x++){
-                            console.log(data.response.docs[x].id)
+                            console.log(data.response.docs[x].label) // use this label to be autompleting. // it would be best for them to be filterning whether dev. stage or anatomy separately. 
                         }
                     })
                     
