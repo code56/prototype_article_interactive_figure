@@ -14,52 +14,19 @@
 
     <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
 
-    <a href="#" id="mylink"> My Link to the OLS url you created</a>
 
     <input type="text" id="test123"/>
 
         <script type="text/javascript">
         	
-            //this works and captures the element from the form.
-            function myFunction() {
-                    
-                    
-                    var id = get_value();
-                    var str =  id;
-                    console.log(str);
-                //var id = "potato"; // finds the url correctly. 
-                    var url = "http://www.ebi.ac.uk/ols/api/select?q=" + encodeURIComponent(str);
-                //var url = "http://www.ebi.ac.uk/ols/api/select?q=" + id;
-
-                    console.log ("the url you entered is " + url);      
-                    document.getElementById("mylink").href = url;  
-
-
-                    function get_value(){
-
-                        var x = document.getElementById("frm1");
-                        var y = x.elements["fname"].value;
-                    //document.write("Hello " + y+ "<br>"); //works: captures the input of the form
-                   
-                        var text = "";
-                        var i;
-                        for (i = 0; i < x.length ;i++) {
-                            text += x.elements[i].value + "<br>";
-                        console.log(y);
-                        return y;
-                                             
-                        };
-
-                    }
-                    }
-
+          
 
                     // this is executed once, only after the page loads.
             $(document).ready(function(){
 
 
                 $('#test123').on('keypress', function(e){
-                    var url = "http://www.ebi.ac.uk/ols/api/select?q=" + $(this).val();
+                    var url = "http://www.ebi.ac.uk/ols/api/select?q=" + $(this).val(); //+ ontology=po
                     $.get( url, function( data ) {
                         console.log(data)
                         console.log(data.response.docs[0].id)
@@ -74,24 +41,13 @@
 //jquery syntax for creating dom object. 
 //for each iteration create a dom object and 
 // p is the data.response.docs[x]   
-
+//http://www.ebi.ac.uk/ols/v2/browse.do?ontName=PO&termId=PO%3A0020103&termName=flag%20leaf
 
 
 
 
                
-                var id = myFunction();
-                var str =  "'"+id+"'";
-                console.log(str);
-                //var id = "potato"; // finds the url correctly. 
-                
-                //var url = "http://www.ebi.ac.uk/ols/api/select?q=" + id;
-
-                console.log ("the url you entered is " + url);
-                document.getElementById("mylink").href = url;
-
-            
-            
+       
                 function autocomplete(){
                     $("fname").autocomplete({
                         source: function(request, response) {
@@ -166,20 +122,6 @@
         </script>
 
 
-        <script>
-        $.ajax({
-            type: 'GET',
-            url: 'http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po',
-            dataType: 'json',
-            success: function(data) {
-      // handle response here
-            console.log("this is the data" + data);
-            console.log(data.responseHeader);
-            }
-        });
-        </script>
- 
-
 
 
     <body>
@@ -191,13 +133,7 @@
         
 
 <!--         this form works -->        
-        <form id="frm1">
-            First name: <input type="text" name="fname" value="Donald"><br>
-            Last name: <input type="text" name="lname" value="Duck"><br><br>
-        <!--<input type="submit" value="Submit">-->
-        </form>
-
-
+       
         <p>Click "Try it" to display the value of each element in the form.</p>
 
         <button onclick= "window.myFunction()">Try it</button>
