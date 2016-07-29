@@ -26,7 +26,8 @@
 
 
                 $('#test123').on('keypress', function(e){
-                    var url = "http://www.ebi.ac.uk/ols/api/select?q=" + $(this).val(); //+ ontology=po
+                    var url = "http://www.ebi.ac.uk/ols/api/select?q=" + $(this).val() + "ontology=po"; //+ ontology=po
+                    console.log(url);
                     $.get( url, function( data ) {
                         console.log(data)
                         console.log(data.response.docs[0].id)
