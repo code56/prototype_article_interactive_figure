@@ -1,0 +1,48 @@
+<!-- I'd grab form text from here -->
+
+<!DOCTYPE HTML>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<html>
+    <head>
+    <title>jQuery $.getJSON() function and jQuery UI Autocomplete</title>
+   <script src="https://code.jquery.com/jquery-3.1.0.js"
+              integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="
+              crossorigin="anonymous"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>  
+
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
+    <script src="https://code.jquery.com/ui/jquery-ui-git.js"></script>
+
+    <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+
+
+
+
+<div id="div-form-content" style="display:none">
+<h4>Login</h4>
+        <form id="login-form" name="login-form" action="https://mydomain.com/customer/account/loginPost/" method="post">
+<fieldset>
+    <p>Already registered? Please log in below:</p>
+    <ul class="form-list">
+        <li>
+
+            <label for="login-email">Email Address</label>
+            <div class="input-box">
+                <input type="text" class="input-text required-entry validate-email" id="login-email" name="login[username]" value="" />
+            </div>
+        </li>
+        <li>
+            <label for="login-password">Password</label>
+            <div class="input-box">
+
+                <input type="password" class="input-text validate-password required-entry" id="login-password" name="login[password]" />
+            </div>
+        </li>
+    </ul>
+</fieldset>
+    <div class="buttons-set form-buttons btn-only">
+        <button type="button" class="button" onclick="$('#login-form').submit()"><span><span>Login</span></span></button>
+        <a href="https://mydomain.com/customer/account/forgotpassword/">Forgot your password?</a>
+    </div>
+</form>
