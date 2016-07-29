@@ -7,37 +7,31 @@
    <script src="https://code.jquery.com/jquery-3.1.0.js"
               integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="
               crossorigin="anonymous"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>  
+    <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>  
 
     <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
-    <script src="https://code.jquery.com/ui/jquery-ui-git.js"></script>
-
+    <script src="https://code.jquery.com/ui/jquery-ui-git.js"></script> -->
+    <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
     <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
-
 
 
 
         <script type="text/javascript">
         	
           
-/*
+
                     // this is executed once, only after the page loads.
-                    //desired url to query example: http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po
             $(document).ready(function(){
 
 
                 $('#test123').on('keypress', function(e){
-                    var url = "http://www.ebi.ac.uk/ols/api/select?q=" + $(this).val() + "&rows=100&ontology=po"; 
+                    var url = "http://www.ebi.ac.uk/ols/api/select?q=" + $(this).val() + "ontology=po"; //+ ontology=po
                     console.log(url);
                     $.get( url, function( data ) {
                         console.log(data)
-                        console.log(data.response.docs[0].id) // this is useful..
-                        // x is each object returned from the OLS query being run. 
-                        // must select what part of this object a function needs to be looking at for autocompleting the form. 
-                        // would be the anatomy, dev. stage.
+                        console.log(data.response.docs[0].id)
                         for(var x = 0; x <  data.response.docs.length; x++){
-                            label = data.response.docs[x].label
-                            console.log(data.response.docs[x].label) // use this label to be autompleting. // it would be best for them to be filterning whether dev. stage or anatomy separately. 
+                            console.log(data.response.docs[x].id)
                         }
                     })
                     
@@ -49,60 +43,92 @@
 // p is the data.response.docs[x]   
 //http://www.ebi.ac.uk/ols/v2/browse.do?ontName=PO&termId=PO%3A0020103&termName=flag%20leaf
 
-    <script>*/
-        function autocompletion() {
-            
-            var autocomplete_element = get_url();
-            $( "#test123" ).autocomplete({
-                source: autocomplete_element
-            })    
 
-            function get_url() {
 
-                $('#test123').on('keypress', function(e){
-                
-                    var url = "http://www.ebi.ac.uk/ols/api/select?q=" + $(this).val() + "&rows=100&ontology=po"; 
-                    console.log(url);
-                    $.get( url, function( data ) {
-                        console.log(data)
-                        console.log(data.response.docs[0].id) // this is useful..
-                                            // x is each object returned from the OLS query being run. 
-                                            // must select what part of this object a function needs to be looking at for autocompleting the form. 
-                                            // would be the anatomy, dev. stage.
-                        var array_label = [];
-                        for(var x = 0; x <  data.response.docs.length; x++){
-                            label = data.response.docs[x].label
-                            console.log(data.response.docs[x].label) // use this label to be autompleting. // it would be best for them to be filterning whether dev. stage or anatomy separately. 
-                            // store the label value. 
-                            array_label.push(label);
-                        }
-                        return array_label;
-                    });              
-                });   
-            }
-        
-        };
 
-        <!--        
+               
        
+                function autocomplete(){
+                    $("fname").autocomplete({
+                        source: function(request, response) {
+                            $.ajax({
+                                url: "http://www.ebi.ac.uk/ols/api/select?q=potato",
+                                data: {
+                                    pagesize: 10,
+                                    order: 'desc',
+                                    sort: 'reputation',
+                                    site: 'stackoverflow',
+                                    inname: request.term
+                                },
+                                dataType: 'jsonp'
+                            }).success(function(data) {
+                                var results = $.map(data.items, function(user) {
+                                    console.log(user.display_name);
+                                    return user.display_name;
+                                });
+
+                                response(results);
+                            });
+                        }
+                    });
+            };
+        });
+
+
+
+            $(document).ready(function(){
+                $.getJSON('http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po', function(OLSresults) {
+        			// no need to do .parseJSON()
+        			console.log(OLSresults.responseHeader.params.hl); // true
+        			var results = OLSresults;
+                    console.log(results);
+
+
+                    
+                    //$(selector).autocomplete(options e.g. serviceURL);
+                    $( "#autocomplete" ).autocomplete({
+                        serviceUrl: 'http://www.ebi.ac.uk/ols/api/suggest?q=potato',
+                        onSelect: function(suggestion){
+                            alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+                        }
+
+                        }); 
+                            //console.log(array);
+                    });
+
+      		});
+       		
+        		
+        	
+        $(document).ready(function(){
+            
+            // needs to be query?
+            $.getJSON('http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po', function(OLSresults) {
+                    console.log(OLSresults.responseHeader.params.hl) // true, works
+                    //var option = OLSresults.responseHeader.params.hl
+                    var arrResults = [OLSresults];
+
+                $('#plant_type').autocomplete({
+                    //source: ['Choice 1', 'Choice 2'] // this works
+                    source : arrResults}).data("autocomplete")._renderItem = function(ul, item) {
+                    return $("<li>").data("item.autocomplete", item).append("<a>" + item.url + "</a>").appendTo(ul);
+                    };
+                });
+   
+                });       
+                  
+
+
         </script>
 
 
 
-</head>
+
     <body>
 
-        
-
-        <div class="ui-widget">
-            <label for="test123">Tags: </label>
-            <input id="test123">
-        </div>
- 
-
-<!--         this form works -->        
        
-    
+        <input type="text" name="ols" id="autocomplete_finally"/>
+
        
     </body>    
 
