@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<html>
+    <head>
+    <title>jQuery $.getJSON() function and jQuery UI Autocomplete</title>
+
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>  -->
+<script
+              src="https://code.jquery.com/jquery-3.1.0.min.js"
+              integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+              crossorigin="anonymous"></script>
+<!--    <script src="https://code.jquery.com/ui/jquery-ui-git.js"></script> -->
+<!-- <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>-->
+        <script type="text/javascript" src="autocomplete.js"></script>
+        <link href="autocomplete.css" rel="Stylesheet"></link>
+
+
+
+        <script type="text/javascript">
+        	
+           
+            
+         // this is executed once, only after the page loads.
+            $(document).ready(function(){
+
+                   
+
+                /*
+                $('#autocomplete-example').on('keypress', function(e){
+                    var url = "http://www.ebi.ac.uk/ols/api/select?q=" + $(this).val() + "&ontology=po"; //+ ontology=po
+                    console.log(url);
+                    $.get( url, function( data ) {
+                        console.log(data)
+                        console.log(data.response.docs[0].id)
+                        for(var x = 0; x <  data.response.docs.length; x++){
+                            console.log(data.response.docs[x].id)
+                        }
+                    })
+                    
+                })
+                */
+                auto_complete()
+
+            })
+
+            // this function is not running. 
+            var auto_complete = function(){
+                AutoComplete({
+                    _Post: do_post,
+                    _Select: do_select,
+                    autoFocus: true,
+                    
+                    })
+
+                function do_post(response) {
+                    console.log(response)
+                   response = JSON.parse(response)
+                   console.log(response)
+                }
+
+
+                function do_select(item){
+                    
+                    console.log(item)
+                }
+        }
+
+            
+
+//create a div in the html and each time append that in
+//jquery syntax for creating dom object. 
+//for each iteration create a dom object and 
+// p is the data.response.docs[x]   
+//http://www.ebi.ac.uk/ols/v2/browse.do?ontName=PO&termId=PO%3A0020103&termName=flag%20leaf
+
+
+
+
+               
+               /*
+       
+                function autocomplete(){
+                    $("fname").autocomplete({
+                        source: function(request, response) {
+                            $.ajax({
+                                url: "http://www.ebi.ac.uk/ols/api/select?q=potato",
+                                data: {
+                                    pagesize: 10,
+                                    order: 'desc',
+                                    sort: 'reputation',
+                                    site: 'stackoverflow',
+                                    inname: request.term
+                                },
+                                dataType: 'jsonp'
+                            }).success(function(data) {
+                                var results = $.map(data.items, function(user) {
+                                    console.log(user.display_name);
+                                    return user.display_name;
+                                });
+
+                                response(results);
+                            });
+                        }
+                    });
+            };
+        });
+*/
+
+</script>
+
+    <body>
+
+        <input id="autocomplete-example" data-autocomplete-param-name="ontology=PO&q"
+        data-autocomplete="http://www.ebi.ac.uk/ols/api/select/" autocomplete="off"/>
+
+
+       
+    </body>    
+
+</html>
