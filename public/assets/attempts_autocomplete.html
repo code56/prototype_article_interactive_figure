@@ -1,0 +1,71 @@
+bf493b9315238579a1f847f548729a499efb9dba
+                function autocomplete(){
+                    $("fname").autocomplete({
+                        source: function(request, response) {
+                            $.ajax({
+                                url: "http://www.ebi.ac.uk/ols/api/select?q=potato",
+                                data: {
+                                    pagesize: 10,
+                                    order: 'desc',
+                                    sort: 'reputation',
+                                    site: 'stackoverflow',
+                                    inname: request.term
+                                },
+                                dataType: 'jsonp'
+                            }).success(function(data) {
+                                var results = $.map(data.items, function(user) {
+                                    console.log(user.display_name);
+                                    return user.display_name;
+                                });
+
+                                response(results);
+                            });
+                        }
+                    });
+            };
+        });
+
+
+
+            $(document).ready(function(){
+                $.getJSON('http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po', function(OLSresults) {
+        			// no need to do .parseJSON()
+        			console.log(OLSresults.responseHeader.params.hl); // true
+        			var results = OLSresults;
+                    console.log(results);
+
+
+                    
+                    //$(selector).autocomplete(options e.g. serviceURL);
+                    $( "#autocomplete" ).autocomplete({
+                        serviceUrl: 'http://www.ebi.ac.uk/ols/api/suggest?q=potato',
+                        onSelect: function(suggestion){
+                            alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+                        }
+
+                        }); 
+                            //console.log(array);
+                    });
+
+      		});
+       		
+        		
+        	
+        $(document).ready(function(){
+            
+            // needs to be query?
+            $.getJSON('http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po', function(OLSresults) {
+                    console.log(OLSresults.responseHeader.params.hl) // true, works
+                    //var option = OLSresults.responseHeader.params.hl
+                    var arrResults = [OLSresults];
+
+                $('#plant_type').autocomplete({
+                    //source: ['Choice 1', 'Choice 2'] // this works
+                    source : arrResults}).data("autocomplete")._renderItem = function(ul, item) {
+                    return $("<li>").data("item.autocomplete", item).append("<a>" + item.url + "</a>").appendTo(ul);
+                    };
+                });
+   
+                });       
+                  
+ -->
