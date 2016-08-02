@@ -63,17 +63,17 @@
                 
 
                     for (var item in response.response.docs) {
-
                         doc = response.response.docs[item]
-                        console.log("doc is " + doc)
 
-
+                        // error catching
                         try {
                             //
-                            console.log(response.highlighting[doc.id])
                             console.log(doc)
+                            console.log(response.highlighting[doc.id])
+                           
                             var s
-                            s = response.highlighting[doc.id].label
+                            s = response.highlighting[doc.id].label   
+                            console.log("s is " + s)        //<b>Potato<b>  //
                             if (s == undefined) {
                                 s = response.highlighting[doc.id].synonym
                             }
@@ -86,8 +86,12 @@
                             }
 
                             //customise this 
-                            li.innerHTML = '<span class="label label-info"><span title="' + desc + '" style="color:white; padding-top:3px; padding-bottom:3px"><img style="height:15px; margin-right:10px" src="/static/copo/img/ontology.png"/>' + doc.ontology_prefix + ':' + doc.label + ' ' + '</span>' + ' - ' + '<span style="color:#fcff5e">' + doc.obo_id + '</span></span>';
-                            console.log(li.innerHTML); // works but change accordingly
+
+                            li.innerHTML = '<span class="label label-info"><span title="' + desc + '" style="color:white; padding-top:3px; padding-bottom:3px"><img style="height:15px; margin-right:10px"/>' + doc.ontology_prefix + ':' + doc.label + ' ' + '</span>' + ' - ' + '<span style="color:#fcff5e">' + doc.obo_id + '</span></span>';
+                            
+                            console.log(li.innerHTML); // works but change accordingly   //<span class="label label-info"><span title="PO" style="color:white; padding-top:3px; padding-bottom:3px"><img style="height:15px; margin-right:10px" src="/static/copo/img/ontology.png">PO:Potato </span> - <span style="color:#fcff5e">undefined</span></span> 
+
+
 
                             $(li).attr('data-id', doc.id)
                             var styles = {
@@ -99,6 +103,7 @@
                             $(li).css(styles)
                             $(li).attr('data-term_accession', doc.iri)
                             $(li).attr('data-annotation_value', doc.label)
+                            //why define it here again? 
                             var s = doc.obo_id
                             s = s.split(':')[0]
 
@@ -108,11 +113,11 @@
                             console.log($(li).data('label'))
 
                             ul.appendChild(li);
-                            li = domCreate("li");
+                            li = document.createElement("li");
                         }
                         catch (err) {
                             console.log(err)
-                            li = domCreate("li");
+                            li = document.createElement("li");
                         }
                     }
                     if (result.hasChildNodes()) {
