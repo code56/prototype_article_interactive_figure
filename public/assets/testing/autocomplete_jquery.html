@@ -24,13 +24,16 @@
             $( "#city" ).autocomplete({
               source: function( request, response ) {
                 $.ajax({
-                  url: "http://gd.geobytes.com/AutoCompleteCity",
-                  dataType: "jsonp",
+                  url: "http://www.ebi.ac.uk/ols/api/select?ontology=po",
+                  dataType: "json",
                   data: {
-                    q: request.term
+                    q: request.response
+                    
                   },
+                    console.log(data),
                   success: function( data ) {
                     response( data );
+                    console.log(resonse(data));
                   }
                 });
               },
@@ -55,7 +58,6 @@
       <div class="ui-widget">
       <label for="city">Your city: </label>
       <input id="city">
-      Powered by <a href="http://geonames.org">geonames.org</a>
       </div>
 
       <div class="ui-widget" style="margin-top:2em; font-family:Arial">

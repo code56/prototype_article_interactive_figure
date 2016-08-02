@@ -47,8 +47,7 @@
                     
                     })
 
-                function do_post(response, result, custParams) {
-                    console.log("the result is", result)  //result is undefined??? 
+                function do_post(response) {
                     console.log("response is " + response)
                     response = JSON.parse(response);
                     var properties = Object.getOwnPropertyNames(response); // ["responseHeader", "response", "highlighting"]
