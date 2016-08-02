@@ -48,7 +48,7 @@
                     })
 
                 function do_post(response, result, custParams) {
-                    console.log("the result is", result)  //result is undefined.
+                    console.log("the result is", result)  //result is undefined??? 
                     console.log("response is " + response)
                     response = JSON.parse(response);
                     var properties = Object.getOwnPropertyNames(response); // ["responseHeader", "response", "highlighting"]
@@ -92,7 +92,7 @@
                             console.log(li.innerHTML); // works but change accordingly   //<span class="label label-info"><span title="PO" style="color:white; padding-top:3px; padding-bottom:3px"><img style="height:15px; margin-right:10px" src="/static/copo/img/ontology.png">PO:Potato </span> - <span style="color:#fcff5e">undefined</span></span> 
 
 
-
+                            // getting errors from here onwards
                             $(li).attr('data-id', doc.id)
                             var styles = {
                                 margin : "2px",
@@ -120,21 +120,15 @@
                             li = document.createElement("li");
                         }
                     }
-                    if (result.hasChildNodes()) {
-                        result.childNodes[0].remove();
-                    }
+                    // if (result.hasChildNodes()) {
+                    //     result.childNodes[0].remove();
+                    // }
 
-                    result.appendChild(ul);
+                    // result.appendChild(ul);
                 }
 
-
-
-
-                
-
-
+                //item must be a HTMLElement               
                 function do_select(item){
-                    
                     console.log(item)
                 }
 
@@ -180,11 +174,11 @@
 </script>
 
     <body>
-
+    <div id="dropdown_suggestions">
         <input id="autocomplete-example" data-autocomplete-param-name="ontology=po&q"
         data-autocomplete="http://www.ebi.ac.uk/ols/api/select" autocomplete="off"/>
-
-
+  </div>
+ 
        
     </body>    
 
