@@ -14,16 +14,18 @@ var auto_complete = function(){
                     //    this._Render(response.params)
                     //},
                     post: do_post,
-                    select: do_select
+                    select: do_select,
                     //_RenderResponseItems: do_renderresponse,
                     //_Select: do_select,
                     //autoFocus: true,
                     
                     })
-
+//upon select choose what to do with it. 
                 function do_select(input, item){
                     console.log(input)
                     console.log(item)
+                    input.value = attr(item, "data-autocomplete-value", item.innerHTML);
+                    attr(input, {"data-autocomplete-old-value": input.value});
                 }
 
                 function do_post(result, response, custParams) {
