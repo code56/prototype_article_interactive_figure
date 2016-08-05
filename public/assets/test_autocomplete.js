@@ -28,6 +28,9 @@ var auto_complete = function(){
                     attr(input, {"data-autocomplete-old-value": input.value});
                 }
 
+                //connect the selection to a local mySQL database: 
+                //https://www.sitepoint.com/using-node-mysql-javascript-client/
+                
                 function do_post(result, response, custParams) {
                     response = JSON.parse(response);
                     console.log("num_found " + response.response.numFound)
@@ -80,7 +83,7 @@ var auto_complete = function(){
                             $(li).attr('data-term_accession', doc.iri)
                             $(li).attr('data-annotation_value', doc.label)
                             var s = doc.obo_id
-                            s = s.split(':')[0]
+                            s = s.split(':')[0]  
 
                             $(li).attr('data-term_source', s)
                             //$(li).attr("data-autocomplete-value", response.highlighting[item].label_autosuggest[0].replace('<b>', '').replace('</b>', '') + ' - ' + item);

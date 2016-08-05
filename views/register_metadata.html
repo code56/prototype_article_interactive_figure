@@ -98,10 +98,10 @@ $(a_dropdown + ' option').each(function(){
     options[$(this).text()] = $(this).val();
 });
 $(a_dropdown).on("change", function(event) {
-    var optionElement = $(a_dropdown).find(":selected");
-    var option = optionElement.text();
-    alert("we select"+ option);
-    selection_json[option] = optionElement.value;
+    var optionElement = $(a_dropdown).find(":selected").text(); //the dropdown id (or: )
+    //var option = optionElement.text();
+    alert("you selected"+ optionElement);
+    selection_json[optionElement] = optionElement.value;
     alert("JSON" + JSON.stringify(selection_json));
  
 });
