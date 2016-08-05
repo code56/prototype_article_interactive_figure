@@ -25,7 +25,9 @@ var auto_complete = function(){
                     console.log(input)
                     console.log(item)
                     input.value = attr(item, "data-autocomplete-value", item.innerHTML);
+                    console.log(input.value); // PO: antheridium jacket layer - is the element chosen in the input form
                     attr(input, {"data-autocomplete-old-value": input.value});
+                    
                 }
 
                 //connect the selection to a local mySQL database: 
