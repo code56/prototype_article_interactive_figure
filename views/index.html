@@ -134,9 +134,12 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 </script>
   <!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
-<script src="assets/application-ef96501f028dba65c10a08512d37267546d1a1c3c78159b1f1e139aa66b7b98d.js" data-turbolinks-track="true"></script>
+<!--Calling the BioJS component JS script of Wheat expression browser.    -->
+    <script src="assets/application-ef96501f028dba65c10a08512d37267546d1a1c3c78159b1f1e139aa66b7b98d.js" data-turbolinks-track="true"></script>
 
-<script type="text/JavaScript" src="/Users/kaimakle/Documents/Ph.D./node_web_server/server/HTTPServer.js"></script>
+    <!--Calling the node server script.    -->
+
+    <script type="text/JavaScript" src="/Users/kaimakle/Documents/Ph.D./node_web_server/server/HTTPServer.js"></script>
 
 </head><body class="html not-front not-logged-in page-node page-node- page-node-14151 node-type-elife-article-ver context-content">
 <!-- Google Tag Manager -->
@@ -284,13 +287,11 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 
 <!-- placeholder for the interactiver figure
  -->
- <div class="wrapper">
+ <div class="wrapper"> <!-- //change the width to keep it lie the page width-->
  	<div id="bar_expression_viewer"> </div>
 </div>
 
-<!-- I call this in the <head>
- --><!-- <script type="text/JavaScript" src="/Users/kaimakle/Documents/Ph.D./node_web_server/server/HTTPServer.js"></script>
- -->
+
 <script type="text/javascript">
   var container_div="bar_expression_viewer";
   

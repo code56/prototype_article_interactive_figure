@@ -1,23 +1,33 @@
+// Author: Evanthia Kaimaklioti
+// git account: code56
+// Date: June 2016
+// this is the script for the node server
+// contains code for firing up the node server
+// and code for navigating to different HTML pages according to the different buttons -- actions being activated
+// in the main HTML page.
+// to bring up the main page; connect to the server - localhost in the browser "/page"
+
+
 //Lets require/import the HTTP module
 var http = require('http');
 var dispatcher = require ('httpdispatcher')
     ,express = require('express')
     ,app = express()
     ,bodyParser = require('body-parser');
-var IR = require('../views/lib/interfaceregistry')
+var IR = require('../views/lib/register')       //xriazete? elexe
     ,interfaceregistry = new IR(); 
-var fs = require('fs'); //for writing files in node.js
+var fs = require('fs');                         //for writing files in node.js
 
-var multer = require('multer'); // v1.0.5
+var multer = require('multer');                 // v1.0.5 - for handling multipart/form-data - for uploading files
 var upload = multer();
 var encoding = 'utf8';
-var mysql = require('mysql');
+var mysql = require('mysql');                  // kitaxe pou evala to mysql kai pou to kalo.
 var connection = mysql.createConnection({
   host : 'localhost',
   user : 'root',
   password: 'root',
 });
-var request = require ('reqwest');
+var request = require ('reqwest');            // simplified HTTP request client
 
 
 
@@ -26,20 +36,22 @@ connection.connect(function(err){
   console.log('connected');
 });
 
+
+// elexe to afto ti kani
 var post = {id: 1, title: 'Hello MySQL'};
 var query = connection.query('INSERT INTO posts SET ?', post, function(err, result){
 });
 
-//Lets define a port we want to listen to
+//define the port we want to listen to
 const PORT=8182; 
 
-app.use(express.static("../public")); //put accesible public directory and its sub directories
-app.set('views', '../views'); //put accesible views
+app.use(express.static("../public"));        //put accesible public directory and its sub directories
+app.set('views', '../views');                //put accesible views
 
-app.disable('etag');
+app.disable('etag');                        //something needed from Express. To disable etag generation
 
-var hbs = require('hbs');//Handlebars
-app.set('view engine', 'html'); //we can tell Express to treat HTML files as dynamic by using the "view engine"
+var hbs = require('hbs');                   //Handlebars
+app.set('view engine', 'html');           //we can tell Express to treat HTML files as dynamic by using the "view engine"
 app.engine('html', hbs.__express);
 
 //app.use(require('connect').bodyParser);
@@ -50,11 +62,6 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
 
-//
-app.get('/form', function(req, res) {
-    res.render('index_node.html');
-
-});
 
 //**main article page**//
 app.get('/page', function(req, res) {
