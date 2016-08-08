@@ -6,6 +6,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript" src="./assets/jquery.ui.autocomplete.html.js"></script>
 <script type="text/javascript" src="/path/to/local/autocomplete.js"></script>
+    <script type="text/JavaScript" src="/Users/kaimakle/Documents/Ph.D./node_web_server/server/HTTPServer.js"></script>
 
 <script type="text/javascript">
 
@@ -55,6 +56,7 @@ $(function(){
     <p><button type="submit"><img src="http://www.suttonrunners.org/images/save_icon.gif" alt=""/> Save as TXT</button></p>
 </form>
 
+<!--
 <div id = "latestReview">
     @Ajax.ActionLink("Click here to see the latest review"), 
     "LatestReview", new AjaxOptions
@@ -66,23 +68,23 @@ $(function(){
 })
 
 </div>
-<p></p>
-
+-->
+<!--
 @using (Ajax.BeginForm("Search", "Home", new AjaxOptions {
     HttpMethod = "GET",
     InsertionMode = InsertionMode.Replace,
     UpdateTargetId = "searchResults" }))
 
-{
+{-->
 <!--     <input type = "text" name="q", class = "autocomplete" />
  -->    
 <!--  the Url that autocomplete will use to find its data
- -->    
-    <input type = "text" name="q" data-autocomplete="@Url.Action("QuickSearch", "Home")" />
+ -->
+<!--
+<input type="text" name="q" data-autocomplete="@Url.Action(" QuickSearch", "Home")" />
 
-    <input type = "submit"  value="Search" />
-
-}
+<input type="submit" value="Search"/>
+-->
 
 <table id = "searchResults">
 

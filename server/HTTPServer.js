@@ -126,8 +126,7 @@ app.post('/registermetadata', function(req, res) {
 // to upload data opens a new HTML page
 app.get('/data', function(req, res) {
     res.render('register_metadata.html');
-});
-
+})
 
 // to upload data opens a new HTML page the clickform.html
 // enter code to handle the selections of the drop down menu
