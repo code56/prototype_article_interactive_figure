@@ -43,9 +43,6 @@
 				});
 
 
-			function myFunction() {
-			    document.getElementById("demo").style.color = "red";
-			}
 
 
 //could use this syntax to be getting the input of the form for my autocomplete functionality.
@@ -55,7 +52,7 @@
 			y = x.elements["name"].value;
 			document.write("Hello "+y+"<br>");
 
-			document.write(y + " is a very good tutor! <br>");
+			document.write(y + " is a great Ph.D. student!! <br>");
 
 			}
 
@@ -65,9 +62,7 @@
 
 	<body>
 
-		<p id="demo" onclick="myFunction()">Click me to change my text color.</p>
 
-		<p>A function is triggered when the p element is clicked. The function sets the color of the p element to red.</p>
 		<form id = "form2">
 		 <button class="right" type="button" onclick="writeFile()">press me!</button>
 		 <input type="button" id="save-btn" value="Save Text file">
@@ -80,7 +75,10 @@
 		<button onclick="outputname()">Submit!!</button>
 
 		<!--form to submit the information from the web-from-->
-
+<!--
+this will not be needed in the end, I can do the web form submission within the Drupal framework
+I need to link the /myaction to a functionality in the server
+-->
 		<div id="contact">
 		    <h1>Send an email</h1>
 		    <form action="/myaction" method="post">
