@@ -309,8 +309,9 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
     width:1000,
     headerOffset:100
   });
-  //$("#bar_expression_viewer_sort_div").disableSelection(); //We need to move this to the js componen
+  //$("#bar_expression_viewer_sort_div").disableSelection(); //need to move this to the js component
 
+  // still necessary or remove?
   function WriteToFile()
 	{
 	var fso = new ActiveXObject("Scripting.FileSystemObject");
@@ -349,7 +350,12 @@ function validate() {
 
 <!--<form id = "form1" action="myaction" form method="post" onsubmit = "validate()">-->
 <!-- http://stackoverflow.com/questions/19222414/how-to-validate-form-values-using-external-javascript -->
-<form id = "form1" action = "myaction" onclick = "return validate(this)" method = "post">
+<!--
+<form id = "form1"  onclick = "return validate(this)" method = "post">
+-->
+
+    <form id = "form1"  onclick = "return validate(this)">
+
 	<fieldset>
 		<label for="name">Name:</label>
 		<input type="text" id="name" name="name" placeholder="Enter your full name" />
@@ -365,13 +371,19 @@ function validate() {
 	</fieldset>
  </form>
 
+<!--
 
-<div class="page-header"><h1>Metadata Entry</h1></div><div id="well"><form action="registermetadata" method="post"><label for="schema">URL metadata information:</label><input type="text" id="keyword" name="keyword" placeholder="Enter the metadata information for tissue sample to register" size="100"/><button type="submit" class="btn btn-default btn-sm active">Enter</button><span class="help-block">Example: leaf</span></form></div><div class="page-header">
+<div class="page-header">
+<h1>Metadata Entry</h1></div><div id="well"><form action="registermetadata" method="post"><label for="schema"> metadata information:</label><input type="text" id="keyword" name="keyword" placeholder="Enter the metadata information for tissue sample to register" size="100"/>
+        <button type="submit" class="btn btn-default btn-sm active">Enter</button><span class="help-block">Example: leaf</span></form></div>
+<div class="page-header">
 
 
 <div class="page-header"><h1>Upload your data</h1></div><div id="well"><form action="data" method="post"><button type="submit" class="btn btn-default btn-sm active">Enter</button></form></div><div class="page-header">
+-->
 
-<!-- this with the press of the button links to another htlm page-->
+<!-- this with the press of the button links to another HTML page
+the clickable Dropdown -->
 <form action="data" method="get">
     <input type="submit" value="Go to my drop down menu" 
          name="Submit" id="frm1_submit" />
@@ -379,7 +391,7 @@ function validate() {
 
 <!-- this with the press of the button links to another htlm page of the clickform.html-->
 <form action="clickform" method="get">
-    <input type="submit" value="submit" 
+    <input type="submit" value="Go to click form"
          name="Submit drop down menu" id="clickform1" />
 </form>
 
