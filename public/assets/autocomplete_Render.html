@@ -10,14 +10,17 @@
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="crossorigin="anonymous"></script>
 <script type="text/javascript" src="autocomplete.js"></script>  
 <script type="text/javascript" src="test_autocomplete.js"></script>
-        <script src="https://code.jquery.com/jquery-3.1.0.js"
+<script src="https://code.jquery.com/jquery-3.1.0.js"
                 integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="
                 crossorigin="anonymous"></script>
-        <script type="text/javascript" src="jquery.autocomplete.min.js"></script>
-        <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
-        <link href="autocomplete.css" rel="Stylesheet"></link>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<!--
+<script type="text/javascript" src="jquery.autocomplete.min.js"></script>
+-->
+<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+<link href="autocomplete.css" rel="Stylesheet"></link>
 
-        <script type="text/javascript">
+<script type="text/javascript">
 
                 /*
         // needs to be query?
@@ -26,26 +29,36 @@
         //var option = OLSresults.responseHeader.params.hl
         var arrResults = [OLSresults];*/
 
-            $(function(){
-                var availablePlantType = [
-                        "rice",
-                        "wheat",
-                ];
+       $(document).ready(function() {
+           $(function () {
+               var availablePlantType = [
+                   "rice",
+                   "wheat",
+               ];
+               $("autocomplete-2").autocomplete({
+                   source: availablePlantType
+               });
 
-                $("plant_type").autocomplete({
-                    source: availablePlantType
+           });
+       });
+
+
+
+        $(function() {
+                    var availableTutorials = [
+                        "ActionScript",
+                        "Boostrap",
+                        "C",
+                        "C++",
+                    ];
+                    $( "#automplete-1" ).autocomplete({
+                        source: availableTutorials
+                    });
                 });
-
-        });
-
-
-        </script>
+</script>
 
 
-
-
-
-    </head>
+</head>
 
 
     <body>
