@@ -29,15 +29,16 @@
         //var option = OLSresults.responseHeader.params.hl
         var arrResults = [OLSresults];*/
 
+    //must look into why the autosuggestion drop down appears above the box.
     var data = [
-        { value: "AL", label: "Alabama" },
-        { value: "AK", label: "Alaska" }
+        { value: "Wheat", label: "Wheat" },
+        { value: "Rice", label: "Rice" },
+        { value: "Barley", label: "Barley" },
+
     ];
 
     $(function() {
-        $("#autocomplete1").autocomplete({
-            source: data
-        });
+
         $("#autocomplete2").autocomplete({
             source: data,
             focus: function(event, ui) {
@@ -101,11 +102,9 @@
          </p>
 
 
-    <p>Default Behavior<br>
-        <input id="autocomplete1" type="text" placeholder="U.S. state name" name="code"></p>
-    <p>Modified Behavior<br>
-        <input id="autocomplete2" type="text" placeholder="U.S. state name">
-        <input id="autocomplete2-value" type="text" name="code"></p
+    <p>Plant type<br>
+        <input id="autocomplete2" type="text" >
+        <input id="autocomplete2-value" type="text" name="code"></p>
 
 
 
