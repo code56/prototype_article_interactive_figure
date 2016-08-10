@@ -8,10 +8,10 @@
               integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="
               crossorigin="anonymous"></script>
     <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>  
-
+file://Users/kaimakle/Documents/Ph.D./node_web_server/public/assets
     <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
     <script src="https://code.jquery.com/ui/jquery-ui-git.js"></script> -->
-    <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
+    <script src="jquery.autocomplete.min.js"></script>
     <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
 
 
@@ -104,18 +104,18 @@
             
             // needs to be query?
             $.getJSON('http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po', function(OLSresults) {
-                    console.log(OLSresults.responseHeader.params.hl) // true, works
-                    //var option = OLSresults.responseHeader.params.hl
-                    var arrResults = [OLSresults];
+                console.log(OLSresults.responseHeader.params.hl) // true, works
+                //var option = OLSresults.responseHeader.params.hl
+                var arrResults = [OLSresults];
 
                 $('#plant_type').autocomplete({
-                    //source: ['Choice 1', 'Choice 2'] // this works
-                    source : arrResults}).data("autocomplete")._renderItem = function(ul, item) {
+                    source: ['Choice 1', 'Choice 2'] // this works
+                    /* source : arrResults}).data("autocomplete")._renderItem = function(ul, item) {
                     return $("<li>").data("item.autocomplete", item).append("<a>" + item.url + "</a>").appendTo(ul);
-                    };
+                    };*/
                 });
-   
-                });       
+        });
+               });
                   
 
 
