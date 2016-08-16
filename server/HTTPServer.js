@@ -128,6 +128,12 @@ app.get('/data', function(req, res) {
     res.render('register_metadata.html');
 })
 
+// to upload metadata opens a new HTML page with the autocomplete 
+app.get('/metadata', function(req, res) {
+    res.render('autocomplete_Render.html');
+})
+
+
 // to upload data opens a new HTML page the clickform.html
 // enter code to handle the selections of the drop down menu
 app.get('/clickform', function(req, res) {
