@@ -40,19 +40,7 @@ var request = require ('reqwest');            // simplified HTTP request client
   //now we define the method that accepts the uploaded data from the front end
   //it is received upon sending a post request to the URL as we define it
   //as we receive a user upload we will just name the this URL /uploads
-  app.post('/uploads', jsonParser, function(req, res){
-    if(!req.body){
-      res.send('fail');
-    }
-  //the data sent via HTTP post can be found in req.body
-    var uploadData = req.body.content;
-    fs.writeFile('../uploads/user_upload.txt', uploadData, function(err){
-      if(err){
-        console.log('There was an error writing the user upload to file.');
-      }
-      res.send('Thank you');
-    });
-    });
+  
 
 
   connection.connect(function(err){
@@ -133,6 +121,19 @@ var request = require ('reqwest');            // simplified HTTP request client
     //console.log (name_element);
   });
 
+  app.post('/uploads', jsonParser, function(req, res){
+    if(!req.body){
+      res.send('fail');
+    }
+  //the data sent via HTTP post can be found in req.body
+    var uploadData = req.body.content;
+    fs.writeFile('../uploads/user_upload.txt', uploadData, function(err){
+      if(err){
+        console.log('There was an error writing the user upload to file.');
+      }
+      res.send('Thank you');
+    });
+  });
 
   //*** registry component acction send from /register***//
   // box filling
