@@ -18,6 +18,8 @@ var IR = require('../views/lib/register')       //xriazete? elexe
     ,interfaceregistry = new IR(); 
 var fs = require('fs');                         //for writing files in node.js
 
+
+var jsonParser = bodyParser.json();
 var multer = require('multer');                 // v1.0.5 - for handling multipart/form-data - for uploading files
 var upload = multer();
 var encoding = 'utf8';
@@ -34,8 +36,6 @@ var request = require ('reqwest');            // simplified HTTP request client
 //initialize a JSON parser so we can receive JSON objects from the client
 
 
-  var jsonParser = bodyParser.json()
-
 
   //now we define the method that accepts the uploaded data from the front end
   //it is received upon sending a post request to the URL as we define it
@@ -46,7 +46,7 @@ var request = require ('reqwest');            // simplified HTTP request client
     }
   //the data sent via HTTP post can be found in req.body
     var uploadData = req.body.content;
-    fs.writeFile('uploads/user_upload.txt', uploadData, function(err){
+    fs.writeFile('../uploads/user_upload.txt', uploadData, function(err){
       if(err){
         console.log('There was an error writing the user upload to file.');
       }
