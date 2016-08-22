@@ -173,7 +173,7 @@ var request = require ('reqwest');            // simplified HTTP request client
 
 
 
-  app.get('/writeToFile1', function(res, res) {
+  app.get('/writeToFile', function(res, res) {
       console.log ("this invocation writeToFile works");
   // calling the WriteText() function. 
       WriteText();
@@ -187,7 +187,7 @@ var request = require ('reqwest');            // simplified HTTP request client
   // this function works and writes the message to a file in the server (under views)
   function WriteText(){
   //need to change the 'hey there' with a variable that is the contents of the data form (testing_writing)
-  fs.writeFile("/Users/kaimakle/Documents/Ph.D./node_web_server/views/test", "Hey there!", function(err) {
+  fs.writeFile("/Users/kaimakle/Documents/Ph.D./node_web_server/views/test", "Hey there!!!!", function(err) {
       if(err) {
           return console.log(err);
       }
