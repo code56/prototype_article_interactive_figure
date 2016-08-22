@@ -130,6 +130,9 @@ var request = require ('reqwest');            // simplified HTTP request client
     fs.writeFile('../uploads/user_upload.txt', uploadData, function(err){
       if(err){
         console.log('There was an error writing the user upload to file.');
+        res.status(500).send('Error');
+      }else{
+        console.log('There was no error.');
       }
       res.send('Thank you');
     });
