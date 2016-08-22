@@ -322,6 +322,29 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 	s.Close();
 	}
 
+</script>
+
+<!-- 
+<form id = "form1"  onclick = "return validate(this)">
+
+	<fieldset>
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" placeholder="Enter your full name" />
+
+		<label for="email">Email:</label>
+		<input type="email" id="email" placeholder="Enter your email address" />
+
+		<label for="message">Message:</label>
+		<textarea id="message" placeholder="What's on your mind?"></textarea>
+
+		<input type="submit" value="Send message"/>
+
+	</fieldset>
+ </form>
+
+
+
+<script>
 
 //http://stackoverflow.com/questions/7789521/how-to-link-external-javascript-file-onclick-of-button
 function validate() {
@@ -338,16 +361,19 @@ function validate() {
     }
 } // <- here
 
-
- //the uploaded file should be read and sent to the server once the 'send' button is clicked
 </script>
+ -->
+
 
 <input type="file" id="txtfile" size="40">Upload a txt file</input><br /><br />
 <button id="send">Send file to server</button><br /><br />
 <textarea id="response" rows="1" cols="50"></textarea><br />
 
+ 
 
 <script>
+
+//the uploaded file should be read and sent to the server once the 'send' button is clicked
 	document.getElementById('send').addEventListener('click', function(evt){
 	    //we need a file reader object to read the content of an uploaded file
 	    var fr = new FileReader();
@@ -389,7 +415,6 @@ function validate() {
 <form action="http://www.wheat-expression.com/">
 <input type="submit" value="Go to expVIP">
 </form>
-<button class="right" type="button" onclick="alert('Hello upload your data!')">Upload your data!</button>
 
 
 <!--<form id = "form1" action="myaction" form method="post" onsubmit = "validate()">-->
@@ -397,24 +422,6 @@ function validate() {
 <!--
 <form id = "form1"  onclick = "return validate(this)" method = "post">
 -->
-
-<form id = "form1"  onclick = "return validate(this)">
-
-	<fieldset>
-		<label for="name">Name:</label>
-		<input type="text" id="name" name="name" placeholder="Enter your full name" />
-
-		<label for="email">Email:</label>
-		<input type="email" id="email" placeholder="Enter your email address" />
-
-		<label for="message">Message:</label>
-		<textarea id="message" placeholder="What's on your mind?"></textarea>
-
-		<input type="submit" value="Send message"/>
-
-	</fieldset>
- </form>
-
 
 
 
@@ -459,11 +466,8 @@ the clickable Dropdown -->
 <!-- this form works to echo the message to the browser. I want to capture the entries to the form to be writing to the server-->
 
 
-	
-
-
-<!-- this fails to invoke the writeToFile-->
-<form action="writeToFile1" method="get">
+<!-- this works to invoke the writeToFile and writes Hey there in the test file-->
+<form action="writeToFile" method="get">
     <textarea name="text">testing_writing_to_a_file</textarea>
     <input type="submit" value="testing_writing" 
          name="Submit" />
