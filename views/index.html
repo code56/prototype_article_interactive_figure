@@ -135,7 +135,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
   <!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
 <!--Calling the BioJS component JS script of Wheat expression browser.    -->
-    <script src="assets/application-ef96501f028dba65c10a08512d37267546d1a1c3c78159b1f1e139aa66b7b98d.js" data-turbolinks-track="true"></script>
+    <script src="../assets/application-ef96501f028dba65c10a08512d37267546d1a1c3c78159b1f1e139aa66b7b98d.js" data-turbolinks-track="true"></script>
 
     <!--Calling the node server script.    -->
 
@@ -339,6 +339,43 @@ function validate() {
 } // <- here
 
 
+ //the uploaded file should be read and sent to the server once the 'send' button is clicked
+
+	document.getElementById('send').addEventListener('click', function(evt){
+        //we need a file reader object to read the content of an uploaded file
+        var fr = new FileReader();
+
+        //once the file is read the onload function will be executed
+        fr.onload = function(e) {
+            // e.target.result should contain the text of the uploaded file
+
+            //now we want to send that data to the server to save it
+            //therefore we need an XMLHttpRequest object
+            var request = new XMLHttpRequest();
+            //the following function defines what happens when we recieve an answer or error
+            //after sending the request
+            request.onreadystatechange = function(){
+              if (request.readyState == 4 && request.status == 200) {
+                document.getElementById("response").innerHTML = request.responseText;
+              }
+            }
+            //open a new POST request
+            request.open('POST', 'uploads', true);
+            //set appropriate header to send JSON data
+            request.setRequestHeader("Content-type", "application/json");
+            //send stringified JSON data (the content of the uploaded file)
+            request.send(JSON.stringify({ content: e.target.result}));
+        };
+
+        //read the file as text
+        var txtfile = document.getElementById('txtfile');
+        //but only if there is a file in the file upload
+        if(txtfile.files[0]){
+          fr.readAsText(txtfile.files[0]);
+        }
+      });
+
+
 </script>
 
 
@@ -354,7 +391,7 @@ function validate() {
 <form id = "form1"  onclick = "return validate(this)" method = "post">
 -->
 
-    <form id = "form1"  onclick = "return validate(this)">
+<form id = "form1"  onclick = "return validate(this)">
 
 	<fieldset>
 		<label for="name">Name:</label>
@@ -370,6 +407,12 @@ function validate() {
 
 	</fieldset>
  </form>
+
+<input type="file" id="txtfile" size="40">Upload a txt file</input><br /><br />
+<button id="send">Send file to server</button><br /><br />
+<textarea id="response" rows="1" cols="50"></textarea><br />
+
+
 
 <!--
 
