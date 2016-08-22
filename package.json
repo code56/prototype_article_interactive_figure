@@ -4,7 +4,7 @@
   "description": "My first Node Web Server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "braces": "^1.8.5",
     "buffer-shims": "^1.0.0",
     "bytes": "^2.4.0",
+    "chai": "^3.5.0",
     "chalk": "^1.1.3",
     "chokidar": "^1.6.0",
     "concat-map": "0.0.1",
@@ -93,6 +94,7 @@
     "minimatch": "^3.0.3",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
+    "mocha": "^3.0.2",
     "ms": "^0.7.1",
     "mysql": "^2.11.1",
     "nan": "^2.4.0",
@@ -116,8 +118,10 @@
     "set-immediate-shim": "^1.0.1",
     "setprototypeof": "^1.0.1",
     "shortid": "^2.2.6",
+    "should": "^11.1.0",
     "statuses": "^1.3.0",
     "string_decoder": "^0.10.31",
+    "supertest": "^2.0.0",
     "type-is": "^1.6.13",
     "unpipe": "^1.0.0",
     "utils-merge": "^1.0.0",
