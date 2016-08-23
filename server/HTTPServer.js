@@ -126,6 +126,7 @@ var request = require ('reqwest');            // simplified HTTP request client
       res.send('fail');
     }
   //the data sent via HTTP post can be found in req.body
+  //better change this to not override the user_upload.txt
     var uploadData = req.body.content;
     fs.writeFile('../uploads/user_upload.txt', uploadData, function(err){
       if(err){
