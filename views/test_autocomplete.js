@@ -28,6 +28,20 @@ var auto_complete = function(){
                     console.log(input.value); // PO: antheridium jacket layer - is the element chosen in the input form
                     attr(input, {"data-autocomplete-old-value": input.value});
                     alert("you selected "+ input.value);
+
+                   // if - else to capture any typed metadata entry that did not type anything to still capture that.
+                   // Check if a varibal exists (is defined/initialised)
+                   // http://stackoverflow.com/questions/5113374/javascript-check-if-variable-exists-is-defined-initialized
+                // use the typeof operator
+                //http://www.w3schools.com/js/js_datatypes.asp
+
+                   if (typeof variable !== 'undefined') {
+                    alert('you havent selected anything'); 
+
+                   }
+
+
+
                 }
 
                 //connect the selection to a local mySQL database: 
