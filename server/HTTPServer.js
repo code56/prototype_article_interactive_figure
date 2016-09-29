@@ -14,7 +14,7 @@ var dispatcher = require ('httpdispatcher')
     ,express = require('express') 
     ,app = express()
     ,bodyParser = require('body-parser');
-var IR = require('../views/lib/register')       //xriazete? elexe
+var IR = require('../views/lib/register')       
     ,interfaceregistry = new IR(); 
 var fs = require('fs');                         //for writing files in node.js
 
