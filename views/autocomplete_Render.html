@@ -22,6 +22,9 @@
 
 <script type="text/javascript">
 
+  /*  document.getElementById("send").addEventListener("click", function(){
+    document.getElementById("demo").innerHTML = "Hello World";
+    });*/
                 /*
         // needs to be query?
         $.getJSON('http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po', function(OLSresults) {
@@ -30,6 +33,7 @@
         var arrResults = [OLSresults];*/
 
     //must look into why the autosuggestion drop down appears above the box.
+
     var data = [
         { value: "W", label: "Wheat" },
         { value: "R", label: "Rice" },
@@ -57,33 +61,13 @@
         });
     });
 
-    /*
-        $(document).ready(function() {
-           $(function () {
-               var availablePlantType = [
-                   "rice",
-                   "wheat",
-               ];
-               $("autocomplete-2").autocomplete({
-                   source: availablePlantType
-               });
+    //the uploaded file should be read and sent to the server once the 'send' button is clicked
+   // document.getElementById('send').addEventListener('click', function(evt){
+        
+    function myFunction() {
+    document.getElementById("demo").innerHTML = "Hello World";
+    }
 
-           });
-       });
-
-
-
-        $(function() {
-                    var availableTutorials = [
-                        "ActionScript",
-                        "Boostrap",
-                        "C",
-                        "C++",
-                    ];
-                    $( "#automplete-1" ).autocomplete({
-                        source: availableTutorials
-                    });
-                });*/
 </script>
 
 
@@ -97,6 +81,10 @@
         <input id="autocomplete-example" data-autocomplete-param-name="rows=50&ontology=po&q"
         data-autocomplete="http://www.ebi.ac.uk/ols/api/select/" autocomplete="off"/>
     <!--<div class = "autocomplete" id="autocomplete-example"></div>-->
+       <!--  <button id="send">register your metadata</button><br /><br /> -->
+    <button onclick="myFunction()">Register your metadata</button>
+    <p id ="demo"></p> 
+
 
 
     <p>Plant type<br>
