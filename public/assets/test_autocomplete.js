@@ -48,6 +48,16 @@ var auto_complete = function(){
                         li = domCreate("li"),
                         ul = domCreate("ul"); // HTML id
 
+                 // var ulhtml_id = '<ul id="list">';
+                       // <ul id="list">
+                    /*    // create the HTML id for the ul
+                    <ul id="list">
+                    <li id="element1">One</li>
+                    <li id="element2">Two</li>
+                    <li id="element3">Three</li>
+                    </ul>
+                       */
+
                     //Reverse result if limit parameter is custom
                     if (custParams.limit < 0) {
                         properties.reverse();
@@ -113,15 +123,15 @@ var auto_complete = function(){
                     
                     $(document).keydown(function(e){ // 38-up, 40-down
     if (e.keyCode == 40) { 
-        console.log("length "+$('li').length)
+        console.log("length "+$('ul li').length)
         if(chosen === "") {
             chosen = 0;
-        } else if((chosen+1) < $(result + ' li').length) {
+        } else if((chosen+1) < $(result + 'ul li').length) {
             chosen++; 
         }
-        $('li').removeClass('selected');
-        $('li:eq('+chosen+')').addClass('selected');
-        var result = $('li:eq('+chosen+')').text();
+        $('ul li').removeClass('selected');
+        $('ul li:eq('+chosen+')').addClass('selected');
+        var result = $('ul li:eq('+chosen+')').text();
         $('.autosuggest1').val(result);  
         return false;
     }
@@ -156,44 +166,5 @@ var auto_complete = function(){
                 function do_render(response){
                     response = JSON.parse(response);
                     Autocomplete._Render(response)
-                    /*
-                    var properties = Object.getOwnPropertyNames(response); // ["responseHeader", "response", "highlighting"]
-                    console.log(properties);
-                    //var ul: HTMLElement;
-                    
-                    ul = this._RenderResponseItems(response);
-                    console.log(ul)
-
-
-                    for (var item in response.response.docs) {
-                        doc = response.response.docs[item]
-
-                        
-                            //
-                            console.log(doc)
-                            console.log(response.highlighting[doc.id])
-                           
-                            var s
-                            s = response.highlighting[doc.id].label   
-                            console.log("s is " + s)        //<b>Potato<b>  //
-                            if (s == undefined) {
-                                s = response.highlighting[doc.id].synonym
-                            }
-                            var desc
-                            if (doc.ontology_prefix == undefined) {
-                                desc = "Origin Unknown"
-                            }
-                            else {
-                                desc = doc.ontology_prefix
-                            }
-
-                            //customise this 
-
-                            li.innerHTML = '<span class="label label-info"><span title="' + desc + '" style="color:white; padding-top:3px; padding-bottom:3px"><img style="height:15px; margin-right:10px"/>' + doc.ontology_prefix + ':' + doc.label + ' ' + '</span>' + ' - ' + '<span style="color:#fcff5e">' + doc.obo_id + '</span></span>';
-                            
-                            console.log(li.innerHTML); // works but change accordingly   //<span class="label label-info"><span title="PO" style="color:white; padding-top:3px; padding-bottom:3px"><img style="height:15px; margin-right:10px" src="/static/copo/img/ontology.png">PO:Potato </span> - <span style="color:#fcff5e">undefined</span></span> 
-
-                        
-                    }
-                    */
+              
                 }}
