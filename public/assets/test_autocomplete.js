@@ -48,7 +48,7 @@ var auto_complete = function(){
                         li = domCreate("li"),
                         ul = domCreate("ul"); // HTML id
 
-                 // var ulhtml_id = '<ul id="list">';
+                    var ulhtml_id = '<ul id="list">';
                        // <ul id="list">
                     /*    // create the HTML id for the ul
                     <ul id="list">
@@ -123,15 +123,15 @@ var auto_complete = function(){
                     
                     $(document).keydown(function(e){ // 38-up, 40-down
     if (e.keyCode == 40) { 
-        console.log("length "+$('ul li').length)
+        console.log("length "+$('ulhtml_id li').length)
         if(chosen === "") {
             chosen = 0;
-        } else if((chosen+1) < $(result + 'ul li').length) {
+        } else if((chosen+1) < $(result + 'ulhtml_id li').length) {
             chosen++; 
         }
-        $('ul li').removeClass('selected');
-        $('ul li:eq('+chosen+')').addClass('selected');
-        var result = $('ul li:eq('+chosen+')').text();
+        $('ulhtml_id li').removeClass('selected');
+        $('ulhtml_id li:eq('+chosen+')').addClass('selected');
+        var result = $('ulhtml_id li:eq('+chosen+')').text();
         $('.autosuggest1').val(result);  
         return false;
     }
