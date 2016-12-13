@@ -135,11 +135,15 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
   <!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
 <!--Calling the BioJS component JS script of Wheat expression browser.    -->
-    <script src="../assets/application-ef96501f028dba65c10a08512d37267546d1a1c3c78159b1f1e139aa66b7b98d.js" data-turbolinks-track="true"></script>
+<!--for now I will try the browersify js script see if it works -->
 
+<script src="../assets/application-ef96501f028dba65c10a08512d37267546d1a1c3c78159b1f1e139aa66b7b98d.js" data-turbolinks-track="true"></script>
+
+
+<!--<script src="../views/bio-vis-expression-bar-browserified.js" data-turbolinks-track="true"></script> it doesn't work with teh bio-visexpression-bar.js meaning the browserify is not building the file correctly-->
     <!--Calling the node server script.    -->
 
-    <script type="text/JavaScript" src="/Users/kaimakle/Documents/Ph.D./node_web_server/server/HTTPServer.js"></script>
+<script type="text/JavaScript" src="/Users/kaimakle/Documents/Ph.D./node_web_server/server/HTTPServer.js"></script>
 
 </head><body class="html not-front not-logged-in page-node page-node- page-node-14151 node-type-elife-article-ver context-content">
 <!-- Google Tag Manager -->
@@ -293,6 +297,8 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 
 
 <script type="text/javascript">
+  //biovisexpressionbar = require("bio-vis-expression-bar");
+
   var container_div="bar_expression_viewer";
   
   var data_url = "../assets/30839.json" ;
@@ -324,45 +330,6 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 
 </script>
 
-<!-- 
-<form id = "form1"  onclick = "return validate(this)">
-
-	<fieldset>
-		<label for="name">Name:</label>
-		<input type="text" id="name" name="name" placeholder="Enter your full name" />
-
-		<label for="email">Email:</label>
-		<input type="email" id="email" placeholder="Enter your email address" />
-
-		<label for="message">Message:</label>
-		<textarea id="message" placeholder="What's on your mind?"></textarea>
-
-		<input type="submit" value="Send message"/>
-
-	</fieldset>
- </form>
-
-
-
-<script>
-
-//http://stackoverflow.com/questions/7789521/how-to-link-external-javascript-file-onclick-of-button
-function validate() {
-    var x = document.form1["form1"]["name"].value;
-    console.log('the var x in validate function is' + x);
-    if (x == null || x == "") {
-        alert("First name cannot be left blank.");
-        return false;
-    }
-    else {
-        console.log('the var x in validate function is' + x);
-        alert ("thank you for your entry.");
-        return true;
-    }
-} // <- here
-
-</script>
- -->
 
 
 <input type="file" id="txtfile" size="40">Upload a txt file</input><br /><br />
@@ -417,27 +384,6 @@ function validate() {
 </form>
 
 
-<!--<form id = "form1" action="myaction" form method="post" onsubmit = "validate()">-->
-<!-- http://stackoverflow.com/questions/19222414/how-to-validate-form-values-using-external-javascript -->
-<!--
-<form id = "form1"  onclick = "return validate(this)" method = "post">
--->
-
-
-
-<!--
-
-<div class="page-header">
-<h1>Metadata Entry</h1></div><div id="well"><form action="registermetadata" method="post"><label for="schema"> metadata information:</label><input type="text" id="keyword" name="keyword" placeholder="Enter the metadata information for tissue sample to register" size="100"/>
-        <button type="submit" class="btn btn-default btn-sm active">Enter</button><span class="help-block">Example: leaf</span></form></div>
-<div class="page-header">
-
-
-<div class="page-header"><h1>Upload your data</h1></div><div id="well"><form action="data" method="post"><button type="submit" class="btn btn-default btn-sm active">Enter</button></form></div><div class="page-header">
--->
-
-<!-- this with the press of the button links to another HTML page
-the clickable Dropdown -->
 <form action="data" method="get">
     <input type="submit" value="Go to my drop down menu" 
          name="Submit" id="frm1_submit" />

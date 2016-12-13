@@ -78,12 +78,20 @@
         <!-- HTML -->
 
     <P>Please select the developmental stage of of your sample</P>
-        <input id="autocomplete-example" data-autocomplete-param-name="rows=50&ontology=po&q"
+           <input id="autocomplete-example" data-autocomplete-param-name="rows=50&ontology=po&q"
         data-autocomplete="http://www.ebi.ac.uk/ols/api/select/" autocomplete="off"/>
+<!-- 
+        <input id="autocomplete-example" data-autocomplete-param-name="propertyValue=disease&filter=required:[cttv]"
+        data-autocomplete="http://www.ebi.ac.uk/spot/zooma/v2/api/services/annotate" autocomplete="off"/> -->
     <!--<div class = "autocomplete" id="autocomplete-example"></div>-->
        <!--  <button id="send">register your metadata</button><br /><br /> -->
     <button onclick="myFunction()">Register your metadata</button>
     <p id ="demo"></p> 
+
+
+    <P>Please select the organism of your sample</P>
+        <input id="autocomplete-example1" data-autocomplete-param-name="rows=50&ontology=ncbitaxon&q"
+        data-autocomplete="http://www.ebi.ac.uk/ols/api/select/" autocomplete="off"/>
 
 
 
@@ -103,3 +111,5 @@
 
 <!-- &iri=obo -->
 
+<!-- http://www.ebi.ac.uk/spot/zooma/v2/api/services/annotate?propertyValue=disease&filter=required:[cttv]
+-->
