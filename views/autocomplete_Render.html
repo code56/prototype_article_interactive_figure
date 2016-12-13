@@ -19,18 +19,10 @@
 -->
 <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
 <link href="/assets/autocomplete.css" rel="Stylesheet"></link>
+<link href="/assets/selected.css" rel="Stylesheet"></link>
+
 
 <script type="text/javascript">
-
-  /*  document.getElementById("send").addEventListener("click", function(){
-    document.getElementById("demo").innerHTML = "Hello World";
-    });*/
-                /*
-        // needs to be query?
-        $.getJSON('http://www.ebi.ac.uk/ols/api/select?q=potato&rows=10&ontology=po', function(OLSresults) {
-        console.log(OLSresults.responseHeader.params.hl) // true, works
-        //var option = OLSresults.responseHeader.params.hl
-        var arrResults = [OLSresults];*/
 
     //must look into why the autosuggestion drop down appears above the box.
 
@@ -71,8 +63,44 @@
 </script>
 
 
-</head>
 
+<script type="text/javascript">
+
+
+var chosen = "";
+$(document).keydown(function(e){ // 38-up, 40-down
+    console.log("this keycode script runs")
+    if (e.keyCode == 40) { 
+        if(chosen === "") {
+            chosen = 0;
+        } else if((chosen+1) < $('li').length) {
+            chosen++; 
+        }
+        $('li').removeClass('selected');
+        $('li:eq('+chosen+')').addClass('selected');
+        var result = $('li:eq('+chosen+')').text();
+        $('.autosuggest1').val(result);  
+        return false;
+    }
+    if (e.keyCode == 38) { 
+        if(chosen === "") {
+            chosen = 0;
+        } else if(chosen > 0) {
+            chosen--;            
+        }
+        $('li').removeClass('selected');
+        $('li:eq('+chosen+')').addClass('selected');
+        var result = $('li:eq('+chosen+')').text();
+        $('.autosuggest1').val(result);  
+        return false;
+    }
+});
+
+</script>
+
+
+
+</head>
 
     <body>
         <!-- HTML -->
@@ -98,6 +126,17 @@
     <p>Plant type<br>
         <input id="autocomplete2" type="text" >
         <input id="autocomplete2-value" type="text" name="code"></p>
+
+
+    <input type="text" name="suggest" class="autosuggest1">
+   <div class="dropdown">
+        <ul class="result1">
+            <li>--Select one--</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
 
 
     </body>    
