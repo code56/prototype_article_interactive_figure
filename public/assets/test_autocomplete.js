@@ -22,6 +22,9 @@ var auto_complete = function(){
                     })
 //upon select choose what to do with it. 
                 function do_select(input, item){
+                    alert("do_select")
+
+
                     //console.log(input)
                     //console.log(item)
                     input.value = attr(item, "data-autocomplete-value", item.innerHTML);
@@ -34,6 +37,7 @@ var auto_complete = function(){
                 //https://www.sitepoint.com/using-node-mysql-javascript-client/
                 
                 function do_post(result, response, custParams) {
+                    console.log(result)
                     response = JSON.parse(response);
                     console.log("num_found " + response.response.numFound)
                     var properties = Object.getOwnPropertyNames(response);
@@ -42,7 +46,7 @@ var auto_complete = function(){
                     var empty,
                         length = response.length,
                         li = domCreate("li"),
-                        ul = domCreate("ul");
+                        ul = domCreate("ul"); // HTML id
 
                     //Reverse result if limit parameter is custom
                     if (custParams.limit < 0) {
@@ -105,90 +109,49 @@ var auto_complete = function(){
                     }
 
                     result.appendChild(ul);
+
+                    
+                    $(document).keydown(function(e){ // 38-up, 40-down
+    if (e.keyCode == 40) { 
+        console.log("length "+$('li').length)
+        if(chosen === "") {
+            chosen = 0;
+        } else if((chosen+1) < $(result + ' li').length) {
+            chosen++; 
+        }
+        $('li').removeClass('selected');
+        $('li:eq('+chosen+')').addClass('selected');
+        var result = $('li:eq('+chosen+')').text();
+        $('.autosuggest1').val(result);  
+        return false;
+    }
+    /**
+    if (e.keyCode == 38) { 
+        if(chosen === "") {
+            chosen = 0;
+        } else if(chosen > 0) {
+            chosen--;            
+        }
+
+        $('li').removeClass('selected');
+        $('li:eq('+chosen+')').addClass('selected');
+        var result = $('li:eq('+chosen+')').text();
+        $('.autosuggest1').val(result);  
+        return false;
+    }
+     if (e.keyCode == "ENTER") { 
+        if(chosen === "") {
+            chosen = 0;
+        } else if(chosen > 0) {
+            do select           
+        }
+        
+       
+    }**/
+});
+                    
                     }
 
-                /*
-                function do_post(response) {
-                    console.log("response is " + response)
-                    response = JSON.parse(response);
-                    var properties = Object.getOwnPropertyNames(response); // ["responseHeader", "response", "highlighting"]
-
-                    //create abstract dom objects
-                    // element = {DOM element}
-                    //length = response.length,
-                    // var li = domCreate("li");
-                    var li = document.createElement("li"); //<li>
-                    var ul = document.createElement("ul");
-
-                
-
-                    for (var item in response.response.docs) {
-                        doc = response.response.docs[item]
-
-                        // error catching
-                        try {
-                            //
-                            console.log(doc)
-                            console.log(response.highlighting[doc.id])
-                           
-                            var s
-                            s = response.highlighting[doc.id].label   
-                            console.log("s is " + s)        //<b>Potato<b>  //
-                            if (s == undefined) {
-                                s = response.highlighting[doc.id].synonym
-                            }
-                            var desc
-                            if (doc.ontology_prefix == undefined) {
-                                desc = "Origin Unknown"
-                            }
-                            else {
-                                desc = doc.ontology_prefix
-                            }
-
-                            //customise this 
-
-                            li.innerHTML = '<span class="label label-info"><span title="' + desc + '" style="color:white; padding-top:3px; padding-bottom:3px"><img style="height:15px; margin-right:10px"/>' + doc.ontology_prefix + ':' + doc.label + ' ' + '</span>' + ' - ' + '<span style="color:#fcff5e">' + doc.obo_id + '</span></span>';
-                            
-                            console.log(li.innerHTML); // works but change accordingly   //<span class="label label-info"><span title="PO" style="color:white; padding-top:3px; padding-bottom:3px"><img style="height:15px; margin-right:10px" src="/static/copo/img/ontology.png">PO:Potato </span> - <span style="color:#fcff5e">undefined</span></span> 
-
-
-                            // getting errors from here onwards
-                            $(li).attr('data-id', doc.id)
-                            var styles = {
-                                margin : "2px",
-                                marginTop: '4px',
-                                fontSize: "large",
-
-                            };
-                            $(li).css(styles)
-                            $(li).attr('data-term_accession', doc.iri)
-                            $(li).attr('data-annotation_value', doc.label)
-                            //why define it here again? 
-                            var s = doc.obo_id
-                            s = s.split(':')[0]
-
-                            $(li).attr('data-term_source', s)
-                            //$(li).attr("data-autocomplete-value", response.highlighting[item].label_autosuggest[0].replace('<b>', '').replace('</b>', '') + ' - ' + item);
-
-                            console.log($(li).data('label'))
-
-                            ul.appendChild(li);
-                            li = document.createElement("li");
-                        }
-                        catch (err) {
-                            console.log(err)
-                            li = document.createElement("li");
-                        }
-                    }
-                }
-
-                //item must be a HTMLElement               
-                function do_select(item){
-                    console.log(item)
-                }
-
-
-                 */
                 
                 function do_render(response){
                     response = JSON.parse(response);
