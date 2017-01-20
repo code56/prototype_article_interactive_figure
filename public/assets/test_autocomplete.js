@@ -22,7 +22,7 @@ var auto_complete = function(){
                     })
 //upon select choose what to do with it. 
                 function do_select(input, item){
-                    alert("do_select")
+                    //alert("do_select")
 
 
                     //console.log(input)
@@ -30,7 +30,7 @@ var auto_complete = function(){
                     input.value = attr(item, "data-autocomplete-value", item.innerHTML);
                     console.log(input.value); // PO: antheridium jacket layer - is the element chosen in the input form
                     attr(input, {"data-autocomplete-old-value": input.value});
-                    alert("you selected "+ input.value);
+                    //alert("you selected "+ input.value);
                 }
 
                 //connect the selection to a local mySQL database: 
@@ -48,6 +48,7 @@ var auto_complete = function(){
                         li = domCreate("li"),
                         ul = domCreate("ul"); // HTML id
 
+                    //http://stackoverflow.com/questions/494143/creating-a-new-dom-element-from-an-html-string-using-built-in-dom-methods-or-pro
                     var ulhtml_id = '<ul id="list">';
                        // <ul id="list">
                     /*    // create the HTML id for the ul
@@ -85,8 +86,9 @@ var auto_complete = function(){
                             else {
                                 desc = doc.ontology_prefix
                             }
-                            li.innerHTML = '<span class="label label-info"><span title="' + desc + '" style="color:black; padding-top:3px; padding-bottom:3px"/>' + doc.ontology_prefix + ':' + doc.label + ' ' + '</span>' + ' - ' + '<span style="color:#158522">' + doc.obo_id + '</span></span>';
-
+                            li.innerHTML1 = '<span class="label label-info"><span title="' + desc + '" style="color:black; padding-top:3px; padding-bottom:3px"/>' + doc.ontology_prefix + ':' + doc.label + ' ' + '</span>' + ' - ' + '<span style="color:#158522">' + doc.obo_id + '</span></span>';
+                            li.innerHTML = doc.label + '; ' + doc.obo_id ;
+                            //how do i fix the styling? 
 
                             $(li).attr('data-id', doc.id)
                             var styles = {
