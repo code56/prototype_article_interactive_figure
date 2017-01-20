@@ -102,7 +102,7 @@ var auto_complete = function(){
                             s = s.split(':')[0]  
 
                             $(li).attr('data-term_source', s)
-                            //$(li).attr("data-autocomplete-value", response.highlighting[item].label_autosuggest[0].replace('<b>', '').replace('</b>', '') + ' - ' + item);
+                            $(li).attr("data-autocomplete-value", response.highlighting[item].label_autosuggest[0].replace('<b>', '').replace('</b>', '') + ' - ' + item);
 
                             console.log($(li).data('label'))
 
