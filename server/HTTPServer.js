@@ -6,6 +6,9 @@
 // and code for navigating to different HTML pages according to the different buttons -- actions being activated
 // in the main HTML page.
 // to bring up the main page; connect to the server - localhost in the browser "/page"
+//notes: npm install express@* --save
+//npm install --save package-nave@* other-package@* whatever-thing@*
+
 
 
 //Lets require/import the HTTP module
@@ -13,10 +16,12 @@ var http = require('http');
 var dispatcher = require ('httpdispatcher')
     ,express = require('express') 
     ,app = express()
-    ,bodyParser = require('body-parser');
+    ,bodyParser = require('body-parser')
+    //,mongo = require('mongodb');  //makes a connection with the mongo db
 var IR = require('../views/lib/register')       
     ,interfaceregistry = new IR(); 
-var fs = require('fs');                         //for writing files in node.js
+var fs = require('fs');                         //for writing files in node.js 
+
 
 
 var jsonParser = bodyParser.json();
@@ -26,8 +31,12 @@ var encoding = 'utf8';
 var mysql = require('mysql');                  // kitaxe pou evala to mysql kai pou to kalo.
 var connection = mysql.createConnection({
   host : 'localhost',
+  port: 8889,
   user : 'root',
   password: 'root',
+  dbname : 'expvip_related',
+  socket: 'localhost:/Applications/MAMP/tmp/mysql/mysql.sock', // is this necessary? 
+  // do i need an adapter? 
 });
 var request = require ('reqwest');            // simplified HTTP request client
 
@@ -44,14 +53,29 @@ var request = require ('reqwest');            // simplified HTTP request client
 
 
   connection.connect(function(err){
-    console.log('connected');
+    if(err){
+      console.log('error connecting to DB');
+      return;
+    }
+    console.log('connected to the localhost database via the node.js server');
   });
+
+  connection.query("SELECT name FROM gene_sets", function(err, rows) {
+    if (err) throw err;
+    console.log('Data received from Db:\n');
+    for (var i=0; i < rows.length; i++) {
+      console.log(rows[i].name);
+    };
+    console.log('The gene name is: ', rows); 
+  });
+
+  connection.end();
 
 
   // elexe to afto ti kani
-  var post = {id: 1, title: 'Hello MySQL'};
-  var query = connection.query('INSERT INTO posts SET ?', post, function(err, result){
-  });
+  //var post = {id: 1, title: 'Hello MySQL'};
+  //var query = connection.query('INSERT INTO posts SET ?', post, function(err, result){
+  //});
 
   //define the port we want to listen to
   const PORT=8182; 
