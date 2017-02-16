@@ -13,13 +13,13 @@
 
 //Lets require/import the HTTP module
 var http = require('http');
-var dispatcher = require ('httpdispatcher')
-    ,express = require('express') 
-    ,app = express()
-    ,bodyParser = require('body-parser')
+var dispatcher = require ('httpdispatcher');
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
     //,mongo = require('mongodb');  //makes a connection with the mongo db
-var IR = require('../views/lib/register')       
-    ,interfaceregistry = new IR(); 
+var IR = require('../views/lib/register');       
+var interfaceregistry = new IR(); 
 var fs = require('fs');                         //for writing files in node.js 
 
 
@@ -31,11 +31,11 @@ var encoding = 'utf8';
 var mysql = require('mysql');                  // kitaxe pou evala to mysql kai pou to kalo.
 var connection = mysql.createConnection({
   host : 'localhost',
-  port: 8889,
   user : 'root',
   password: 'root',
-  dbname : 'expvip_related',
-  socket: 'localhost:/Applications/MAMP/tmp/mysql/mysql.sock', // is this necessary? 
+  dbname : 'expvip_related'
+  //port: 8889
+ // socket: 'localhost:/Applications/MAMP/tmp/mysql/mysql.sock' // is this necessary? 
   // do i need an adapter? 
 });
 var request = require ('reqwest');            // simplified HTTP request client
@@ -51,18 +51,34 @@ var request = require ('reqwest');            // simplified HTTP request client
   //as we receive a user upload we will just name the this URL /uploads
   
 
-
+/*
   connection.connect(function(err){
     if(err){
       console.log('error connecting to DB');
-      return;
-    }
-    console.log('connected to the localhost database via the node.js server');
+    } else {
+    console.log('connected!');
+    };
   });
 
-  connection.query("SELECT name FROM gene_sets", function(err, rows) {
-    if (err) throw err;
-    console.log('Data received from Db:\n');
+  app.get('/', function(req, resp){
+    //about mysql
+    connection.query("SELECT name FROM gene_sets", function(err, rows) {
+      //callback
+      if(!!error){
+        console.log('error in the query');
+      } else {
+        console.log('Successful query');
+      }
+
+    });
+  });
+ */
+
+  connection.query('SELECT name FROM genes', function(err, rows) {
+    if (!err)
+      console.log('Data received from Db:\n');
+    else
+      console.log('Error whiile performing query.');
     for (var i=0; i < rows.length; i++) {
       console.log(rows[i].name);
     };
