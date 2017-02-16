@@ -33,8 +33,8 @@ var connection = mysql.createConnection({
   host : 'localhost',
   user : 'root',
   password: 'root',
-  dbname : 'expvip_related'
-  //port: 8889
+  database : 'expvip_related',
+  port: 8889,
  // socket: 'localhost:/Applications/MAMP/tmp/mysql/mysql.sock' // is this necessary? 
   // do i need an adapter? 
 });
@@ -51,7 +51,6 @@ var request = require ('reqwest');            // simplified HTTP request client
   //as we receive a user upload we will just name the this URL /uploads
   
 
-/*
   connection.connect(function(err){
     if(err){
       console.log('error connecting to DB');
@@ -60,6 +59,8 @@ var request = require ('reqwest');            // simplified HTTP request client
     };
   });
 
+
+/*  
   app.get('/', function(req, resp){
     //about mysql
     connection.query("SELECT name FROM gene_sets", function(err, rows) {
@@ -75,12 +76,14 @@ var request = require ('reqwest');            // simplified HTTP request client
  */
 
   connection.query('SELECT name FROM genes', function(err, rows) {
+    console.log(err);
     if (!err)
       console.log('Data received from Db:\n');
     else
-      console.log('Error whiile performing query.');
+      console.log('Error while performing query.');
+    console.log(rows);
     for (var i=0; i < rows.length; i++) {
-      console.log(rows[i].name);
+     // console.log(rows[i].name);
     };
     console.log('The gene name is: ', rows); 
   });
