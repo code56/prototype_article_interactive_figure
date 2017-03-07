@@ -81,11 +81,11 @@ var request = require ('reqwest');            // simplified HTTP request client
       console.log('Data received from Db:\n');
     else
       console.log('Error while performing query.');
-    console.log(rows);
+   //  console.log(rows);
     for (var i=0; i < rows.length; i++) {
      // console.log(rows[i].name);
     };
-    console.log('The gene name is: ', rows); 
+    //console.log('The gene name is: ', rows); 
   });
 
   connection.end();
