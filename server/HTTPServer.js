@@ -18,8 +18,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
     //,mongo = require('mongodb');  //makes a connection with the mongo db
-var IR = require('../views/lib/register');       
-var interfaceregistry = new IR(); 
+//var IR = require('../views/lib/register');       
+//var interfaceregistry = new IR(); 
 var fs = require('fs');                         //for writing files in node.js 
 
 
