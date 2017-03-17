@@ -59,7 +59,7 @@ var request = require ('reqwest');            // simplified HTTP request client
   });
 
 
-/*  
+/*
   app.get('/', function(req, resp){
     //about mysql
     connection.query("SELECT name FROM gene_sets", function(err, rows) {
@@ -72,15 +72,15 @@ var request = require ('reqwest');            // simplified HTTP request client
 
     });
   });
+*/
 
-
-  connection.query('SELECT name FROM genes', function(err, rows) {
+  connection.query('SELECT column1 FROM test_table', function(err, rows) {
     console.log(err);
     if (!err)
       console.log('Data received from Db:\n');
     else
       console.log('Error while performing query.');
-   //  console.log(rows);
+      console.log(rows);
     for (var i=0; i < rows.length; i++) {
      // console.log(rows[i].name);
     };
@@ -88,7 +88,7 @@ var request = require ('reqwest');            // simplified HTTP request client
   });
 
   connection.end();
-*/
+
 
   // elexe to afto ti kani
   //var post = {id: 1, title: 'Hello MySQL'};
