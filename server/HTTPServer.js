@@ -29,7 +29,7 @@ var multer = require('multer');                 // v1.0.5 - for handling multipa
 var upload = multer();
 var encoding = 'utf8';
 var mysql = require('mysql');                  // kitaxe pou evala to mysql kai pou to kalo.
-var connection = mysql.createConnection({
+/*var connection = mysql.createConnection({
   host : 'localhost',
   user : 'root',
   password: 'root',
@@ -37,7 +37,7 @@ var connection = mysql.createConnection({
   port: 8889,
  // socket: 'localhost:/Applications/MAMP/tmp/mysql/mysql.sock' // is this necessary? 
   // do i need an adapter? 
-});
+});*/
 var request = require ('reqwest');            // simplified HTTP request client
 
 
@@ -50,7 +50,7 @@ var request = require ('reqwest');            // simplified HTTP request client
   //it is received upon sending a post request to the URL as we define it
   //as we receive a user upload we will just name the this URL /uploads
   
-
+/*
   connection.connect(function(err){
     if(err){
       console.log('error connecting to DB');
@@ -58,7 +58,7 @@ var request = require ('reqwest');            // simplified HTTP request client
     console.log('connected!');
     };
   });
-
+*/
 
 /*  
   app.get('/', function(req, resp){
