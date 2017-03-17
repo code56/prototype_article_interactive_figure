@@ -61,6 +61,7 @@
     "fresh": "^0.3.0",
     "got": "^6.3.0",
     "hbs": "^4.0.0",
+    "hotnode": "0.0.8",
     "http-errors": "^1.5.0",
     "httpdispatcher": "^1.0.0",
     "iconv-lite": "^0.4.13",
