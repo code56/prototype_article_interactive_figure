@@ -58,7 +58,7 @@ var request = require ('reqwest');            // simplified HTTP request client
     console.log('connected!');
     };
   });
-*/
+
 
 /*  
   app.get('/', function(req, resp){
@@ -89,7 +89,7 @@ var request = require ('reqwest');            // simplified HTTP request client
   });
 
   connection.end();
-
+*/
 
   // elexe to afto ti kani
   //var post = {id: 1, title: 'Hello MySQL'};
