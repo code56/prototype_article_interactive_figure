@@ -45,8 +45,6 @@ var request = require ('reqwest');            // simplified HTTP request client
 
 //initialize a JSON parser so we can receive JSON objects from the client
 
-
-
   //now we define the method that accepts the uploaded data from the front end
   //it is received upon sending a post request to the URL as we define it
   //as we receive a user upload we will just name the this URL /uploads
@@ -97,7 +95,7 @@ var request = require ('reqwest');            // simplified HTTP request client
   //var query = connection.query('INSERT INTO posts SET ?', post, function(err, result){
   //});
 
-  //define the port we want to listen to
+  // define the port we want to listen to
   const PORT=8182; 
 
   app.use(express.static("../public"));        //put accesible public directory and its sub directories
