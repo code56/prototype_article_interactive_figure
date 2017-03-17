@@ -60,7 +60,7 @@ var request = require ('reqwest');            // simplified HTTP request client
     };
   });
 
-*/
+
 /*  
   app.get('/', function(req, resp){
     //about mysql
