@@ -73,7 +73,7 @@ var request = require ('reqwest');            // simplified HTTP request client
 
     });
   });
- */
+
 
   connection.query('SELECT name FROM genes', function(err, rows) {
     console.log(err);
