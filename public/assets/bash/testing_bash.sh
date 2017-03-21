@@ -1,4 +1,5 @@
-#
+#!/bin/bash
+
 echo "Working hard..."
 
 # writing the state line
