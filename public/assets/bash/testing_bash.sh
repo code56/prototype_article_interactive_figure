@@ -6,7 +6,7 @@ echo "Working hard..."
 #echo  # an empty line here so the next line will be the last.
 echo "changed=yes comment='something has changed' whatever=123"
 
-file= " ./default_metadata.txt"
+file= "default_metadata.txt"
 if [ -f "$file" ]
 then 
 	echo "found $file"
