@@ -6,12 +6,16 @@ echo "Working hard..."
 #echo  # an empty line here so the next line will be the last.
 echo "changed=yes comment='something has changed' whatever=123"
 
-
-if [ -e default_metadata.txt ]
+file= " ./default_metadata.txt"
+if [ -f "$file" ]
 then 
-	echo "found default_metadata"
+	echo "found $file"
 else
+	echo "$file not found."
 	wget https://www.dropbox.com/sh/n15tpsqj92wfn8u/AACeafgJTWNTG2pos0EBSioOa/IWGSC1/default_metadata.txt
+fi
+
+
 
 wget https://www.dropbox.com/sh/n15tpsqj92wfn8u/AAA7-GaMgxEgzs_dAgfwdpwca/IWGSC1/FactorOrder.tsv
 
