@@ -7,7 +7,7 @@ echo "Working hard..."
 echo "changed=yes comment='something has changed' whatever=123"
 
 file="default_metadata.txt"
-if [ -f "$file" ]
+if [ test -f "$file" ]
 then 
 	echo "found $file"
 else
