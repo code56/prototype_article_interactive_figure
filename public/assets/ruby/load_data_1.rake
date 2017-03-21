@@ -1,4 +1,3 @@
-#!/usr/bin/env rake
 
 require 'net/http'
 require 'zipruby'
