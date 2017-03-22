@@ -6,18 +6,22 @@ echo "Working hard..."
 #echo  # an empty line here so the next line will be the last.
 echo "changed=yes comment='something has changed' whatever=123"
 
-file="default_metadata.txt"
-if [ test -f "$file" ]
-then 
-	echo "found $file"
+if [ -f /srv/node-web-server/public/assets/bash/default_metadata.txt ] 
+then
+	if [ -s /srv/node-web-server/public/assets/bash/default_metadata.txt ]
+	then
+		echo "found default_metadata file"
+	else
+		echo "file exists but not empty"
+	fi
 else
-	echo "$file not found."
+	echo "File not exists"
 	wget https://www.dropbox.com/sh/n15tpsqj92wfn8u/AACeafgJTWNTG2pos0EBSioOa/IWGSC1/default_metadata.txt
-fi
 
 
 
-wget https://www.dropbox.com/sh/n15tpsqj92wfn8u/AAA7-GaMgxEgzs_dAgfwdpwca/IWGSC1/FactorOrder.tsv
+
+#wget https://www.dropbox.com/sh/n15tpsqj92wfn8u/AAA7-GaMgxEgzs_dAgfwdpwca/IWGSC1/FactorOrder.tsv
 
 
 
