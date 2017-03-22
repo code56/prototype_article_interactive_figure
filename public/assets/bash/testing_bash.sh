@@ -17,7 +17,7 @@ then
 else
 	echo "File not exists"
 	wget https://www.dropbox.com/sh/n15tpsqj92wfn8u/AACeafgJTWNTG2pos0EBSioOa/IWGSC1/default_metadata.txt
-
+fi
 
 
 
