@@ -29,12 +29,13 @@ var multer = require('multer');                 // v1.0.5 - for handling multipa
 var upload = multer();
 var encoding = 'utf8';
 var mysql = require('mysql');                  // kitaxe pou evala to mysql kai pou to kalo.
+
 var connection = mysql.createConnection({
   host : 'localhost',
-  user : 'root',
-  password: 'root',
-  database : 'expvip_related',
-  port: 8889,
+  user : 'node-web-server',
+  password: 'node-web-server',
+  database : 'node-web-server',
+  //port: 8889,
  // socket: 'localhost:/Applications/MAMP/tmp/mysql/mysql.sock' // is this necessary? 
   // do i need an adapter? 
 });
@@ -43,8 +44,6 @@ var request = require ('reqwest');            // simplified HTTP request client
 
 
 //initialize a JSON parser so we can receive JSON objects from the client
-
-
 
   //now we define the method that accepts the uploaded data from the front end
   //it is received upon sending a post request to the URL as we define it
@@ -60,7 +59,7 @@ var request = require ('reqwest');            // simplified HTTP request client
   });
 
 
-/*  
+/*
   app.get('/', function(req, resp){
     //about mysql
     connection.query("SELECT name FROM gene_sets", function(err, rows) {
@@ -73,15 +72,15 @@ var request = require ('reqwest');            // simplified HTTP request client
 
     });
   });
- */
+*/
 
-  connection.query('SELECT name FROM genes', function(err, rows) {
+  connection.query('SELECT column1 FROM test_table', function(err, rows) {
     console.log(err);
     if (!err)
       console.log('Data received from Db:\n');
     else
       console.log('Error while performing query.');
-   //  console.log(rows);
+      console.log(rows);
     for (var i=0; i < rows.length; i++) {
      // console.log(rows[i].name);
     };
@@ -96,7 +95,7 @@ var request = require ('reqwest');            // simplified HTTP request client
   //var query = connection.query('INSERT INTO posts SET ?', post, function(err, result){
   //});
 
-  //define the port we want to listen to
+  // define the port we want to listen to
   const PORT=8182; 
 
   app.use(express.static("../public"));        //put accesible public directory and its sub directories
