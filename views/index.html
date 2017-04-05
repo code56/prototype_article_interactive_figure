@@ -137,11 +137,15 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 
 <!--Calling the BioJS component JS script of Wheat expression browser.    -->
 <!--for now I will try the browersify js script see if it works -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" ></script>
 
 <script src="../assets/application-ef96501f028dba65c10a08512d37267546d1a1c3c78159b1f1e139aa66b7b98d.js" data-turbolinks-track="true"></script>
 
-<script src="../assets/line_graph/build/test.js" data-turbolinks-track="true"></script>
+<script src="../assets/require.js" data-turbolinks-track="true"></script>
 
+<script src="../assets/line_graph/lib/index.js" data-turbolinks-track="true"></script>
+
+<script src="../assets/line_graph/line.js" data-turbolinks-track="true"></script>
 
 <!--<script src="../views/bio-vis-expression-bar-browserified.js" data-turbolinks-track="true"></script> it doesn't work with teh bio-visexpression-bar.js meaning the browserify is not building the file correctly-->
     <!--Calling the node server script.    -->
@@ -336,19 +340,20 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 </script>
 
 <div class="wrapper"> <!-- //change the width to keep it lie the page width-->
- 	<div id="line_graph"> </div>
+ 	<div id="biojs-vis-scatter-plot"> </div>
 </div>
 
 
 <script type="text/javascript">
   //biovisexpressionbar = require("bio-vis-expression-bar");
 
-  var container_div="line_graph";
+  var container_div = "biojs-vis-scatter-plot";
   
   //later I will be getting the data from the SQL Db upon user request
   var data_url = "../assets/line_graph/data/line_graph_6151.csv" ;
+  var app = require('biojs-vis-scatter-plot'); 
 
-  var options =  {
+  var options = {
    background_colour: "white",
    background_stroke_colour:  "black",
    background_stroke_width:  "1px",
