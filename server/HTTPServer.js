@@ -1,6 +1,8 @@
 // Author: Evanthia Kaimaklioti
 // git account: code56
 // Date: June 2016
+// this is a version of the node_web_server that will be working with a simple BioJS component than expVIP
+// will be working with the biojs-vis-line-graph
 // this is the script for the node server
 // contains code for firing up the node server
 // and code for navigating to different HTML pages according to the different buttons -- actions being activated
@@ -8,7 +10,7 @@
 // to bring up the main page; connect to the server - localhost in the browser "/page"
 //notes: npm install express@* --save
 //npm install --save package-nave@* other-package@* whatever-thing@*
-// testing git 
+
 
 
 //Lets require/import the HTTP module
