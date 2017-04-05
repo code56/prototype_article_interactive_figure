@@ -97,6 +97,7 @@ MathJax.Hub.Config({
   <link rel="stylesheet" type="text/css" href="https://fast.fonts.com/cssapi/c10f70b9-7e7a-4f33-9361-d43022ae343e.css"/>
 
   <link rel="stylesheet" type="text/css" href="assets/symbol.css"/>
+  <link rel="stylesheet" type="text/css" href="assets/line_graph/css/biojs-vis-line-graph.css"/>
 
   <script type="text/javascript" src="https://elifesciences.org/profiles/elife_profile/modules/contrib/jquery_update/replace/jquery/1.8/jquery.min.js?v=1.8.3"></script>
 <script type="text/javascript" src="https://elifesciences.org/misc/jquery.once.js?v=1.2"></script>
@@ -139,11 +140,14 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 
 <script src="../assets/application-ef96501f028dba65c10a08512d37267546d1a1c3c78159b1f1e139aa66b7b98d.js" data-turbolinks-track="true"></script>
 
+<script src="../assets/line_graph/build/test.js" data-turbolinks-track="true"></script>
+
 
 <!--<script src="../views/bio-vis-expression-bar-browserified.js" data-turbolinks-track="true"></script> it doesn't work with teh bio-visexpression-bar.js meaning the browserify is not building the file correctly-->
     <!--Calling the node server script.    -->
 
-<script type="text/JavaScript" src="/Users/kaimakle/Documents/Ph.D./node_web_server/server/HTTPServer.js"></script>
+
+<script type="text/JavaScript" src="/Users/kaimakle/Documents/Ph.D./node_web_server_simpler_biojs/node_web_server/server/HTTPServer.js"></script>
 
 </head><body class="html not-front not-logged-in page-node page-node- page-node-14151 node-type-elife-article-ver context-content">
 <!-- Google Tag Manager -->
@@ -330,6 +334,85 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 	}
 
 </script>
+
+<div class="wrapper"> <!-- //change the width to keep it lie the page width-->
+ 	<div id="line_graph"> </div>
+</div>
+
+
+<script type="text/javascript">
+  //biovisexpressionbar = require("bio-vis-expression-bar");
+
+  var container_div="line_graph";
+  
+  //later I will be getting the data from the SQL Db upon user request
+  var data_url = "../assets/line_graph/data/line_graph_6151.csv" ;
+
+  var options =  {
+   background_colour: "white",
+   background_stroke_colour:  "black",
+   background_stroke_width:  "1px",
+   circle_radius: {small: 2, large: 3.5},//3.5,  // for the scatter points
+   //colour: colours,
+   data: data_url,
+   domain_colours : ["#FFFFFF","#7f3f98"],
+   error_bar_width:5,
+   error_dividor:100,//100 means error bars will not show when error < 1% value 
+   //the graph size can be set to small (to fit multiple grpahs to a page)
+   graph_size: "",
+   height: {small: 400, large: 1500},
+   //horizontal lines takes a name, colour and the yvalue. If no colour is given one is chosen at random
+   horizontal_lines: [["Detection Threshold", "green", 5], ["Median", , 8.93]],
+   horizontal_line_value_column: 'value',
+   //to have horizontal grid lines = width (to span accross the grid), otherwise = 0
+   horizontal_grid_lines: 0,//width,
+   legend_class: "legend",
+   increment: number_of_increments,
+   legend_range: [0,100],
+   line_stroke_width: "2px",
+   margin_legend: width - 10,//width - 190,
+   margin: {top: 180, left:200, bottom: 530, right: 300},
+   margin_small:{top: 40, left: 40, bottom: 40, right: 80},//default number of colours is 39 (before it `            reitterates over it again)
+   number_of_colours: 39,
+   probe_count: probe_count,
+   probes: probes,
+   //sample type order indicates whether or not the samplese need to be represented in a specific order
+   //if no order is given then the order from the data set is taken
+   sample_type_order:"none",// "DermalFibroblast, hONS",
+   show_horizontal_line_labels: true,
+   subtitle1: subtitle1,
+   subtitle2: subtitle2,
+   stroke_width:"1.5px",
+   target: target,
+   text_size:  {small: "12px", large: "20px"},
+   title: title,
+   title_class: "title",
+   title_text_size: {small: "12px", large: "30px"},
+   tip: tip,//second tip to just display the sample type
+   tooltip: tooltip, // using d3-tips
+   unique_id: "chip_id",
+   watermark:"http://www1.stemformatics.org/img/logo.gif",
+   width: {small: 500, large: width}, // suggest 50 per sample
+   x_axis_text_angle:-45,
+   x_axis_title: "Samples",
+   x_column: 'Sample_ID',
+   x_middle_title: {small: 200, large: 500},
+   y_axis_title: "Log2 Expression",
+   y_column: 'Expression_Value'
+}
+
+var instance = new app(options);
+
+
+</script>
+
+
+
+
+
+
+
+
 
 <div style="width:100%; height: 90px; background-color: white;">
   <div style="width: 100%; float:left; margin: 1%; background-color: white;"></div>
