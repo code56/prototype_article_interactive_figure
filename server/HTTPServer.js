@@ -1,6 +1,7 @@
 // Author: Evanthia Kaimaklioti
 // git account: code56
 // Date: June 2016
+// Update: April 2017
 // this is a version of the node_web_server that will be working with a simple BioJS component than expVIP
 // will be working with the biojs-vis-line-graph
 // this is the script for the node server
@@ -268,6 +269,10 @@ var request = require ('reqwest');            // simplified HTTP request client
 
     return true;
   }
+
+
+  //var app = require('biojs-vis-scatter-plot'); 
+
 
 
   //ReferenceError: document is not defined
