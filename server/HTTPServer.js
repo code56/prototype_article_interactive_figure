@@ -8,11 +8,7 @@
 // to bring up the main page; connect to the server - localhost in the browser "/page"
 //notes: npm install express@* --save
 //npm install --save package-nave@* other-package@* whatever-thing@*
-<<<<<<< HEAD
 
-=======
-// testing git 
->>>>>>> 2f5cc085c82d5246d0ed875145879e616905fcdd
 
 
 //Lets require/import the HTTP module

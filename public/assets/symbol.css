@@ -155,7 +155,7 @@ div.footer{
     left: 0;
     right: 0;
     margin: 0 auto;
-    width: 1000px;
+    width: 100px;
     background-color:  #FFFFFF;
     overflow-y: auto;
     max-height: 85%;
@@ -983,7 +983,7 @@ button.ui-button::-moz-focus-inner {
 }
 
 
-.wrapper {
+.interactive_figure {
     /** Top padding so that initially, the content is below the header **/
     /*! border-radius: 25px; */
     padding: 20px;
@@ -993,7 +993,7 @@ button.ui-button::-moz-focus-inner {
     left: 0;
     right: 0;
     margin: 0;
-    width: 1000px;
+    width: 610px;
     background-color:  #FFFFFF;
     overflow-y: auto;
     max-height: 85%;
