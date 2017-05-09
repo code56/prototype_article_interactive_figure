@@ -107,7 +107,7 @@ body{
 div.header {
 	background-color:  #FFFFFF;
 	border-radius: 25px;
-    padding: 20px;
+    /*padding: 20px;*/
     width: 1000px;
     float: center;
     height: 75px;
@@ -998,4 +998,19 @@ button.ui-button::-moz-focus-inner {
     overflow-y: auto;
     max-height: 85%;
     height:auto;
+}
+
+
+/* an id in a html might not have existance in a css file, so I created here, because I couldn't find where the 
+svg#bar_expression_viewer_header_svg */
+
+#bar_expression_viewer_header_svg {
+    width: 610px;
+    position: relative;
+    top: 0px;
+    left: 1px;
+    right: 0;
+    display: block;
+    overflow-y: auto;
+
 }
