@@ -145,6 +145,9 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 
 <script type="text/JavaScript" src="/Users/kaimakle/Documents/Ph.D./node_web_server/server/HTTPServer.js"></script>
 
+
+
+
 </head><body class="html not-front not-logged-in page-node page-node- page-node-14151 node-type-elife-article-ver context-content">
 <!-- Google Tag Manager -->
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WVM8KG" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -441,8 +444,23 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 	  });
 
 
+
+
+
+
+
 </script>
   <div style="width: 100%; float:left; margin: 1%; background-color: white;"></div>
+
+<!-- // adding a button when pressed a new window pop up appears 
+ -->
+ <button id="b1">Open</button>
+
+<input type="hidden" id="hidden1">
+
+<script type="text/JavaScript" src="../assets/on_click_new_window.js"></script>
+
+
 
 
 <form action="http://www.wheat-expression.com/">
@@ -485,63 +503,6 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
          name="Submit" />
 
 </form>
-
-<!--
-<FORM NAME="myform" ACTION="" METHOD="POST">
-Enter something in the box: <BR>
-<INPUT TYPE="text" NAME="inputbox" VALUE=""><P>
-<INPUT TYPE="button" NAME="button" Value="Click" onClick="testResults(this.form)">
-</FORM>-->
-
-<!-- <form action="writeToFile1 " method="post">
-<textarea name="text">testing</textarea>
-<button onclick="writeToFile1">Click to save</Button>  
-</form> 
- -->
-
-
-<!-- <form action="php1" method="get">
-    <input type="submit" value="submit your informationPHP" 
-         name="Submit" id="PHP1" />
-</form> -->
-
-<!-- 
-<div class="page-header"><h1>Metadata Entry1</h1></div><div id="well"><form action="php1" method="get"><label for="keyword">URL metadata information:</label><input type="text" id="keyword" name="keyword" placeholder="Enter the metadata information for tissue sample to register" size="100"/><button type="submit11111" class="btn btn-default btn-sm active">Enter</button><span class="help-block">Example: leaf</span></form></div><div class="page-header">
- -->
-
-
-
-<!-- <div class="page-header1"></div>
-
-	<h1>enter your name</h1>
-
-<script type="text/javascript">
-
-// <script language="javascript">
-function WriteToFile()
-{
-	var fso = new ActiveXObject("Scripting.FileSystemObject");
-	var s = fso.CreateTextFile("new.txt", true);
-	var text=document.getElementById("TextArea1").innerText;
-	s.WriteLine(text);
-	s.WriteLine('***********************');
-	s.Close();
-}
-</script>
-
-
-
-<form name="abc">
-<textarea name="text">FIFA</textarea>
-<button onclick="WriteToFile()">Click to save</Button>  
-</form> 
- -->
-
-
-
-<!-- <div id="well"><form action="data" method="post"><button type="submit" class="btn btn-default btn-sm active">Enter</button></form></div><div class="page-header">
- -->
-
 
 
 
