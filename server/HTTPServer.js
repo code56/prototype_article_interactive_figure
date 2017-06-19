@@ -35,7 +35,10 @@ var connection = mysql.createConnection({
   user : 'node-web-server',
   password: 'node-web-server',
   database : 'node-web-server',
+<<<<<<< HEAD
   // these credentials could be provided in a config file written in pillar. read by HTTPserver read by this, 
+=======
+>>>>>>> ec1449babca6973e719116c9aacd2775922a5f88
   //port: 8889,
  // socket: 'localhost:/Applications/MAMP/tmp/mysql/mysql.sock' // is this necessary? 
   // do i need an adapter? 

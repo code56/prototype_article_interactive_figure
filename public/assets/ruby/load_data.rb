@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 #!/usr/bin/env bash
 # needs access to the credentials
+=======
+#!/usr/bin/env ruby
+>>>>>>> ec1449babca6973e719116c9aacd2775922a5f88
 
 
 

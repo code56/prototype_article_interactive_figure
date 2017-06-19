@@ -2,7 +2,10 @@
 
 echo "Working hard..."
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ec1449babca6973e719116c9aacd2775922a5f88
 # writing the state line
 #echo  # an empty line here so the next line will be the last.
 echo "changed=yes comment='something has changed' whatever=123"
@@ -21,6 +24,7 @@ else
 fi
 
 
+<<<<<<< HEAD
 # maybe do this recursively, where /srv/node-web-server/public/assets/bash/* is feeded from an array
 # so the code doesn't get repeated. 
 
@@ -39,6 +43,10 @@ fi
 
 
 
+=======
+
+#wget https://www.dropbox.com/sh/n15tpsqj92wfn8u/AAA7-GaMgxEgzs_dAgfwdpwca/IWGSC1/FactorOrder.tsv
+>>>>>>> ec1449babca6973e719116c9aacd2775922a5f88
 
 
 
