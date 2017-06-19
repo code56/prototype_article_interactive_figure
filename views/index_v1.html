@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<head>
+ 	<link rel="stylesheet" href="../assets/colorbox.css">
+	<!--<script src="../assets/jquery.min.js"></script>-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" ></script>
+
+	<script src="../assets/jquery.colorbox-min.js"></script>
+</head>
+
 <?xml version="1.0" encoding="UTF-8"?><html lang="en" dir="ltr" version="HTML+RDFa+MathML 1.1" xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:og="http://ogp.me/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:mml="http://www.w3.org/1998/Math/MathML"><head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# book: http://ogp.me/ns/book#"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="citation_keywords" content="Herpes simplex, Mucosal immunity, mathematical modeling, Human, Virus"><meta name="citation_section" content="Immunology, Microbiology and Infectious Disease"><meta name="citation_volume" content="2"><meta name="citation_xml_url" content="https://elife-publishing-cdn.s3.amazonaws.com/00288/elife-00288-v1.xml"><meta name="citation_abstract_url" content="http://elifesciences.org/content/2/e00288v1/abstract"><meta name="citation_public_url" content="http://elifesciences.org/content/2/e00288v1"><meta name="citation_id" content="2/0/e00288"><link rel="shortcut icon" href="http://elifesciences.org/profiles/elife_profile/themes/custom/elife/favicon.ico" type="image/vnd.microsoft.icon"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, minimum-scale=1, user-scalable=yes"><meta name="DC.Description" content="Viruses infect organisms as diverse as unicellular bacteria, plants, and animals. Two well-known human viral infections are herpes simplex virus 1, which is responsible for most cold sores, and herpes simplex virus 2 (HSV-2), which causes most cases of genital herpes. The first signs of HSV-2 infection are genital lesions, which usually heal relatively quickly. However, the virus can also enter nerve cells, where it hides from the immune system and survives for the lifetime of the infected host. In a process that is not fully understood, the dormant viruses inside nerve cells periodically reactivate and are transported back to the genital tract where they can cause recurrent genital sores. HSV-2 also commonly replicates in genital skin when lesions are not present, and is efficiently transmitted to other individuals at these times. Most studies of viral infection rely on the examination of blood to determine viral load and characterize the immune response. However, the true battle between HSV-2 and its host occurs within genital tissues. HSV-2 lesions are clearly visible and it is therefore possible to precisely follow the number of viruses and the intensity of the host immune response as a function of time and position. Schiffer et al. follow this approach by examining the levels of HSV-2 DNA in the genital tracts of over 600 individuals, who were sampled at different time intervals and at multiple sites. Dramatic differences in the viral load and the density of CD8+ T cells, which are critical for controlling HSV-2, are observed across several millimeters of the skin. Viral load also varies dramatically over a few hours. These data are used to develop a mathematical model that characterizes the spatial dynamics of HSV-2 reactivation and suggests how the host immune system responds to reactivation. Historically, it was thought that host immune cells, including CD8+ T cells, required many days to contain an HSV-2 reactivation, allowing prolonged symptoms. However, the model developed by Schiffer et al. indicates that although viral infection can spread from a single skin cell to thousands of cells in 12 hr or so, the host immune cells typically clear all infected skin cells in under 24 hr. Episodes of viral shedding lasting &amp;gt;3 days are predicted to occur due to viral seeding of adjacent regions of genital skin. Schiffer et al. predict that the complex episodic nature of HSV-2 reactivation is heavily influenced by the spatial distribution and density of immune cells within the genital tract, which means that new lesions occur in regions where immune cell density is low. The rapid onset and localized clearance pattern suggests that viral elimination by skin-resident CD8+ T cells is actually highly effective within single genital ulcers. This hypothesis represents an area of intense current investigation for clinicians, virologists, mathematical modelers, and immunologists."><meta name="DC.Rights" content="© 2013, Schiffer et al. This article is distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use and redistribution provided that the original author and source are credited."><meta name="DC.Contributor" content="Joshua T Schiffer"><meta name="DC.Contributor" content="David Swan"><meta name="DC.Contributor" content="Ramzi Al Sallaq"><meta name="DC.Contributor" content="Amalia Magaret"><meta name="DC.Contributor" content="Christine Johnston"><meta name="DC.Contributor" content="Karen E Mark"><meta name="DC.Contributor" content="Stacy Selke"><meta name="DC.Contributor" content="Negusse Ocbamichael"><meta name="DC.Contributor" content="Steve Kuntz"><meta name="DC.Contributor" content="Jia Zhu"><meta name="DC.Contributor" content="Barry Robinson"><meta name="DC.Contributor" content="Meei-Li Huang"><meta name="DC.Contributor" content="Keith R Jerome"><meta name="DC.Contributor" content="Anna Wald"><meta name="DC.Contributor" content="Lawrence Corey"><meta name="DC.Contributor" content="Sema Sgaier"><meta name="citation_funding_source" content="citation_funder=National Institutes of Health;citation_grant_number=P01 AI030731;citation_grant_recipient=Joshua T Schiffer"><meta name="citation_funding_source" content="citation_funder=National Institutes of Health;citation_grant_number=R37 AI042528;citation_grant_recipient=Jia Zhu"><meta name="citation_funding_source" content="citation_funder=National Institutes of Health;citation_grant_number=K24 AI07113;citation_grant_recipient=Anna Wald"><meta name="citation_funding_source" content="citation_funder=National Institutes of Health;citation_grant_number=K23 AI087206;citation_grant_recipient=Joshua T Schiffer"><meta name="citation_funding_source" content="citation_funder=National Institutes of Health;citation_grant_number=K23 AI079394;citation_grant_recipient=Christine Johnston"><meta name="citation_funding_source" content="citation_funder=National Institutes of Health;citation_grant_number=K23 AI071257;citation_grant_recipient=Karen E Mark"><meta name="citation_funding_source" content="citation_funder=National Center For Advancing Translational Sciences of the National Institutes of Health;citation_grant_number=UL1TR000423;citation_grant_recipient=Joshua T Schiffer"><meta name="citation_author" content="Joshua T Schiffer"><meta name="citation_author_institution" content="Vaccine and Infectious Diseases Division"><meta name="citation_author_institution" content="Fred Hutchinson Cancer Research Center"><meta name="citation_author_institution" content="Department of Medicine"><meta name="citation_author_institution" content="University of Washington"><meta name="citation_author_email" content="jschiffe@fhcrc.org"><meta name="citation_author" content="David Swan"><meta name="citation_author_institution" content="Vaccine and Infectious Diseases Division"><meta name="citation_author_institution" content="Fred Hutchinson Cancer Research Center"><meta name="citation_author" content="Ramzi Al Sallaq"><meta name="citation_author_institution" content="Vaccine and Infectious Diseases Division"><meta name="citation_author_institution" content="Fred Hutchinson Cancer Research Center"><meta name="citation_author" content="Amalia Magaret"><meta name="citation_author_institution" content="Vaccine and Infectious Diseases Division"><meta name="citation_author_institution" content="Fred Hutchinson Cancer Research Center"><meta name="citation_author_institution" content="Department of Laboratory Medicine"><meta name="citation_author_institution" content="University of Washington"><meta name="citation_author" content="Christine Johnston"><meta name="citation_author_institution" content="Vaccine and Infectious Diseases Division"><meta name="citation_author_institution" content="Fred Hutchinson Cancer Research Center"><meta name="citation_author_institution" content="Department of Medicine"><meta name="citation_author_institution" content="University of Washington"><meta name="citation_author" content="Karen E Mark"><meta name="citation_author_institution" content="Department of Medicine"><meta name="citation_author_institution" content="University of Washington"><meta name="citation_author" content="Stacy Selke"><meta name="citation_author_institution" content="Department of Laboratory Medicine"><meta name="citation_author_institution" content="University of Washington"><meta name="citation_author" content="Negusse Ocbamichael"><meta name="citation_author_institution" content="Department of Laboratory Medicine"><meta name="citation_author_institution" content="University of Washington"><meta name="citation_author" content="Steve Kuntz"><meta name="citation_author_institution" content="Department of Laboratory Medicine"><meta name="citation_author_institution" content="University of Washington"><meta name="citation_author" content="Jia Zhu"><meta name="citation_author_institution" content="Vaccine and Infectious Diseases Division"><meta name="citation_author_institution" content="Fred Hutchinson Cancer Research Center"><meta name="citation_author_institution" content="Department of Laboratory Medicine"><meta name="citation_author_institution" content="University of Washington"><meta name="citation_author" content="Barry Robinson"><meta name="citation_author_institution" content="Department of Laboratory Medicine"><meta name="citation_author_institution" content="University of Washington"><meta name="citation_author" content="Meei-Li Huang"><meta name="citation_author_institution" content="Department of Laboratory Medicine"><meta name="citation_author_institution" content="University of Washington"><meta name="citation_author" content="Keith R Jerome"><meta name="citation_author_institution" content="Department of Laboratory Medicine"><meta name="citation_author_institution" content="University of Washington"><meta name="citation_author" content="Anna Wald"><meta name="citation_author_institution" content="Vaccine and Infectious Diseases Division"><meta name="citation_author_institution" content="Fred Hutchinson Cancer Research Center"><meta name="citation_author_institution" content="Department of Laboratory Medicine"><meta name="citation_author_institution" content="University of Washington"><meta name="citation_author_institution" content="Department of Medicine"><meta name="citation_author_institution" content="University of Washington"><meta name="citation_author_institution" content="Department of Epidemiology"><meta name="citation_author_institution" content="University of Washington"><meta name="citation_author" content="Lawrence Corey"><meta name="citation_author_institution" content="Vaccine and Infectious Diseases Division"><meta name="citation_author_institution" content="Fred Hutchinson Cancer Research Center"><meta name="citation_author_institution" content="Department of Laboratory Medicine"><meta name="citation_author_institution" content="University of Washington"><meta name="citation_author_institution" content="Department of Medicine"><meta name="citation_author_institution" content="University of Washington"><meta name="citation_reference" content="citation_journal_title=Inf Sci (Ny);citation_author=AL. Bauer;citation_author=CA. Beauchemin;citation_author=AS. Perelson;citation_title=Agent-based modeling of host-pathogen systems: the successes and challenges;citation_pages=1379-1389;citation_volume=179;citation_year=2009;citation_doi=10.1016/j.ins.2008.11.012"><meta name="citation_reference" content="citation_journal_title=J Theor Biol;citation_author=SM. Ciupe;citation_author=RM. Ribeiro;citation_author=PW. Nelson;citation_author=AS. Perelson;citation_title=Modeling the mechanisms of acute hepatitis B virus infection;citation_pages=23-35;citation_volume=247;citation_year=2007;citation_doi=10.1016/j.jtbi.2007.02.017"><meta name="citation_reference" content="citation_journal_title=J Virol;citation_author=WJ. Collins;citation_author=DC. Johnson;citation_title=Herpes simplex virus gE/gI expressed in epithelial cells interferes with cell-to-cell spread;citation_pages=2686-2695;citation_volume=77;citation_year=2003;citation_doi=10.1128/JVI.77.4.2686-2695.2003"><meta name="citation_reference" content="citation_journal_title=Ann Intern Med;citation_author=L. Corey;citation_author=HG. Adams;citation_author=ZA. Brown;citation_author=KK. Holmes;citation_title=Genital herpes simplex virus infections: clinical manifestations, course, and complications;citation_pages=958-972;citation_volume=98;citation_year=1983"><meta name="citation_reference" content="citation_journal_title=Sex Transm Infect;citation_author=C. Crespi;citation_author=W. Cumberland;citation_author=A. Wald;citation_author=L. Corey;citation_author=S. Blower;citation_title=Longitudinal study of herpes simplex virus type 2 infection using viral dynamic modelling;citation_pages=359-364;citation_volume=83;citation_year=2007;citation_doi=10.1136/sti.2006.022020"><meta name="citation_reference" content="citation_journal_title=J Clin Invest;citation_author=AL. Cunningham;citation_author=RR. Turner;citation_author=AC. Miller;citation_author=MF. Para;citation_author=TC. Merigan;citation_title=Evolution of recurrent herpes simplex lesions. An immunohistologic study;citation_pages=226-233;citation_volume=75;citation_year=1985;citation_doi=10.1172/JCI111678"><meta name="citation_reference" content="citation_journal_title=J Immunol;citation_author=RJ. De Boer;citation_author=D. Homann;citation_author=AS. Perelson;citation_title=Different dynamics of CD4+ and CD8+ T cell responses during and after acute lymphocytic choriomeningitis virus infection;citation_pages=3928-3935;citation_volume=171;citation_year=2003"><meta name="citation_reference" content="citation_journal_title=Science;citation_author=V. Doceul;citation_author=M. Hollinshead;citation_author=L. van der Linden;citation_author=GL. Smith;citation_title=Repulsion of superinfecting virions: a mechanism for rapid virus spread;citation_pages=873-876;citation_volume=327;citation_year=2010;citation_doi=10.1126/science.1183173"><meta name="citation_reference" content="citation_journal_title=J Virol;citation_author=A. Farnsworth;citation_author=DC. Johnson;citation_title=Herpes simplex virus gE/gI must accumulate in the trans-Golgi network at early times and then redistribute to cell junctions to promote cell-cell spread;citation_pages=3167-3179;citation_volume=80;citation_year=2006;citation_doi=10.1128/JVI.80.7.3167-3179.2006"><meta name="citation_reference" content="citation_journal_title=Proc Natl Acad Sci USA;citation_author=C. Fraser;citation_author=S. Riley;citation_author=RM. Anderson;citation_author=NM. Ferguson;citation_title=Factors that make an infectious disease outbreak controllable;citation_pages=6146-6151;citation_volume=101;citation_year=2004;citation_doi=10.1073/pnas.0307506101"><meta name="citation_reference" content="citation_journal_title=Nat Immunol;citation_author=T. Gebhardt;citation_author=LM. Wakim;citation_author=L. Eidsmo;citation_author=PC. Reading;citation_author=WR. Heath;citation_author=FR. Carbone;citation_title=Memory T cells in nonlymphoid tissue that provide enhanced local immunity during infection with herpes simplex virus;citation_pages=524-530;citation_volume=10;citation_year=2009;citation_doi=10.1038/ni.1718"><meta name="citation_reference" content="citation_journal_title=Proc Natl Acad Sci USA;citation_author=EL. Ionides;citation_author=C. Breto;citation_author=AA. King;citation_title=Inference for nonlinear dynamical systems;citation_pages=18438-18443;citation_volume=103;citation_year=2006;citation_doi=10.1073/pnas.0603181103"><meta name="citation_reference" content="citation_journal_title=J Clin Microbiol;citation_author=KR. Jerome;citation_author=ML. Huang;citation_author=A. Wald;citation_author=S. Selke;citation_author=L. Corey;citation_title=Quantitative stability of DNA after extended storage of clinical specimens as determined by real-time PCR;citation_pages=2609-2611;citation_volume=40;citation_year=2002;citation_doi=10.1128/JCM.40.7.2609-2611.2002"><meta name="citation_reference" content="citation_journal_title=J Virol;citation_author=C. Jiang;citation_author=YT. Hwang;citation_author=JC. Randell;citation_author=DM. Coen;citation_author=CB. Hwang;citation_title=Mutations that decrease DNA binding of the processivity factor of the herpes simplex virus DNA polymerase reduce viral yield, alter the kinetics of viral DNA replication, and decrease the fidelity of DNA replication;citation_pages=3495-3502;citation_volume=81;citation_year=2007a;citation_doi=10.1128/JVI.02359-06"><meta name="citation_reference" content="citation_journal_title=J Virol;citation_author=C. Jiang;citation_author=YT. Hwang;citation_author=G. Wang;citation_author=JC. Randell;citation_author=DM. Coen;citation_title=Herpes simplex virus mutants with multiple substitutions affecting DNA binding of UL42 are impaired for viral replication and DNA synthesis;citation_pages=12077-12079;citation_volume=81;citation_year=2007b;citation_doi=10.1128/JVI.01133-07"><meta name="citation_reference" content="citation_journal_title=J Clin Microbiol;citation_author=A. Magaret;citation_author=A. Wald;citation_author=M. Huang;citation_author=S. Selke;citation_author=L. Corey;citation_title=Optimizing PCR positivity criterion for detection of herpes simplex virus DNA on skin and mucosa;citation_pages=1618-1620;citation_volume=45;citation_year=2007;citation_doi=10.1128/JCM.01405-06"><meta name="citation_reference" content="citation_journal_title=J Theor Biol;citation_author=S. Marino;citation_author=IB. Hogue;citation_author=CJ. Ray;citation_author=DE. Kirschner;citation_title=A methodology for performing global uncertainty and sensitivity analysis in systems biology;citation_pages=178-196;citation_volume=254;citation_year=2008;citation_doi=10.1016/j.jtbi.2008.04.011"><meta name="citation_reference" content="citation_journal_title=J Infect Dis;citation_author=KE. Mark;citation_author=A. Wald;citation_author=AS. Magaret;citation_author=S. Selke;citation_author=L. Olin;citation_author=ML. Huang;citation_title=Rapidly cleared episodes of herpes simplex virus reactivation in immunocompetent adults;citation_pages=1141-1149;citation_volume=198;citation_year=2008;citation_doi=10.1086/591913"><meta name="citation_reference" content="citation_journal_title=Sex Transm Dis;citation_author=GJ. Mertz;citation_author=O. Schmidt;citation_author=JL. Jourden;citation_author=ME. Guinan;citation_author=ML. Remington;citation_author=A. Fahnlander;citation_title=Frequency of acquisition of first-episode genital infection with herpes simplex virus from symptomatic and asymptomatic source contacts;citation_pages=33-39;citation_volume=12;citation_year=1985;citation_doi=10.1097/00007435-198501000-00007"><meta name="citation_reference" content="citation_journal_title=J Infect Dis;citation_author=GJ. Mertz;citation_author=RW. Coombs;citation_author=R. Ashley;citation_author=J. Jourden;citation_author=M. Remington;citation_author=C. Winter;citation_title=Transmission of genital herpes in couples with one symptomatic and one asymptomatic partner: a prospective study;citation_pages=1169-1177;citation_volume=157;citation_year=1988;citation_doi=10.1093/infdis/157.6.1169"><meta name="citation_reference" content="citation_journal_title=Science;citation_author=A. Perelson;citation_author=A. Neumann;citation_author=M. Markowitz;citation_author=J. Leonard;citation_author=D. Ho;citation_title=HIV-1 dynamics in vivo: virion clearance rate, infected cell life-span, and viral generation time;citation_pages=1582-1586;citation_volume=271;citation_year=1996;citation_doi=10.1126/science.271.5255.1582"><meta name="citation_reference" content="citation_journal_title=J Virol;citation_author=RM. Ribeiro;citation_author=L. Qin;citation_author=LL. Chavez;citation_author=D. Li;citation_author=SG. Self;citation_author=AS. Perelson;citation_title=Estimation of the initial viral growth rate and basic reproductive number during acute HIV-1 infection;citation_pages=6096-6102;citation_volume=84;citation_year=2010;citation_doi=10.1128/JVI.00127-10"><meta name="citation_reference" content="citation_author=BKD. Roizman;citation_title=Herpes simplex viruses and their replication;citation_title=Fields Virology;citation_year=2007"><meta name="citation_reference" content="citation_journal_title=J Virol;citation_author=WR. Sacks;citation_author=PA. Schaffer;citation_title=Deletion mutants in the gene encoding the herpes simplex virus type 1 immediate-early protein ICP0 exhibit impaired growth in cell culture;citation_pages=829-839;citation_volume=61;citation_year=1987"><meta name="citation_reference" content="citation_journal_title=Sci Transl Med;citation_author=JT. Schiffer;citation_author=L. Abu-Raddad;citation_author=K. Mark;citation_author=J. Zhu;citation_author=S. Selke;citation_author=A. Magaret;citation_title=Frequent release of low amounts of herpes simplex virus from neurons: results of a mathematical model;citation_pages=1-9;citation_volume=1;citation_year=2009;citation_doi=10.1126/scitranslmed.3000193"><meta name="citation_reference" content="citation_journal_title=Proc Natl Acad Sci USA;citation_author=JT. Schiffer;citation_author=L. Abu-Raddad;citation_author=KE. Mark;citation_author=J. Zhu;citation_author=S. Selke;citation_author=DM. Koelle;citation_title=Mucosal host immune response predicts the severity and duration of herpes simplex virus-2 genital tract shedding episodes;citation_pages=18973-18978;citation_volume=107;citation_year=2010;citation_doi=10.1073/pnas.1006614107"><meta name="citation_reference" content="citation_journal_title=J Antimicrob Chemother;citation_author=JT. Schiffer;citation_author=A. Magaret;citation_author=S. Selke;citation_author=L. Corey;citation_author=A. Wald;citation_title=Detailed analysis of mucosal herpes simplex virus-2 replication kinetics with and without antiviral therapy;citation_pages=2593-2600;citation_volume=66;citation_year=2011a;citation_doi=10.1093/jac/dkr346"><meta name="citation_reference" content="citation_journal_title=J Infect Dis;citation_author=JT. Schiffer;citation_author=A. Wald;citation_author=S. Selke;citation_author=L. Corey;citation_author=A. Magaret;citation_title=The kinetics of mucosal herpes simplex virus-2 infection in humans: evidence for rapid viral-host interactions;citation_pages=554-561;citation_volume=204;citation_year=2011b;citation_doi=10.1093/infdis/jir314"><meta name="citation_reference" content="citation_journal_title=Nature;citation_author=H. Shin;citation_author=A. Iwasaki;citation_title=A vaccine strategy that protects against genital herpes by establishing local memory T cells;citation_year=2012;citation_doi=10.1038/nature11522"><meta name="citation_reference" content="citation_journal_title=N Engl J Med;citation_author=SL. Spruance;citation_author=JC. Overall Jnr;citation_author=ER. Kern;citation_author=GG. Krueger;citation_author=V. Pliam;citation_author=W. Miller;citation_title=The natural history of recurrent herpes simplex labialis: implications for antiviral therapy;citation_pages=69-75;citation_volume=297;citation_year=1977;citation_doi=10.1056/NEJM197707142970201"><meta name="citation_reference" content="citation_journal_title=Infect Immun;citation_author=SL. Spruance;citation_author=JA. Green;citation_author=G. Chiu;citation_author=TJ. Yeh;citation_author=G. Wenerstrom;citation_author=JC. Overall Jr;citation_title=Pathogenesis of herpes simplex labialis: correlation of vesicle fluid interferon with lesion age and virus titer;citation_pages=907-910;citation_volume=36;citation_year=1982"><meta name="citation_reference" content="citation_journal_title=J Exp Med;citation_author=AW. Sylwester;citation_author=BL. Mitchell;citation_author=JB. Edgar;citation_author=C. Taormina;citation_author=C. Pelte;citation_author=F. Ruchti;citation_title=Broadly targeted human cytomegalovirus-specific CD4+ and CD8+ T cells dominate the memory compartments of exposed subjects;citation_pages=673-685;citation_volume=202;citation_year=2005;citation_doi=10.1084/jem.20050882"><meta name="citation_reference" content="citation_journal_title=J Infect Dis;citation_author=S. Tata;citation_author=C. Johnston;citation_author=ML. Huang;citation_author=S. Selke;citation_author=A. Magaret;citation_author=L. Corey;citation_title=Overlapping reactivations of herpes simplex virus type 2 in the genital and perianal mucosa;citation_pages=499-504;citation_volume=201;citation_year=2010;citation_doi=10.1086/650302"><meta name="citation_reference" content="citation_journal_title=Pediatrics;citation_author=R. Turner;citation_author=Z. Shehab;citation_author=K. Osborne;citation_author=JO. Hendley;citation_title=Shedding and survival of herpes simplex virus from ‘fever blisters’;citation_pages=547-549;citation_volume=70;citation_year=1982"><meta name="citation_reference" content="citation_journal_title=Proc Natl Acad Sci USA;citation_author=GM. Verjans;citation_author=RQ. Hintzen;citation_author=JM. van Dun;citation_author=A. Poot;citation_author=JC. Milikan;citation_author=JD. Laman;citation_title=Selective retention of herpes simplex virus-specific T cells in latently infected human trigeminal ganglia;citation_pages=3496-3501;citation_volume=104;citation_year=2007;citation_doi=10.1073/pnas.0610847104"><meta name="citation_reference" content="citation_journal_title=N Engl J Med;citation_author=A. Wald;citation_author=J. Zeh;citation_author=S. Selke;citation_author=RL. Ashley;citation_author=L. Corey;citation_title=Virologic characteristics of subclinical and symptomatic genital herpes infections;citation_pages=770-775;citation_volume=333;citation_year=1995;citation_doi=10.1056/NEJM199509213331205"><meta name="citation_reference" content="citation_journal_title=J Clin Invest;citation_author=A. Wald;citation_author=L. Corey;citation_author=R. Cone;citation_author=A. Hobson;citation_author=G. Davis;citation_author=J. Zeh;citation_title=Frequent genital herpes simplex virus 2 shedding in immunocompetent women. Effect of acyclovir treatment;citation_pages=1092-1097;citation_volume=99;citation_year=1997;citation_doi=10.1172/JCI119237"><meta name="citation_reference" content="citation_journal_title=N Engl J Med;citation_author=A. Wald;citation_author=J. Zeh;citation_author=S. Selke;citation_author=T. Warren;citation_author=A. Ryncarz;citation_author=R. Ashley;citation_title=Reactivation of genital herpes simplex virus type 2 infection in asymptomatic seropositive persons;citation_pages=844-850;citation_volume=342;citation_year=2000;citation_doi=10.1056/NEJM200003233421203"><meta name="citation_reference" content="citation_journal_title=J Virol;citation_author=K. Wang;citation_author=T. Lau;citation_author=M. Morales;citation_author=E. Mont;citation_author=S. Straus;citation_title=Laser-capture microdissection: refining estimates of the quantity and distribution of latent herpes simplex virus 1 and varicella-zoster virus DNA in human trigeminal Ganglia at the single-cell level;citation_pages=14079-14087;citation_volume=79;citation_year=2005;citation_doi=10.1128/JVI.79.22.14079-14087.2005"><meta name="citation_reference" content="citation_journal_title=J Exp Med;citation_author=J. Zhu;citation_author=D. Koelle;citation_author=J. Cao;citation_author=J. Vazquez;citation_author=M. Huang;citation_author=F. Hladik;citation_title=Virus-specific CD8+ T cells accumulate near sensory nerve endings in genital skin during subclinical HSV-2 reactivation;citation_pages=595-603;citation_volume=204;citation_year=2007;citation_doi=10.1084/jem.20061792"><meta name="citation_reference" content="citation_journal_title=Nat Med;citation_author=J. Zhu;citation_author=F. Hladik;citation_author=A. Woodward;citation_author=A. Klock;citation_author=T. Peng;citation_author=C. Johnston;citation_title=Persistence of HIV-1 receptor-positive cells after HSV-2 reactivation is a potential mechanism for increased HIV-1 acquisition;citation_pages=886-892;citation_volume=15;citation_year=2009;citation_doi=10.1038/nm.2006"><meta name="citation_pmid" content="23606943"><meta name="citation_pdf_url" content="https://elife-publishing-cdn.s3.amazonaws.com/00288/elife-00288-v1.pdf"><meta name="citation_publication_date" content="2013/04/16"><meta name="citation_firstpage" content="e00288"><meta name="citation_journal_title" content="eLife"><meta name="citation_publisher" content="eLife Sciences Publications Limited"><meta name="citation_doi" content="10.7554/eLife.00288"><meta name="DC.Language" content="en"><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   extensions: ['tex2jax.js'],
@@ -134,11 +142,21 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 </script>
   <!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
-<script src="./assets/application-ef96501f028dba65c10a08512d37267546d1a1c3c78159b1f1e139aa66b7b98d.js" data-turbolinks-track="true"></script>
+<!--Calling the BioJS component JS script of Wheat expression browser.    -->
+<!--for now I will try the browersify js script see if it works -->
+
+<script src="../assets/application-ef96501f028dba65c10a08512d37267546d1a1c3c78159b1f1e139aa66b7b98d.js" data-turbolinks-track="true"></script>
+
+
+<!--<script src="../views/bio-vis-expression-bar-browserified.js" data-turbolinks-track="true"></script> it doesn't work with teh bio-visexpression-bar.js meaning the browserify is not building the file correctly-->
+    <!--Calling the node server script.    -->
 
 <script type="text/JavaScript" src="/Users/kaimakle/Documents/Ph.D./node_web_server/server/HTTPServer.js"></script>
 
-</head><body class="html not-front not-logged-in page-node page-node- page-node-14151 node-type-elife-article-ver context-content">
+
+
+
+<body class="html not-front not-logged-in page-node page-node- page-node-14151 node-type-elife-article-ver context-content">
 <!-- Google Tag Manager -->
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WVM8KG" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0];var j=d.createElement(s);var dl=l!='dataLayer'?'&l='+l:'';j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;j.type='text/javascript';j.async=true;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WVM8KG');</script><!-- End Google Tag Manager --><div id="skip-link">
@@ -282,16 +300,31 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
     <div><div id="abstract" class="ctools-collapsible-container"><h2 class="pane-title ctools-collapsible-handle">Abstract</h2><div class="ctools-collapsible-content"><p>Herpes simplex virus-2 (HSV-2) is shed episodically, leading to occasional genital ulcers and efficient transmission. The biology explaining highly variable shedding patterns, in an infected person over time, is poorly understood. We sampled the genital tract for HSV DNA at several time intervals and concurrently at multiple sites, and derived a spatial mathematical model to characterize dynamics of HSV-2 reactivation. The model reproduced heterogeneity in shedding episode duration and viral production, and predicted rapid early viral expansion, rapid late decay, and wide spatial dispersion of HSV replication during episodes. In simulations, HSV-2 spread locally within single ulcers to thousands of epithelial cells in &lt;12 hr, but host immune responses eliminated infected cells in &lt;24 hr; secondary ulcers formed following spatial propagation of cell-free HSV-2, allowing for episode prolongation. We conclude that HSV-2 infection is characterized by extremely rapid virological growth and containment at multiple contemporaneous sites within genital epithelium.</p><p><strong>DOI:</strong> <a href="/lookup/doi/10.7554/eLife.00288.001">http://dx.doi.org/10.7554/eLife.00288.001</a></p></div></div><div class="panel-separator"></div><div id="digest" class="ctools-collapsible-container"><h2 class="pane-title ctools-collapsible-handle">eLife digest</h2><div class="ctools-collapsible-content"><p>Viruses infect organisms as diverse as unicellular bacteria, plants, and animals. Two well-known human viral infections are herpes simplex virus 1, which is responsible for most cold sores, and herpes simplex virus 2 (HSV-2), which causes most cases of genital herpes. The first signs of HSV-2 infection are genital lesions, which usually heal relatively quickly. However, the virus can also enter nerve cells, where s. HSV-2 also commonly replicates in genital skin when lesions are not present, and is efficiently transmitted to other individuals at these times.</p><p>Most studies of viral infection rely on the examination of blood to determine viral load and characterize the immune response. However, the true battle between HSV-2 and its host occurs within genital tissues. HSV-2 lesions are clearly visible and it is therefore possible to precisely follow the number of viruses and the intensity of the host immune response as a function of time and position. Schiffer et al. follow this approach by examining the levels of HSV-2 DNA in the genital tracts of over 600 individuals, who were sampled at different time intervals and at multiple sites. Dramatic differences in the viral load and the density of CD8+ T cells, which are critical for controlling HSV-2, are observed across several millimeters of the skin. Viral load also varies dramatically over a few hours. These data are used to develop a mathematical model that characterizes the spatial dynamics of HSV-2 reactivation and suggests how the host immune system responds to reactivation.</p><p>Historically, it was thought that host immune cells, including CD8+ T cells, required many days to contain an HSV-2 reactivation, allowing prolonged symptoms. However, the model developed by Schiffer et al. indicates that although viral infection can spread from a single skin cell to thousands of cells in 12 hr or so, the host immune cells typically clear all infected skin cells in under 24 hr. Episodes of viral shedding lasting &gt;3 days are predicted to occur due to viral seeding of adjacent regions of genital skin.</p><p>Schiffer et al. predict that the complex episodic nature of HSV-2 reactivation is heavily influenced by the spatial distribution and density of immune cells within the genital tract, which means that new lesions occur in regions where immune cell density is low. The rapid onset and localized clearance pattern suggests that viral elimination by skin-resident CD8<sup>+</sup> T cells is actually highly effective within single genital ulcers. This hypothesis represents an area of intense current investigation for clinicians, virologists, mathematical modelers, and immunologists.</p><p><strong>DOI:</strong> <a href="/lookup/doi/10.7554/eLife.00288.002">http://dx.doi.org/10.7554/eLife.00288.002</a></p></div></div><div class="panel-separator"></div><div id="main-text" class="ctools-collapsible-container"><h2 class="pane-title ctools-collapsible-handle">Main text</h2><div class="ctools-collapsible-content"><div class="article fulltext-view"><div class="section intro" id="s1">
 
 
+<!-- opens in a new window an image  -->
+ <a class='gallery' href='../assets/images/image1.jpg'><img src= "..assets/images/image1.jpg">Photo_1</a>
+
+
+   <script>
+      jQuery('a.gallery').colorbox();
+   </script>
+
+
+
+<!-- make an entire div clickable -->
+
 <!-- placeholder for the interactiver figure
  -->
+ <div class="interactive_figure"> <!-- //change the width to keep it lie the page width-->
  <div id="bar_expression_viewer"> </div>
+</div>
 
-<!-- I call this in the <head>
- --><!-- <script type="text/JavaScript" src="/Users/kaimakle/Documents/Ph.D./node_web_server/server/HTTPServer.js"></script>
- -->
+
 <script type="text/javascript">
+  //biovisexpressionbar = require("bio-vis-expression-bar");
+
   var container_div="bar_expression_viewer";
   
+  //later I will be getting the data from the SQL Db upon user request
   var data_url = "../assets/30839.json" ;
 
   var gene = "Traes_5BS_0AFC3F795.1" ;
@@ -306,8 +339,9 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
     width:1000,
     headerOffset:100
   });
-  //$("#bar_expression_viewer_sort_div").disableSelection(); //We need to move this to the js componen
+  //$("#bar_expression_viewer_sort_div").disableSelection(); //need to move this to the js component
 
+  // still necessary or remove?
   function WriteToFile()
 	{
 	var fso = new ActiveXObject("Scripting.FileSystemObject");
@@ -318,66 +352,225 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 	s.Close();
 	}
 
+</script>
 
-//http://stackoverflow.com/questions/7789521/how-to-link-external-javascript-file-onclick-of-button
-function validate() {
-    var x = document.form1["form1"]["name"].value;
-    console.log('the var x in validate function is' + x);
-    if (x == null || x == "") {
-        alert("First name cannot be left blank.");
-        return false;
-    }
-    else {
-        console.log('the var x in validate function is' + x);
-        alert ("thank you for your entry.");
-        return true;
-    }
-} // <- here
+<div style="width:100%; height: 10px; background-color: white;">
+ </div>
+
+
+
+<p id="myP"> This is a p element.</p>
+
+<input id="clickMe" type="button" value="clickMe" onclick="myFunction();"/>
+
+<script>
+	document.getElementById("clickMe").onclick = function myFunction() { 
+
+		console.log("the button is called");
+		document.getElementById("myP").style.visibility = "hidden";
+	};
+</script>
+
+
+
+<input id="theButton" type="button" value="open the interactive figure in a separate window" onclick="colorboxFunction();"></input>
+
+<!--button that triggers colorbox
+<input id="clickthis" type="button" value="subbutton" onclick="colorboxFunction();"/>-->
+
+
+<script>
+
+	document.getElementById("theButton").onclick = function colorboxFunction() { 
+
+	//	console.log("the colorbox function");
+		//jQuery('a.button').colorbox();
+		//jQuery('a.button').colorbox();
+
+	jQuery('#theButton').colorbox({width:"150%", inline:true, href:"#bar_expression_viewer"});
+	//document.getElementById("myP").style.visibility = "hidden";
+
+	};
+
+</script>
+
+
+
+
+
+
+
+
+
+<style>
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+</style>
+
+
+
+<div style="width: 100%; height: 70px; float:left; margin: 1%; background-color: white;"></div>
+
+
+
+
+<h2>Select the data you would like to display in the Interactive Figure</h2>
+<p>Click on the button to open the dropdown menu.</p>
+
+<div class="dropdown">
+<!--<button onclick="myFunction()" class="dropbtn">Dropdown</button>-->
+<select name="select" id="myDropdown" class="dropdown-content">
+  <option value = "data_1" > Data 1</option>
+<option value = "data_2" > Data 2</option>
+  </select>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" ></script>
+<script type="text/javascript" src="../assets/select_the_data.js"></script>
+<!-- how to add padding in an html page
+ -->
+<div style="width:100%; height: 100px; background-color: white;">
+  <div style="width: 100%; float:left; margin: 1%; background-color: white;"></div>
+</div>
+<!-- padding to an html page added - done -->
+
+
+
+<script>
+
+<input type="file" id="txtfile" size="40">Upload a txt file</input><br /><br />
+<button id="send">Send file to server</button><br /><br />
+<textarea id="response" rows="1" cols="50"></textarea><br />
+
+ 
+<script>
+
+//the uploaded file should be read and sent to the server once the 'send' button is clicked
+	document.getElementById('send').addEventListener('click', function(evt){
+	    //we need a file reader object to read the content of an uploaded file
+	    var fr = new FileReader();
+
+	    //once the file is read the onload function will be executed
+	    fr.onload = function(e) {
+	        // e.target.result should contain the text of the uploaded file
+
+	        //now we want to send that data to the server to save it
+	        //therefore we need an XMLHttpRequest object
+	        var request = new XMLHttpRequest();
+	        //the following function defines what happens when we recieve an answer or error
+	        //after sending the request
+	        request.onreadystatechange = function(){
+	          if (request.readyState == 4 && request.status == 200) {
+	            document.getElementById("response").innerHTML = request.responseText;
+	          }
+	        }
+	        //open a new POST request
+	        request.open('POST', 'uploads', true);
+	        //set appropriate header to send JSON data
+	        request.setRequestHeader("Content-type", "application/json");
+	        //send stringified JSON data (the content of the uploaded file)
+	        request.send(JSON.stringify({ content: e.target.result}));
+	    };
+
+	    //read the file as text
+	    var txtfile = document.getElementById('txtfile');
+	    //but only if there is a file in the file upload
+	    if(txtfile.files[0]){
+	      fr.readAsText(txtfile.files[0]);
+	    }
+	  });
 
 
 </script>
+  <div style="width: 100%; float:left; margin: 1%; background-color: white;"></div>
+
+<!-- // adding a button when pressed a new window pop up appears 
+ -->
+
+
+<button id="b1">Open the youtube video in a different window</button>
+
+<input type="hidden" id="hidden1">
+
+<script type="text/JavaScript" src="../assets/on_click_new_window.js"></script>
+
+
+  <div style="width: 100%; height: 50px; float:left; margin: 1%; background-color: white;"></div>
+
+
+
+
+<!--repeating the process with for the interactive figure--> 
+
+
+<button id="button_interactive_fig">Open the interactive figure in a pop up window</button>
+
+<input type="hidden" id="hidden_interactive">
+
+<script type="text/JavaScript" src="../assets/pop_up_interactive.js"></script>
+
+
+<div style="width: 100%; height: 50px; float:left; margin: 1%; background-color: white;"></div>
+
+
+
 
 
 <form action="http://www.wheat-expression.com/">
 <input type="submit" value="Go to expVIP">
 </form>
-<button class="right" type="button" onclick="alert('Hello upload your data!')">Upload your data!</button>
 
 
-<!--<form id = "form1" action="myaction" form method="post" onsubmit = "validate()">-->
-<!-- http://stackoverflow.com/questions/19222414/how-to-validate-form-values-using-external-javascript -->
-<form id = "form1" action = "myaction" onclick = "return validate(this)" method = "post">
-	<fieldset>
-		<label for="name">Name:</label>
-		<input type="text" id="name" name="name" placeholder="Enter your full name" />
-
-		<label for="email">Email:</label>
-		<input type="email" id="email" placeholder="Enter your email address" />
-
-		<label for="message">Message:</label>
-		<textarea id="message" placeholder="What's on your mind?"></textarea>
-
-		<input type="submit" value="Send message"/>
-
-	</fieldset>
- </form>
-
-
-<div class="page-header"><h1>Metadata Entry</h1></div><div id="well"><form action="registermetadata" method="post"><label for="schema">URL metadata information:</label><input type="text" id="keyword" name="keyword" placeholder="Enter the metadata information for tissue sample to register" size="100"/><button type="submit" class="btn btn-default btn-sm active">Enter</button><span class="help-block">Example: leaf</span></form></div><div class="page-header">
-
-
-<div class="page-header"><h1>Upload your data</h1></div><div id="well"><form action="data" method="post"><button type="submit" class="btn btn-default btn-sm active">Enter</button></form></div><div class="page-header">
-
-<!-- this with the press of the button links to another htlm page-->
 <form action="data" method="get">
-    <input type="submit" value="Go to my link location" 
+    <input type="submit" value="Go to my drop down menu" 
          name="Submit" id="frm1_submit" />
 </form>
 
+
+<form action="metadata" method="get">
+    <input type="submit" value="define your metadata" 
+         name="Submit" id="frm3_submit" />
+</form>
+
+
 <!-- this with the press of the button links to another htlm page of the clickform.html-->
 <form action="clickform" method="get">
-    <input type="submit" value="open the click form" 
-         name="Submit" id="clickform1" />
+    <input type="submit" value="Go to click form"
+         name="Submit drop down menu" id="clickform1" />
 </form>
 
 
@@ -390,11 +583,8 @@ function validate() {
 <!-- this form works to echo the message to the browser. I want to capture the entries to the form to be writing to the server-->
 
 
-	
-
-
-<!-- this fails to invoke the writeToFile-->
-<form action="writeToFile1" method="get">
+<!-- this works to invoke the writeToFile and writes Hey there in the test file-->
+<form action="writeToFile" method="get">
     <textarea name="text">testing_writing_to_a_file</textarea>
     <input type="submit" value="testing_writing" 
          name="Submit" />
@@ -402,64 +592,26 @@ function validate() {
 </form>
 
 
-<FORM NAME="myform" ACTION="" METHOD="POST">
-Enter something in the box: <BR>
-<INPUT TYPE="text" NAME="inputbox" VALUE=""><P>
-<INPUT TYPE="button" NAME="button" Value="Click" onClick="testResults(this.form)">
-</FORM>
+<!--to make a div hide and show as like popup window
 
-<!-- <form action="writeToFile1 " method="post">
-<textarea name="text">testing</textarea>
-<button onclick="writeToFile1">Click to save</Button>  
-</form> 
- -->
+<style>.dialogbox{width:100px; height:100px; background:grey;display:none}</style>
 
+<div class="dialogbox"> This is Dialogue box</div>
+<a id="click">click here</a>
 
-<!-- <form action="php1" method="get">
-    <input type="submit" value="submit your informationPHP" 
-         name="Submit" id="PHP1" />
-</form> -->
+<script>
 
-<!-- 
-<div class="page-header"><h1>Metadata Entry1</h1></div><div id="well"><form action="php1" method="get"><label for="keyword">URL metadata information:</label><input type="text" id="keyword" name="keyword" placeholder="Enter the metadata information for tissue sample to register" size="100"/><button type="submit11111" class="btn btn-default btn-sm active">Enter</button><span class="help-block">Example: leaf</span></form></div><div class="page-header">
- -->
+    $(document).ready(function(){
+    $("#click").click(function(){
 
+    $(".dialogbox").toggle();
 
+    });
 
-<!-- <div class="page-header1"></div>
+    });
+   </script>
 
-	<h1>enter your name</h1>
-
-<script type="text/javascript">
-
-// <script language="javascript">
-function WriteToFile()
-{
-	var fso = new ActiveXObject("Scripting.FileSystemObject");
-	var s = fso.CreateTextFile("new.txt", true);
-	var text=document.getElementById("TextArea1").innerText;
-	s.WriteLine(text);
-	s.WriteLine('***********************');
-	s.Close();
-}
-</script>
-
-
-
-<form name="abc">
-<textarea name="text">FIFA</textarea>
-<button onclick="WriteToFile()">Click to save</Button>  
-</form> 
- -->
-
-
-
-<!-- <div id="well"><form action="data" method="post"><button type="submit" class="btn btn-default btn-sm active">Enter</button></form></div><div class="page-header">
- -->
-
-
-
-
+-->
 
     <h3>Introduction</h3><p>The dynamics of most chronic viral infections such as HIV, hepatitis B and C, and cytomegalovirus are assessed by serially sampling blood using polymerase chain reaction (<a class="xref-bibr" href="#bib21">Perelson et al., 1996</a>), and by ex vivo quantitation of circulating lymphocytes to estimate immune response (<a class="xref-bibr" href="#bib32">Sylwester et al., 2005</a>). For disseminated infections, sampling from blood may reflect true host–pathogen dynamics due to homogeneous mixing of viruses and PBMCs, which originate from thousands of infectious foci. However, many infections are confined to small anatomic regions; localized host–pathogen interactions within specific organ tissue constitutes the predominant site of pathogenesis, and measurements of viral replication and immune response are not accurately reflected in the blood compartment. Moreover, sampling of infected tissue often reveals that the density of virus and host immune cells differ enormously across small distances. Spatial features of infection are a critical, and relatively unexplored, component of viral dynamics.</p><p>Herpes simplex virus-2 (HSV-2) is useful for studying localized aspects of pathogenesis in humans. HSV-2 replicates in highly accessible genital keratinocytes. Serial genital swabbing reveals frequent, highly variable shedding episodes in most infected persons (<a class="xref-bibr" href="#bib36">Wald et al., 1995</a>, <a class="xref-bibr" href="#bib37">1997</a>, <a class="xref-bibr" href="#bib38">2000</a>; <a class="xref-bibr" href="#bib5">Crespi et al., 2007</a>; <a class="xref-bibr" href="#bib18">Mark et al., 2008</a>), and biopsies show dense clusters of CD4+ and CD8+ lymphocytes in focal areas of viral replication (<a class="xref-bibr" href="#bib40">Zhu et al., 2007</a>). Some episodes are associated with lesions, and prolonged viral production, while others are asymptomatic and brief (<a class="xref-bibr" href="#bib18">Mark et al., 2008</a>). Markedly different episodes occur within 5–10 days of each other, and viral levels fluctuate dramatically even within a single episode (<a class="xref-bibr" href="#bib18">Mark et al., 2008</a>; <a class="xref-bibr" href="#bib28">Schiffer et al., 2011</a>). At least 20% of episodes are notable for complex erratic viral trajectories, including re-expansion phases that represent failure of the immune system to contain replication (<a class="xref-bibr" href="#bib28">Schiffer et al., 2011</a>). Past modeling suggests that nearly constant reactivation of HSV in a small percentage of infected ganglionic neurons might account for high frequency of shedding episodes (<a class="xref-bibr" href="#bib25">Schiffer et al., 2009</a>). Animal and mathematical models predict that varying T-cell responses account for episode heterogeneity (<a class="xref-bibr" href="#bib11">Gebhardt et al., 2009</a>; <a class="xref-bibr" href="#bib26">Schiffer et al., 2010</a>). However, the field lacks hypotheses to address the complex morphology of prolonged viral shedding episodes.</p><p>We performed detailed studies with genital sampling performed over four different time intervals, and concurrently at multiple sites across the genital tract, to precisely define spatiotemporal kinetics of genital HSV-2 replication in immunocompetent patients. We then designed a mathematical model as a tool to develop hypotheses that explain virological data from these cohorts. Model simulations suggest very rapid rates of HSV-2 replication and epidermal cell-to-cell spread. Yet, host containment of virus within a single focus of infection occurs in &lt;24 hr, necessitating seeding of adjacent regions to promote increased shedding.</p></div><div class="section results" id="s2"><h3>Results</h3><div id="s2-1" class="subsection"><h4>Temporal kinetics of HSV-2 genital replication</h4><p>HSV-2 shedding in the genital tract is characterized by intermittent frequent episodes of variable duration (hours to weeks) and viral load (<a class="xref-bibr" href="#bib18">Mark et al., 2008</a>; <a class="xref-bibr" href="#bib28">Schiffer et al., 2011</a>). To evaluate viral patterns during individual shedding episodes, we analyzed data from three cohorts of immunocompetent patients who underwent genital tract swabbing at different time intervals (<a class="xref-table" href="#tbl1">Table 1</a>; <a class="xref-boxed-text" href="#box1">Boxes 1–3</a>). The same collection methods and HSV PCR assay were used in each cohort. Swabs were tested for HSV DNA using a validated quantitative PCR assay with a sensitivity of 1 copy/reaction (<a class="xref-bibr" href="#bib13">Jerome et al., 2002</a>; <a class="xref-bibr" href="#bib16">Magaret et al., 2007</a>). These studies demonstrated that quantity of genital HSV DNA is stable over minutes but expands and decays extremely rapidly over hours, and that prolonged episodes are notable for frequent and erratic peaks in HSV-2 viral load (<a class="xref-fig" href="#fig1">Figure 1</a>, <a class="xref-fig" href="#fig1s1">Figure 1—figure supplements 1–3</a>).</p><div class="table-expansion" id="tbl1"><div class="table-caption"><span class="table-label">Table 1.</span> <p>Five cohorts of HSV-2 genital tract shedding</p><p><strong>DOI:</strong> <a href="/lookup/doi/10.7554/eLife.00288.003">http://dx.doi.org/10.7554/eLife.00288.003</a></p><div class="sb-div caption-clear"></div></div><table><thead><tr><td>Cohort</td><td>Subjects</td><td>Total swabs</td><td>Swabbing frequency</td><td>Total episodes</td><td>Swabbing duration</td><td>Anatomic swabbing region</td><td>Purpose</td></tr></thead><tbody><tr><td>A</td><td>3</td><td>96</td><td>Every 5 min</td><td>3</td><td>4 hr when lesion present</td><td>Total genital tract</td><td>Swab-to-swab sampling/assay variability</td></tr><tr><td>B</td><td>5</td><td>200</td><td>10 times/day (every 2 hr during the days and 4 hr overnight)</td><td>5</td><td>4–5 days when lesion present</td><td>Total genital tract</td><td>Episode expansion, clearance and re-expansion kinetics</td></tr><tr><td>C</td><td>25</td><td>4706</td><td>4 times/day</td><td>109</td><td>30–60 days without or with a lesion</td><td>Total genital tract</td><td>Accurate estimates for expansion/decay slopes for clinical and subclinical episodes</td></tr><tr><td>D</td><td>2</td><td>216</td><td>Daily</td><td>4</td><td>30 days without or with a lesion</td><td>23 separate regions</td><td>Spatial dispersion of HSV</td></tr><tr><td>E</td><td>531</td><td>14,685</td><td>Daily</td><td>1020</td><td>&gt;30 days with or without a lesion</td><td>Total genital tract</td><td>Model fit</td></tr></tbody></table></div><div class="boxed-text" id="box1"><span class="boxed-text-label">Box 1.</span><p class="first-child">Cohort A</p><p><strong>DOI:</strong> <a href="/lookup/doi/10.7554/eLife.00288.004">http://dx.doi.org/10.7554/eLife.00288.004</a></p><p>Cohort A included three subjects who were seen within 12 hr of HSV-2 recurrence, and who collected genital swabs every 5 min for 4 hr. This experiment assessed whether there were alterations in viral load related to the PCR assay or collection technique. Only small changes occurred during 5-min intervals (<a class="xref-fig" href="#fig1">Figure 1A</a>, <a class="xref-fig" href="#fig1s1">Figure 1—figure supplement 1A,B</a>, <a class="xref-supplement-material" href="#SD1-data">Figure 1—source data 1</a>). The mean absolute value of viral DNA copy difference between successive swabs was 0.20, 0.28, and 0.34 log<sub>10</sub> genomic copies in the three participants, and generally increased with time between swabs (<a class="xref-fig" href="#fig1">Figure 1B</a>, <a class="xref-fig" href="#fig1s1">Figure 1—figure supplement 1C</a>). The mean difference in HSV DNA copies between swabs correlated tightly with time between swabs in two participants (<a class="xref-fig" href="#fig1">Figure 1C</a>, <a class="xref-fig" href="#fig1s1">Figure 1—figure supplement 1D</a>), with virtually no difference in viral quantity between swabs separated by 5-min intervals in all three subjects (<a class="xref-fig" href="#fig1">Figure 1C</a>, <a class="xref-fig" href="#fig1s1">Figure 1—figure supplement 1D</a>). Two episodes had negative mean differences in viral quantity with increasing time between swabs (<a class="xref-fig" href="#fig1">Figure 1C</a> , <a class="xref-fig" href="#fig1s1">Figure 1—figure supplement 1D</a>), while one episode had a slightly positive mean difference (<a class="xref-fig" href="#fig1s1">Figure 1—figure supplement 1D</a>), suggesting that we captured two episodes during a decay phase and one episode near a peak of viral production. The standard deviation of the mean absolute value of viral DNA copy difference between successive swabs was 0.16, 0.22, and 0.26 in the three participants, respectively, suggesting that differences of &gt;0.5 log<sub>10</sub> HSV-2 DNA copies that may occur over hours usually reflect true changes in viral load rather than noise in the data attributable to clinical collection or PCR technique.</p></div><div class="boxed-text" id="box2"><span class="boxed-text-label">Box 2.</span><p class="first-child">Cohort B</p><p><strong>DOI:</strong> <a href="/lookup/doi/10.7554/eLife.00288.005">http://dx.doi.org/10.7554/eLife.00288.005</a></p><p>To explore patterns of viral expansion and decay of an individual episode over time, we expanded the duration of evaluation and time interval between sampling. For Cohort B, we enrolled five HSV-2 positive participants with genital lesions, and sampled them 10 times daily (every 2 hr during the day and 4 hr overnight) for 4–5 days from lesion onset. A key feature of all episodes was a ‘saw tooth’ morphology of viral expansion and contraction (<a class="xref-fig" href="#fig1">Figure 1D</a>, <a class="xref-fig" href="#fig1s1">Figure 1—figure supplement 2</a>, <a class="xref-supplement-material" href="#SD1-data">Figure 1—source data 1</a>), with 0.8–1.8 daily peaks (defined as an expansion of 0.5 log<sub>10</sub> HSV DNA followed by a decline of 0.5 log<sub>10</sub> HSV DNA). The mean absolute value of viral DNA copy change between successive swabs separated by 2 hr was 0.73, 0.72, 0.50, 0.51, and 0.34 log<sub>10</sub> HSV DNA copies in the five participants, respectively, suggesting significant variability in viral levels. In addition, each episode was notable for high initial viral peak (6–8 log<sub>10</sub> HSV DNA) followed by decay within 24 hr of initiation, highlighting extremely early rapid viral expansion, followed by rapid control.</p></div><div class="boxed-text" id="box3"><span class="boxed-text-label">Box 3.</span><p class="first-child">Cohort C</p><p><strong>DOI:</strong> <a href="/lookup/doi/10.7554/eLife.00288.006">http://dx.doi.org/10.7554/eLife.00288.006</a></p><p>To expand data available for analysis of early viral expansion and late viral clearance, we performed new analyses from a published cohort of 25 subjects who were sampled every 6 hr for 30–60 days (Cohort C) (<a class="xref-bibr" href="#bib18">Mark et al., 2008</a>). Among 109 episodes, 75% of which were subclinical, median regression slopes from initiation to peak and peak to termination were 20.3 and −8.7 log<sub>10</sub>/day, respectively. Median first and last copy numbers were 3.5 and 3.3 log<sub>10</sub> HSV DNA copies, respectively: these measures occurred a median of 3 hr after episode initiation or before termination, suggesting that rapid changes (∼10-fold/hr) in genomic copy numbers occurred both early and late within an episode (<a class="xref-bibr" href="#bib18">Mark et al., 2008</a>). While a majority of episodes in Cohort C were &lt;12 hr, even among the 55 episodes of &gt;24 hr, transition from initial expansion to clearance phase occurred at a median of 12 hr, implying early immunologic pressure against the virus. Rapid expansion and contraction phases continued throughout more persistent shedding episodes. <a class="xref-fig" href="#fig1">Figure 1E</a> and <a class="xref-fig" href="#fig1s3">Figure 1—figure supplement 3</a> (<a class="xref-supplement-material" href="#SD1-data">Figure 1—source data 1</a>) illustrate episodes of 17-day and 8-day duration from two participants with multiple sharp peaks from steep expansion and decay phases.</p></div><div class="fig-inline-img-set-carousel"><div class="elife-fig-slider-wrapper"><div class="elife-fig-slider"><div class="elife-fig-slider-img elife-fig-slider-primary"><a href="#fig1"><img src="%5Bgraphic-elife-00288-fig1-v1-small%5D" alt="Figure 1."></a></div><div class="figure-carousel-inner-wrapper"><div class="figure-carousel"><div class="elife-fig-slider-img elife-fig-slider-secondary"><a href="#fig1s1"><img src="%5Bgraphic-elife-00288-fig1-figsupp1-v1-small%5D" alt="Figure 1—figure supplement 1."></a></div><div class="elife-fig-slider-img elife-fig-slider-secondary"><a href="#fig1s2"><img src="%5Bgraphic-elife-00288-fig1-figsupp2-v1-small%5D" alt="Figure 1—figure supplement 2."></a></div><div class="elife-fig-slider-img elife-fig-slider-secondary"><a href="#fig1s3"><img src="%5Bgraphic-elife-00288-fig1-figsupp3-v1-small%5D" alt="Figure 1—figure supplement 3."></a></div></div></div></div></div><div class="elife-fig-image-caption-wrapper"><div class="fig" data-doi="10.7554/eLife.00288.007"><div id="fig1" class="fig-inline-img-set"><div class="elife-fig-image-caption-wrapper"><div class="fig-expansion"><div class="fig-inline-img"><a href="%5Bgraphic-elife-00288-fig1-v1-large%5D" class="figure-expand-popup" title="Figure 1."><img data-img="[graphic-elife-00288-fig1-v1-small]" src="%5Bgraphic-elife-00288-fig1-v1-medium%5D" alt="Figure 1."></a></div><div class="fig-caption"><span class="elife-figure-links"><span class="elife-figure-link elife-figure-link-download"><a href="%5Bgraphic-elife-00288-fig1-v1-download%5D" download="">Download figure</a></span><span class="elife-figure-link elife-figure-link-newtab"><a href="%5Bgraphic-elife-00288-fig1-v1-large%5D" target="_blank">Open in new tab</a></span></span><span class="fig-label">Figure 1.</span> <span class="caption-title">HSV-2 levels in the genital tract are stable over minutes, expand and decay markedly over hours, and fluctuate rapidly and unpredictably over days.</span><p>(<strong>A</strong>) Shedding quantity in a participant, who performed genital swabs every 5 min over 4 hr during a lesion, reveals low swab-to-swab variation in viral quantity. Using data from panel (<strong>A</strong> and <strong>B</strong>), absolute mean difference (R<sup>2</sup> = 0.99), and (<strong>C</strong>) mean difference (R<sup>2</sup> = 0.87), in HSV DNA copies between swabs, are a function of time between swabs. (<strong>D</strong>) Shedding quantity in a participant, who performed 10 genital swabs per day during a lesion over 4 days (swabs every 2–4 hr), shows a characteristic saw-tooth pattern; arrows denote rapid viral re-expansion; the participant had a negative swab performed before episode onset. (<strong>E</strong>) Shedding quantity in a participant, who performed four genital swabs per day over 17 days demonstrates that rapid and frequent viral re-expansion allows for shedding prolongation; four missing data points are left blank.</p><p><strong>DOI:</strong> <a href="/lookup/doi/10.7554/eLife.00288.007">http://dx.doi.org/10.7554/eLife.00288.007</a></p><div class="supplementary-material" data-doi="10.7554/eLife.00288.008"><div class="supplementary-material-expansion" id="SD1-data"><span class="supplementary-material-label">Figure 1—source data 1.</span><p>Source data for Figure 1, Figure 1—figure supplement 1, Figure 1—figure supplement 2 and Figure 1—figure supplement 3.</p><p><strong>DOI:</strong> <a href="/lookup/doi/10.7554/eLife.00288.008">http://dx.doi.org/10.7554/eLife.00288.008</a></p><span class="inline-linked-media-wrapper"><a href="%5Bmedia-elife-00288-fig1-data1-v1-download.xlsx%5D" download=""><i class="icon-download-alt"></i>
                         Download source data<span class="inline-linked-media-filename">
