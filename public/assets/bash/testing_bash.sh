@@ -2,6 +2,7 @@
 
 echo "Working hard..."
 
+
 # writing the state line
 #echo  # an empty line here so the next line will be the last.
 echo "changed=yes comment='something has changed' whatever=123"
@@ -20,8 +21,24 @@ else
 fi
 
 
+# maybe do this recursively, where /srv/node-web-server/public/assets/bash/* is feeded from an array
+# so the code doesn't get repeated. 
 
-#wget https://www.dropbox.com/sh/n15tpsqj92wfn8u/AAA7-GaMgxEgzs_dAgfwdpwca/IWGSC1/FactorOrder.tsv
+if [ -f /srv/node-web-server/public/assets/bash/FactorOrder.tsv ] 
+then
+	if [ -s /srv/node-web-server/public/assets/bash/FactorOrder.tsv ]
+	then
+		echo "found default_metadata file"
+	else
+		echo "file exists but not empty"
+	fi
+else
+	echo "File not exists"
+	wget https://www.dropbox.com/sh/n15tpsqj92wfn8u/AAA7-GaMgxEgzs_dAgfwdpwca/IWGSC1/FactorOrder.tsv
+fi
+
+
+
 
 
 

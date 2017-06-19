@@ -134,7 +134,14 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 </script>
   <!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
-<script src="./assets/application-ef96501f028dba65c10a08512d37267546d1a1c3c78159b1f1e139aa66b7b98d.js" data-turbolinks-track="true"></script>
+<!--Calling the BioJS component JS script of Wheat expression browser.    -->
+<!--for now I will try the browersify js script see if it works -->
+
+<script src="../assets/application-ef96501f028dba65c10a08512d37267546d1a1c3c78159b1f1e139aa66b7b98d.js" data-turbolinks-track="true"></script>
+
+
+<!--<script src="../views/bio-vis-expression-bar-browserified.js" data-turbolinks-track="true"></script> it doesn't work with teh bio-visexpression-bar.js meaning the browserify is not building the file correctly-->
+    <!--Calling the node server script.    -->
 
 <script type="text/JavaScript" src="/Users/kaimakle/Documents/Ph.D./node_web_server/server/HTTPServer.js"></script>
 
@@ -284,14 +291,17 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 
 <!-- placeholder for the interactiver figure
  -->
- <div id="bar_expression_viewer"> </div>
+ <div class="wrapper"> <!-- //change the width to keep it lie the page width-->
+ 	<div id="bar_expression_viewer"> </div>
+</div>
 
-<!-- I call this in the <head>
- --><!-- <script type="text/JavaScript" src="/Users/kaimakle/Documents/Ph.D./node_web_server/server/HTTPServer.js"></script>
- -->
+
 <script type="text/javascript">
+  //biovisexpressionbar = require("bio-vis-expression-bar");
+
   var container_div="bar_expression_viewer";
   
+  //later I will be getting the data from the SQL Db upon user request
   var data_url = "../assets/30839.json" ;
 
   var gene = "Traes_5BS_0AFC3F795.1" ;
@@ -306,8 +316,9 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
     width:1000,
     headerOffset:100
   });
-  //$("#bar_expression_viewer_sort_div").disableSelection(); //We need to move this to the js componen
+  //$("#bar_expression_viewer_sort_div").disableSelection(); //need to move this to the js component
 
+  // still necessary or remove?
   function WriteToFile()
 	{
 	var fso = new ActiveXObject("Scripting.FileSystemObject");
@@ -318,66 +329,143 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 	s.Close();
 	}
 
+</script>
 
-//http://stackoverflow.com/questions/7789521/how-to-link-external-javascript-file-onclick-of-button
-function validate() {
-    var x = document.form1["form1"]["name"].value;
-    console.log('the var x in validate function is' + x);
-    if (x == null || x == "") {
-        alert("First name cannot be left blank.");
-        return false;
-    }
-    else {
-        console.log('the var x in validate function is' + x);
-        alert ("thank you for your entry.");
-        return true;
-    }
-} // <- here
+<div style="width:100%; height: 90px; background-color: white;">
+  <div style="width: 100%; float:left; margin: 1%; background-color: white;"></div>
+ </div>
+
+<style>
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+</style>
+
+<h2>Select the data you would like to display in the Interactive Figure</h2>
+<p>Click on the button to open the dropdown menu.</p>
+
+<div class="dropdown">
+<!--<button onclick="myFunction()" class="dropbtn">Dropdown</button>-->
+<select name="select" id="myDropdown" class="dropdown-content">
+  <option value = "data_1" > Data 1</option>
+<option value = "data_2" > Data 2</option>
+  </select>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" ></script>
+<script type="text/javascript" src="../assets/select_the_data.js"></script>
+<!-- how to add padding in an html page
+ -->
+<div style="width:100%; height: 100px; background-color: white;">
+  <div style="width: 100%; float:left; margin: 1%; background-color: white;"></div>
+</div>
+<!-- padding to an html page added - done -->
+
+
+<script>
+
+<input type="file" id="txtfile" size="40">Upload a txt file</input><br /><br />
+<button id="send">Send file to server</button><br /><br />
+<textarea id="response" rows="1" cols="50"></textarea><br />
+
+ 
+
+<script>
+
+//the uploaded file should be read and sent to the server once the 'send' button is clicked
+	document.getElementById('send').addEventListener('click', function(evt){
+	    //we need a file reader object to read the content of an uploaded file
+	    var fr = new FileReader();
+
+	    //once the file is read the onload function will be executed
+	    fr.onload = function(e) {
+	        // e.target.result should contain the text of the uploaded file
+
+	        //now we want to send that data to the server to save it
+	        //therefore we need an XMLHttpRequest object
+	        var request = new XMLHttpRequest();
+	        //the following function defines what happens when we recieve an answer or error
+	        //after sending the request
+	        request.onreadystatechange = function(){
+	          if (request.readyState == 4 && request.status == 200) {
+	            document.getElementById("response").innerHTML = request.responseText;
+	          }
+	        }
+	        //open a new POST request
+	        request.open('POST', 'uploads', true);
+	        //set appropriate header to send JSON data
+	        request.setRequestHeader("Content-type", "application/json");
+	        //send stringified JSON data (the content of the uploaded file)
+	        request.send(JSON.stringify({ content: e.target.result}));
+	    };
+
+	    //read the file as text
+	    var txtfile = document.getElementById('txtfile');
+	    //but only if there is a file in the file upload
+	    if(txtfile.files[0]){
+	      fr.readAsText(txtfile.files[0]);
+	    }
+	  });
 
 
 </script>
+  <div style="width: 100%; float:left; margin: 1%; background-color: white;"></div>
 
 
 <form action="http://www.wheat-expression.com/">
 <input type="submit" value="Go to expVIP">
 </form>
-<button class="right" type="button" onclick="alert('Hello upload your data!')">Upload your data!</button>
 
 
-<!--<form id = "form1" action="myaction" form method="post" onsubmit = "validate()">-->
-<!-- http://stackoverflow.com/questions/19222414/how-to-validate-form-values-using-external-javascript -->
-<form id = "form1" action = "myaction" onclick = "return validate(this)" method = "post">
-	<fieldset>
-		<label for="name">Name:</label>
-		<input type="text" id="name" name="name" placeholder="Enter your full name" />
-
-		<label for="email">Email:</label>
-		<input type="email" id="email" placeholder="Enter your email address" />
-
-		<label for="message">Message:</label>
-		<textarea id="message" placeholder="What's on your mind?"></textarea>
-
-		<input type="submit" value="Send message"/>
-
-	</fieldset>
- </form>
-
-
-<div class="page-header"><h1>Metadata Entry</h1></div><div id="well"><form action="registermetadata" method="post"><label for="schema">URL metadata information:</label><input type="text" id="keyword" name="keyword" placeholder="Enter the metadata information for tissue sample to register" size="100"/><button type="submit" class="btn btn-default btn-sm active">Enter</button><span class="help-block">Example: leaf</span></form></div><div class="page-header">
-
-
-<div class="page-header"><h1>Upload your data</h1></div><div id="well"><form action="data" method="post"><button type="submit" class="btn btn-default btn-sm active">Enter</button></form></div><div class="page-header">
-
-<!-- this with the press of the button links to another htlm page-->
 <form action="data" method="get">
-    <input type="submit" value="Go to my link location" 
+    <input type="submit" value="Go to my drop down menu" 
          name="Submit" id="frm1_submit" />
 </form>
 
+
+<form action="metadata" method="get">
+    <input type="submit" value="define your metadata" 
+         name="Submit" id="frm3_submit" />
+</form>
+
+
 <!-- this with the press of the button links to another htlm page of the clickform.html-->
 <form action="clickform" method="get">
-    <input type="submit" value="open the click form" 
-         name="Submit" id="clickform1" />
+    <input type="submit" value="Go to click form"
+         name="Submit drop down menu" id="clickform1" />
 </form>
 
 
@@ -390,23 +478,20 @@ function validate() {
 <!-- this form works to echo the message to the browser. I want to capture the entries to the form to be writing to the server-->
 
 
-	
-
-
-<!-- this fails to invoke the writeToFile-->
-<form action="writeToFile1" method="get">
+<!-- this works to invoke the writeToFile and writes Hey there in the test file-->
+<form action="writeToFile" method="get">
     <textarea name="text">testing_writing_to_a_file</textarea>
     <input type="submit" value="testing_writing" 
          name="Submit" />
 
 </form>
 
-
+<!--
 <FORM NAME="myform" ACTION="" METHOD="POST">
 Enter something in the box: <BR>
 <INPUT TYPE="text" NAME="inputbox" VALUE=""><P>
 <INPUT TYPE="button" NAME="button" Value="Click" onClick="testResults(this.form)">
-</FORM>
+</FORM>-->
 
 <!-- <form action="writeToFile1 " method="post">
 <textarea name="text">testing</textarea>

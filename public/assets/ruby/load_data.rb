@@ -1,4 +1,5 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env bash
+# needs access to the credentials
 
 
 
