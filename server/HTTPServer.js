@@ -74,7 +74,7 @@ var request = require ('reqwest');            // simplified HTTP request client
     });
   });
 */
-
+/*
   connection.query('SELECT column1 FROM test_table', function(err, rows) {
     console.log(err);
     if (!err)
@@ -87,7 +87,7 @@ var request = require ('reqwest');            // simplified HTTP request client
     };
     //console.log('The gene name is: ', rows); 
   });
-
+*/
   connection.end();
 
 
