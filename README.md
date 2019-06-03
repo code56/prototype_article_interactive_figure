@@ -1,5 +1,7 @@
 # node_web_server
-Node web server to serve as to allow the end user to upload data to a local database
+Node web server to host mock article with interactive figure - using the bio-vis-expression-bar of expVIP project
+
+Node web server to serve as to allow the end user to upload data to a local database. 
 
 To install run: 'npm install'
 
